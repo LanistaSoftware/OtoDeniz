@@ -4,6 +4,7 @@ export default {
   /*
   ** Headers of the page
   */
+ components:true,
   head: {
     title: process.env.npm_package_name || '',
     meta: [
@@ -32,13 +33,15 @@ export default {
   /*
   ** Nuxt.js dev-modules
   */
-  buildModules: [
-  ],
   /*
   ** Nuxt.js modules
   */
   modules: [
+    '@nuxtjs/style-resources',
   ],
+  styleResources: {
+    less: ['./assets/variables.less']
+  },
   /*
   ** Build configuration
   */

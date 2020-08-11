@@ -9,19 +9,31 @@
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
+    "storybook": "nuxt-storybook",
     "test": "ava",
     "test:unit": "cross-env TEST=unit ava ./test/specs/**/*",
     "test:e2e": "cross-env TEST=e2e ava ./test/e2e/**/*"
   },
   "dependencies": {
-    "nuxt": "^2.0.0"
+    "@nuxtjs/style-resources": "^1.0.0",
+    "@storybook/addon-actions": "^5.3.18",
+    "@storybook/addon-backgrounds": "^5.3.18",
+    "@storybook/addon-knobs": "^5.3.18",
+    "@storybook/addon-viewport": "^5.3.18",
+    "core-js": "^3.6.5",
+    "nuxt": "^2.14.0"
   },
   "devDependencies": {
+    "@ava/babel": "^1.0.0",
+    "@nuxtjs/storybook": "^1.2.0",
+    "@storybook/addon-actions": "^5.3.18",
+    "@storybook/addon-links": "^5.3.18",
+    "@storybook/addons": "^5.3.18",
     "@vue/test-utils": "^1.0.0-beta.27",
     "ava": "^3.0.0",
-    "@ava/babel": "^1.0.0",
-    "babel-plugin-module-resolver": "^3.2.0",
+    "babel-loader": "^8.1.0",
     "browser-env": "^3.2.5",
+    "less-loader": "^6.2.0",
     "require-extension-hooks": "^0.3.3",
     "require-extension-hooks-babel": "^1.0.0",
     "require-extension-hooks-vue": "^2.0.0"
