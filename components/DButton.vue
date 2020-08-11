@@ -17,11 +17,12 @@ export default {
 </script>
 <style lang="less">
 .d-button {
+  font-family: @f;
   width: 100%;
   cursor: pointer;
-  padding: 14px;
+  padding: 14px 0;
   outline: none;
-  border-radius: .5em;
+  border-radius: .3em;
   font-size: 1rem;
   border: none;
   transition: 0.2s;

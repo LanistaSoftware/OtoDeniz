@@ -23,7 +23,7 @@
         >
           GitHub
         </a>
-        <d-button bgVariant="bg-yellow" textVariant="text-dark">Hemen Arayın</d-button>
+        <d-button bgVariant="bg-yellow" textVariant="text-dark"><p>Hemen Arayın</p></d-button>
       </div>
     </div>
   </div>
