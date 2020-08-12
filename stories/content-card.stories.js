@@ -1,4 +1,4 @@
-import { withKnobs, text, number } from '@storybook/addon-knobs'
+import { withKnobs, text } from '@storybook/addon-knobs'
 
 export default {
   title: 'ContentCard',
@@ -10,12 +10,18 @@ export const Content_Card = () => ({
   components: {
   },
   props: {
-    textVariant: {
-      default: text('Text Variant', 'text-dark')
+    buttontext: {
+      default: text('buttontext', 'Hemen arayın')
     },
-    bgVariant: {
-      default: text('Background Variant', 'bg-yellow')
+    img: {
+      default: text('img', '1.png')
+    },
+    img: {
+      default: text('img', '1.png')
+    },
+    title: {
+      default: text('title', 'Bölgedeki en iyi yedek parçaları keşfedin')
     }
   },
-  template: '<content-card/>'
+  template: '<content-card :title="title" :buttontext="buttontext" :img="img">Aradığınız bütün orijinal yedek parçaları en uygun fiyatlarla bölgenin en iyi yedek parça marketi Deniz Oto ve Yedek Parça da haftanın her günü bulabilirsiniz.</content-card>'
 })

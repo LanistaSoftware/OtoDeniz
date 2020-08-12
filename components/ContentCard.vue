@@ -2,23 +2,41 @@
   <div class="content-card">
     <div class="content-container">
       <div class="card-title">
-        <h1 class="f_bold">Bölgedeki en iyi yedek parçaları keşfedin</h1>
+        <h1 class="f_bold">{{ title }}</h1>
       </div>
       <div class="card-content">
         <p class="f_regular">
-          Aradığınız bütün orijinal yedek parçaları en uygun fiyatlarla bölgenin
-          en iyi yedek parça marketi Deniz Oto ve Yedek Parça'da haftanın her
-          günü bulabilirsiniz.
+         <slot />
         </p>
       </div>
       <div class="card-button">
-        <d-button class="button" bgVariant="bg-yellow" textVariant="text-dark">Hemen Arayın</d-button>
+        <d-button class="button" bgVariant="bg-yellow" textVariant="text-dark"
+          >{{buttontext}}</d-button
+        >
       </div>
     </div>
-    <div class="image-container"><img src="/1.png" alt="card_img" /></div>
+    <div class="image-container"><img :src="img" alt="card_img" /></div>
   </div>
 </template>
-<style lang="less">
+<script>
+export default {
+  props: {
+    title: {
+      type: String,
+      default: null
+    },
+    img: {
+      type: String,
+      default: null
+    },
+    buttontext: {
+      type: String,
+      default: null
+    }
+  }
+};
+</script>
+<style lang="less" scoped>
 .content-card {
   width: 100%;
   display: grid;
@@ -35,10 +53,9 @@
   display: grid;
   grid-template-rows: 1fr 1fr 0.5fr;
   grid-template-areas:
-  "card-title"
-  "card-content"
-  "card-button"
-  ;
+    "card-title"
+    "card-content"
+    "card-button";
 }
 
 .card-title {
@@ -47,14 +64,14 @@
   width: 100%;
   justify-content: start;
   align-content: center;
-  h1{
+  h1 {
     width: 80%;
   }
 }
 
 .card-content {
   grid-area: card-content;
-  color:@drop;
+  color: @drop;
   display: grid;
   width: 100%;
   justify-content: center;
@@ -63,7 +80,7 @@
 
 .card-button {
   grid-area: card-button;
-  display:grid;
+  display: grid;
   width: 100%;
   align-content: flex-end;
   button {
@@ -85,81 +102,83 @@
 }
 @media @sm {
   .content-card {
-  grid-template-columns:1fr;
-  grid-template-areas: "image-container" "content-container ";
-}
+    grid-template-columns: 1fr;
+    grid-template-areas: "image-container" "content-container ";
+  }
 
-.content-container {
-  text-align: center;
-}
-.card-title {
-  display: flex;
-  justify-content: center;
-  align-items: center;  h2{
-    width: 100%;
+  .content-container {
+    text-align: center;
   }
-}
-.card-button {
-  grid-area: card-button;
-  display:grid;
-  width: 100%;
-  align-content: flex-end;
-  button {
-    width: 100%;
+  .card-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    h2 {
+      width: 100%;
+    }
   }
-}
+  .card-button {
+    grid-area: card-button;
+    display: grid;
+    width: 100%;
+    align-content: flex-end;
+    button {
+      width: 100%;
+    }
+  }
 }
 @media @xs {
   .content-card {
-  grid-template-columns:1fr;
-  grid-template-areas: "image-container" "content-container ";
-}
+    grid-template-columns: 1fr;
+    grid-template-areas: "image-container" "content-container ";
+  }
 
-.content-container {
-  text-align: center;
-}
-.card-title {
-  display: flex;
-  justify-content: center;
-  align-items: center;  h2{
-    width: 100%;
+  .content-container {
+    text-align: center;
   }
-}
-.card-button {
-  grid-area: card-button;
-  display:grid;
-  width: 100%;
-  align-content: flex-end;
-  button {
-    width: 100%;
+  .card-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    h2 {
+      width: 100%;
+    }
   }
-}
+  .card-button {
+    grid-area: card-button;
+    display: grid;
+    width: 100%;
+    align-content: flex-end;
+    button {
+      width: 100%;
+    }
+  }
 }
 @media @md {
   .content-card {
-  grid-template-columns:1fr;
-  grid-template-areas: "image-container" "content-container ";
-}
+    grid-template-columns: 1fr;
+    grid-template-areas: "image-container" "content-container ";
+  }
 
-.content-container {
-  text-align: center;
-}
-.card-title {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  h1{
-    width: 100%;
+  .content-container {
+    text-align: center;
   }
-}
-.card-button {
-  grid-area: card-button;
-  display:grid;
-  width: 100%;
-  align-content: flex-end;
-  button {
-    width: 100%;
+  .card-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    h1 {
+      width: 100%;
+    }
   }
-}
+  .card-button {
+    grid-area: card-button;
+    display: grid;
+    width: 100%;
+    align-content: flex-end;
+    button {
+      width: 100%;
+    }
+  }
 }
 </style>
