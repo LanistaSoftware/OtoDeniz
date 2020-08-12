@@ -25,13 +25,13 @@
 }
 .center-card-content {
   grid-template-rows: 1fr 1fr;
+  display: grid;
   grid-template-areas: "content-header" "content-text";
   grid-area: content;
 }
 .center-card-image {
   grid-area: card-image;
   display: grid;
-
   justify-content: center;
   align-content: center;
   img {
@@ -41,8 +41,8 @@
 }
 .content-header {
   grid-area: content-header;
-  display: flex;
-  justify-content: center;
+  display: grid;
+  justify-items: center;
   h2 {
     width: 20%;
   }
@@ -51,8 +51,8 @@
   grid-area: content-text;
   text-align: center;
   color: @drop;
-  display: flex;
-  justify-content: center;
+  display: grid;
+  justify-items: center;
   p {
     width: 30%;
   }
@@ -65,8 +65,8 @@
     grid-area: content-text;
     text-align: center;
     color: @drop;
-    display: flex;
-    justify-content: center;
+    display: grid;
+    justify-items: center;
     p {
       width: 70%;
     }
@@ -80,8 +80,8 @@
     grid-area: content-text;
     text-align: center;
     color: @drop;
-    display: flex;
-    justify-content: center;
+    display: grid;
+    justify-items: center;
     p {
       width: 70%;
     }
