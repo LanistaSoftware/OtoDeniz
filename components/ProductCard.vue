@@ -1,7 +1,7 @@
 <template>
   <div class="product-card d_shaodw">
     <div class="product-card-image">
-      <img src="2.png" alt="" srcset="" />
+      <!-- <img src="2.png" alt="" srcset="" /> -->
     </div>
     <div class="product-card-body">
       <div class="body-title">
@@ -25,15 +25,31 @@
 <style lang="less" scoped>
 .product-card {
   display: grid;
-  grid-template-rows: 0.5fr 0.8fr;
+  grid-template-rows: 0.7fr 0.8fr;
   grid-template-areas: "product-card-image" "product-card-body";
-  width: 100%;
+  width: 270px;
+  height: 270px;
   background-color: @white;
+  position: relative;
   border-radius: 2em;
   cursor: pointer;
+  &:hover {
+      grid-template-areas: "product-card-image""product-card-image";
+    .product-card-image{
+      transition: 1s;
+      background-position: center;
+      height: 100%;
+    }
+    .product-card-body{
+      display: none;
+    }
+  }
 }
 .product-card-image {
   grid-area: product-card-image;
+  background-image: url("../static/2.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
   overflow: hidden;
   border-top-left-radius: 2em;
   border-top-right-radius: 2em;
@@ -41,7 +57,6 @@
   width: 100%;
   img {
     width: 100%;
-    height: auto;
   }
 }
 .product-card-body {
