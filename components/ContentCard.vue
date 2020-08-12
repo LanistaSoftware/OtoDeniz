@@ -2,7 +2,7 @@
   <div class="content-card">
     <div class="content-container">
       <div class="card-title">
-        <h3 class="f_bold">Bölgedeki en iyi yedek parçaları keşfedin</h3>
+        <h1 class="f_bold">Bölgedeki en iyi yedek parçaları keşfedin</h1>
       </div>
       <div class="card-content">
         <p class="f_regular">
@@ -30,7 +30,7 @@
 
 .content-container {
   grid-area: content-container;
-  padding: 34px 0;
+  padding: 1rem 0;
   width: 100%;
   display: grid;
   grid-template-rows: 1fr 1fr 0.5fr;
@@ -47,7 +47,7 @@
   width: 100%;
   justify-content: start;
   align-content: center;
-  h3{
+  h1{
     width: 80%;
   }
 }
@@ -83,55 +83,83 @@
     height: auto;
   }
 }
+@media @sm {
+  .content-card {
+  grid-template-columns:1fr;
+  grid-template-areas: "image-container" "content-container ";
+}
 
-  // .content-card {
-  //   display: grid;
-  //   padding: 1rem;
-  //   grid-template-columns: 1fr 1fr;
-  //   grid-template-areas: "content-container img-container";
-  // }
+.content-container {
+  text-align: center;
+}
+.card-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;  h2{
+    width: 100%;
+  }
+}
+.card-button {
+  grid-area: card-button;
+  display:grid;
+  width: 100%;
+  align-content: flex-end;
+  button {
+    width: 100%;
+  }
+}
+}
+@media @xs {
+  .content-card {
+  grid-template-columns:1fr;
+  grid-template-areas: "image-container" "content-container ";
+}
 
-  // .content-container {
-  //   display: grid;
-  //   grid-template-rows: 1fr 1fr 0.5fr;
-  //   grid-template-areas: "title""card-content""card-button";
-  //   grid-area: left-container;
-  // }
-  // .card-button {
-  //   display: grid;
-  //   grid-area: card-button;
-  // }
-  // .button {
-  //   width: 50%;
-  //   margin-top: 0.5rem;
-  // }
+.content-container {
+  text-align: center;
+}
+.card-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;  h2{
+    width: 100%;
+  }
+}
+.card-button {
+  grid-area: card-button;
+  display:grid;
+  width: 100%;
+  align-content: flex-end;
+  button {
+    width: 100%;
+  }
+}
+}
+@media @md {
+  .content-card {
+  grid-template-columns:1fr;
+  grid-template-areas: "image-container" "content-container ";
+}
 
-  // .title {
-  //   grid-area: title;
-  //   word-spacing: 2px;
-  //   text-align: left;
-  //   padding: 0.5rem;
-  //   width: 100%;
-  //   line-break: strict;
-
-  // }
-
-  // .card-content {
-  //   grid-area: card-content;
-  //   text-align: left;
-  //   word-spacing: 2px;
-  //   padding: 0.5rem;
-  //   font-weight: lighter;
-
-  // }
-
-  // .img-container {
-  //   grid-area: img-container;
-
-  //   img {
-  //     width: 80%;
-  //     height: auto;
-  //   }
-  // }
-
+.content-container {
+  text-align: center;
+}
+.card-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  h1{
+    width: 100%;
+  }
+}
+.card-button {
+  grid-area: card-button;
+  display:grid;
+  width: 100%;
+  align-content: flex-end;
+  button {
+    width: 100%;
+  }
+}
+}
 </style>
