@@ -16,7 +16,6 @@
   },
   "dependencies": {
     "@nuxtjs/style-resources": "^1.0.0",
-    "@storybook/addon-backgrounds": "^5.3.18",
     "@storybook/addon-knobs": "^5.3.18",
     "@storybook/addon-viewport": "^5.3.18",
     "core-js": "^3.6.5",
@@ -26,6 +25,7 @@
     "@ava/babel": "^1.0.0",
     "@nuxtjs/storybook": "^1.2.0",
     "@storybook/addon-actions": "^5.3.19",
+    "@storybook/addon-backgrounds": "^5.3.19",
     "@storybook/addon-links": "^5.3.18",
     "@storybook/addons": "^5.3.18",
     "@vue/test-utils": "^1.0.0-beta.27",

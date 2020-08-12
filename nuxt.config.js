@@ -24,8 +24,8 @@ export default {
   ** Global CSS
   */
   css: [
-    "@/assets/responsive.less"
-  ],
+    "@/assets/style.less"
+    ],
   /*
   ** Plugins to load before mounting the App
   */

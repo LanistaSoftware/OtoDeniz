@@ -57,9 +57,6 @@ export default {
   grid-area: content-header;
   display: grid;
   justify-items: center;
-  h2 {
-    width: 20%;
-  }
 }
 .content-text {
   grid-area: content-text;
