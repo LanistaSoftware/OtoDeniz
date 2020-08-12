@@ -1,20 +1,34 @@
 <template>
   <div class="center-card">
     <div class="center-card-image">
-      <img src="1.svg" alt="card_img" />
+      <img :src="img" alt="card_img" />
     </div>
     <div class="center-card-content">
       <div class="content-header">
-        <h2 class="f_light">Bölgenin en geniş yedek parça ağı</h2>
+        <h2 class="f_light">{{title}}</h2>
       </div>
       <div class="content-text">
         <p class="f_regular">
-          Van ve çevre iller bazında mevcut en geniş yedek parça ağı
+        <slot /> 
         </p>
       </div>
     </div>
   </div>
 </template>
+<script>
+export default {
+ props: {
+    title: {
+      type: String,
+      default: null
+    },
+    img: {
+      type: String,
+      default: null
+    }
+  }
+}
+</script>
 <style lang="less" scoped>
 .center-card {
   display: grid;

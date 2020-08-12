@@ -7,12 +7,12 @@ export default {
 
 export const centercard = () => ({
   props: {
-    textVariant: {
-      default: text('Text Variant', 'text-dark')
+    title: {
+      default: text('title', 'Bölgenin en geniş yedek parça ağı')
     },
-    bgVariant: {
-      default: text('Background Variant', 'bg-yellow')
+    img: {
+      default: text('img', '1.svg')
     }
   },
-  template: '<center-card></center-card>'
+  template: '<center-card :title="title" :img="img"> Van ve çevre iller bazında mevcut en geniş yedek parça ağı</center-card>'
 })
