@@ -5,11 +5,11 @@
     </div>
     <div class="center-card-content">
       <div class="content-header">
-        <h2 class="f_light">{{title}}</h2>
+        <h2 class="f_light">{{ title }}</h2>
       </div>
       <div class="content-text">
         <p class="f_regular">
-        <slot /> 
+          <slot />
         </p>
       </div>
     </div>
@@ -17,7 +17,7 @@
 </template>
 <script>
 export default {
- props: {
+  props: {
     title: {
       type: String,
       default: null
@@ -27,7 +27,7 @@ export default {
       default: null
     }
   }
-}
+};
 </script>
 <style lang="less" scoped>
 .center-card {
@@ -72,6 +72,10 @@ export default {
   }
 }
 @media @xs {
+  .center-card-content {
+    grid-template-rows: 1fr;
+    grid-template-areas: "content-text";
+  }
   .content-header {
     display: none;
   }
@@ -87,6 +91,11 @@ export default {
   }
 }
 @media @sm {
+  .center-card-content {
+    grid-template-rows: 1fr;
+    grid-template-areas: "content-text";
+  }
+
   .content-header {
     display: none;
   }
