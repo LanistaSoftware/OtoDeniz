@@ -20,7 +20,7 @@ export default {
   font-family: @f;
   width: 100%;
   cursor: pointer;
-  padding: 14px 0;
+  padding: 0.8rem 0;
   outline: none;
   border-radius: .3em;
   font-size: 1rem;
