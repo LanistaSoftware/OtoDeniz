@@ -1,5 +1,5 @@
 <template>
-  <button class="d-button" :class="[bgVariant, textVariant,{ 'd-button': !sm, 'd-sm-button': sm }]" v-on="$listeners">
+  <button :class="[bgVariant, textVariant,{ 'd-button': !sm, 'd-sm-button': sm }]" v-on="$listeners">
     <slot />
   </button>
 </template>
@@ -43,7 +43,6 @@ export default {
   cursor: pointer;
   padding: 0.2rem 0;
   outline: none;
-  border-radius: 0.3em;
   font-size: 1rem;
   border: none;
   transition: 0.2s;

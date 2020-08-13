@@ -18,6 +18,9 @@ img {
 }
 .d-search-button {
     width: 20%;
+    border-bottom-right-radius: 0.3em;
+    border-top-right-radius: 0.3em;
+    margin-left: -8px;
 }
 .d-search-input {
   width: 100%;
