@@ -1,4 +1,4 @@
-import { withKnobs, text } from '@storybook/addon-knobs'
+import { withKnobs, text,boolean } from '@storybook/addon-knobs'
 
 export default {
   title: 'ContentCard',
@@ -21,7 +21,10 @@ export const Content_Card = () => ({
     },
     title: {
       default: text('title', 'Bölgedeki en iyi yedek parçaları keşfedin')
-    }
+    },
+    reverse: {
+      default: boolean('reverse', false),
+    },
   },
-  template: '<content-card :title="title" :buttontext="buttontext" :img="img">Aradığınız bütün orijinal yedek parçaları en uygun fiyatlarla bölgenin en iyi yedek parça marketi Deniz Oto ve Yedek Parça da haftanın her günü bulabilirsiniz.</content-card>'
+  template: '<content-card :reverse="reverse" :title="title" :buttontext="buttontext" :img="img">Aradığınız bütün orijinal yedek parçaları en uygun fiyatlarla bölgenin en iyi yedek parça marketi Deniz Oto ve Yedek Parça da haftanın her günü bulabilirsiniz.</content-card>'
 })

@@ -1,5 +1,5 @@
 <template>
-  <div class="content-card">
+  <div class="content-card" :class="{ 'reverse-right': !reverse, 'reverse-left': reverse }">
     <div class="content-container">
       <div class="card-title">
         <h1 class="f_bold">{{ title }}</h1>
@@ -32,6 +32,10 @@ export default {
     buttontext: {
       type: String,
       default: null
+    },
+    reverse: {
+      type: Boolean,
+      default: false
     }
   }
 };
@@ -41,11 +45,15 @@ export default {
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-areas: "content-container image-container";
   justify-content: center;
   align-content: center;
 }
-
+.reverse-left {
+   grid-template-areas: "content-container image-container";
+}
+.reverse-right {
+   grid-template-areas: "image-container content-container";
+}
 .content-container {
   grid-area: content-container;
   padding: 1rem 0;
@@ -82,7 +90,7 @@ export default {
   grid-area: card-button;
   display: grid;
   width: 100%;
-  align-content: flex-end;
+  align-content: flex-start;
   button {
     width: 50%;
   }
