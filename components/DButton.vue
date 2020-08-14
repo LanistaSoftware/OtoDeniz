@@ -41,7 +41,7 @@ export default {
   font-family: @f;
   width: 100%;
   cursor: pointer;
-  padding: 0.2rem 0;
+  padding: 0.21rem 0;
   outline: none;
   font-size: 1rem;
   border: none;
