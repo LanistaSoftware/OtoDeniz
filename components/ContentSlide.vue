@@ -1,19 +1,46 @@
 <template>
   <carousel class="d-carousel" :perPage="1">
-    <slide v-for="item in 3" :key="item">
+    <slide v-for="item in cards" :key="item">
       <content-card
-        title="Bölgedeki en iyi yedek parçaları keşfedin"
-        buttontext="Hemen arayın"
-        img="1.png"
-        >Aradığınız bütün orijinal yedek parçaları en uygun fiyatlarla bölgenin
-        en iyi yedek parça marketi Deniz Oto ve Yedek Parça da haftanın her günü
-        bulabilirsiniz.</content-card
+        :title="item.title"
+        :buttontext="item.buttontext"
+        :img="item.img"
+        >{{item.content}}</content-card
       >
     </slide>
   </carousel>
 </template>
+<script>
+export default {
+  props:{
+    cards: {
+      type:Array,
+      default: [
+        {
+          title: 'Bölgedeki en iyi yedek parçaları keşfedin',
+          buttontext: "Hemen arayın",
+          img: '1.png',
+          content :'Aradığınız bütün orijinal yedek parçaları en uygun fiyatlarla bölgenin en iyi yedek parça marketi Deniz Oto ve Yedek Parça da haftanın her günü bulabilirsiniz.'
+        },
+        {
+          title: 'Bölgedeki en iyi yedek parçaları keşfedin',
+          buttontext: "Hemen arayın",
+          img: '1.png',
+          content :'Aradığınız bütün orijinal yedek parçaları en uygun fiyatlarla bölgenin en iyi yedek parça marketi Deniz Oto ve Yedek Parça da haftanın her günü bulabilirsiniz.'
+        },
+        {
+          title: 'Bölgedeki en iyi yedek parçaları keşfedin',
+          buttontext: "Hemen arayın",
+          img: '1.png',
+          content :'Aradığınız bütün orijinal yedek parçaları en uygun fiyatlarla bölgenin en iyi yedek parça marketi Deniz Oto ve Yedek Parça da haftanın her günü bulabilirsiniz.'
+        }
+      ]
+    }
+  }
+}
+</script>
 <style lang="less">
-.d-carousel{
+.d-carousel {
   padding: 1rem;
 }
 .VueCarousel-dot {
