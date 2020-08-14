@@ -123,6 +123,20 @@ h6 {
 -moz-box-shadow: 2px 3px 4px 0px rgba(0,0,0,0.3);
 box-shadow: 2px 3px 4px 0px rgba(0,0,0,0.3);
 }
-
+ul{
+  list-style: none;
+}
+a{
+  text-decoration: none;
+  color: @htext;
+}
+.nuxt-link-active {
+  span {
+    display: block;
+    height: 2px;
+    width: 1px;
+    color: @dark;
+  }
+}
 @import "./responsive.less";
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');

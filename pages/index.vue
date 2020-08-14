@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <header-menu />
     <div>
       <logo />
       <h1 class="title">
