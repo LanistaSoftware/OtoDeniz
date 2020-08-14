@@ -1,6 +1,6 @@
 <template>
-  <carousel :perPage="1">
-    <slide v-for="item in 10" :key="item">
+  <carousel class="d-carousel" :perPage="1">
+    <slide v-for="item in 3" :key="item">
       <content-card
         title="Bölgedeki en iyi yedek parçaları keşfedin"
         buttontext="Hemen arayın"
@@ -13,6 +13,9 @@
   </carousel>
 </template>
 <style lang="less">
+.d-carousel{
+  padding: 1rem;
+}
 .VueCarousel-dot {
   width: 20px !important;
   height: 8px !important;
