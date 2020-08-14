@@ -20,7 +20,8 @@
     "@storybook/addon-viewport": "^5.3.18",
     "core-js": "^3.6.5",
     "nuxt": "^2.14.0",
-    "vue-carousel": "^0.18.0"
+    "vue-carousel": "^0.18.0",
+    "vue-carousel-3d": "^0.2.0"
   },
   "devDependencies": {
     "@ava/babel": "^1.0.0",

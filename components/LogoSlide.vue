@@ -1,4 +1,5 @@
 <template>
+<no-ssr>
   <carousel
     class="d-logo-carousel"
     :perPageCustom="[
@@ -13,9 +14,16 @@
       <h6 class="f_semibold">{{item.marka}}</h6>
     </slide>
   </carousel>
+  </no-ssr>
+
 </template>
 <script>
+import { Carousel, Slide } from 'vue-carousel';
 export default {
+   components: {
+    Carousel,
+    Slide
+  },
   data() {
     return {
       logos: [
