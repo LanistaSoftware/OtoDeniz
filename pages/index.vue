@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <header-menu />
     <div>
       <logo />
       <h1 class="title">
@@ -23,21 +24,12 @@
         >
           GitHub
         </a>
+        <d-button bgVariant="bg-yellow" textVariant="text-dark"><p>Hemen Arayın</p></d-button>
+        <product-card/>
       </div>
     </div>
   </div>
 </template>
-
-<script>
-import Logo from '~/components/Logo.vue'
-
-export default {
-  components: {
-    Logo
-  }
-}
-</script>
-
 <style>
 .container {
   margin: 0 auto;

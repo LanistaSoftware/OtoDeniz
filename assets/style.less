@@ -1,0 +1,142 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+html {
+    font-size: 14px;
+    color: @dark;
+}
+body {
+    font-family: @f;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: @f;
+  font-weight: 600;
+  color: @dark;
+}
+
+h1 {
+  font-size: 3.05rem;
+}
+
+h2 {
+  font-size: 2.441rem;
+}
+
+h3 {
+  font-size: 1.953rem;
+}
+
+h4 {
+  font-size: 1.562rem;
+}
+
+h5 {
+  font-size: 1rem;
+}
+
+h6 {
+  font-size: 0.8rem;
+}
+
+/**** Font Class***/
+.f_bold {
+  font-family: @f;
+  font-weight: 700;
+}
+.f_semi_bold {
+  font-family: @f;
+  font-weight: 300;
+}
+
+.f_bold_italic {
+  font-family: @f;
+  font-weight: 700;
+  font-style: italic;
+}
+
+
+.f_x_bold {
+  font-family: @f;
+  font-weight: 800;
+
+}
+
+.f_x_bold_italic {
+  font-family: @f;
+  font-weight: 800;
+  font-style: italic;
+
+}
+
+.f_italic {
+  font-family: @f;
+  font-style: italic;
+}
+
+.f_light {
+  font-family: @f;
+  font-weight: 300;
+}
+
+.f_light_italic {
+  font-family: @f;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.f_regular {
+  font-family: @f;
+  font-weight: 400;
+}
+
+.f_regular_italic {
+  font-family: @f;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.f_semibold {
+  font-family: @f;
+  font-weight: 600;
+}
+
+.f_semibold_italic {
+  font-family: @f;
+  font-weight: 600;
+  font-style: italic;
+}
+.d_shaodw {
+-webkit-box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.3);
+-moz-box-shadow: 2px 3px 4px 0px rgba(0,0,0,0.3);
+box-shadow: 2px 3px 4px 0px rgba(0,0,0,0.3);
+}
+ul{
+  list-style: none;
+}
+a{
+  text-decoration: none;
+  color: @htext;
+}
+.nuxt-link-active {
+  span {
+    display: block;
+    height: 2px;
+    width: 1px;
+    color: @dark;
+  }
+}
+@import "./responsive.less";
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');

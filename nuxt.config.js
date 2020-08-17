@@ -4,6 +4,7 @@ export default {
   /*
   ** Headers of the page
   */
+ components:true,
   head: {
     title: process.env.npm_package_name || '',
     meta: [
@@ -23,22 +24,27 @@ export default {
   ** Global CSS
   */
   css: [
-  ],
+    "@/assets/style.less"
+    ],
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
+    {src:'@/plugins/carousel.js',ssr:false},
+    {src:'@/plugins/carousel3d.js',ssr:false}
   ],
   /*
   ** Nuxt.js dev-modules
   */
-  buildModules: [
-  ],
   /*
   ** Nuxt.js modules
   */
   modules: [
+    '@nuxtjs/style-resources',
   ],
+  styleResources: {
+    less: ['./assets/variables.less']
+  },
   /*
   ** Build configuration
   */
