@@ -40,8 +40,7 @@
   padding: 1rem;
 }
 .right-container {
-    width: 20%;
-    display: inline-block;
+    width: 30%;
     margin-right: -8px;
 }
 .user-button {
@@ -52,6 +51,5 @@
   border-bottom-left-radius: 0em;
   border-top-right-radius: 0.5em;
   border-bottom-right-radius: 0.5em;
-  width: 80%;
 }
 </style>

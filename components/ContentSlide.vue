@@ -1,25 +1,21 @@
 <template>
-<no-ssr>
-  <carousel class="d-carousel" :perPage="1">
-    <slide v-for="item in cards" :key="item">
+<client-only>
+  <carousel-1d class="d-carousel" :perPage="1">
+    <slide-1d v-for="item in cards" :key="item">
       <content-card
         :title="item.title"
         :buttontext="item.buttontext"
         :img="item.img"
         >{{item.content}}</content-card
       >
-    </slide>
-  </carousel>
-  </no-ssr>
+    </slide-1d>
+  </carousel-1d>
+  </client-only>
 
 </template>
 <script>
-import { Carousel, Slide } from 'vue-carousel';
 export default {
-  components: {
-    Carousel,
-    Slide
-  },
+
   props:{
     cards: {
       type:Array,

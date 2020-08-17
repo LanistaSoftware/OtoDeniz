@@ -1,6 +1,5 @@
 <template>
-<no-ssr>
-  <carousel
+  <carousel-1d
     class="d-logo-carousel"
     :perPageCustom="[
       [768, 9],
@@ -9,21 +8,15 @@
     ]"
     :paginationEnabled="false"
   >
-    <slide class="d-logo-slide" v-for="(item,index) in logos" :key="index">
+    <slide-1d class="d-logo-slide" v-for="(item,index) in logos" :key="index">
       <d-logo :img="item.img" />
       <h6 class="f_semibold">{{item.marka}}</h6>
-    </slide>
-  </carousel>
-  </no-ssr>
+    </slide-1d>
+  </carousel-1d>
 
 </template>
 <script>
-import { Carousel, Slide } from 'vue-carousel';
 export default {
-   components: {
-    Carousel,
-    Slide
-  },
   data() {
     return {
       logos: [

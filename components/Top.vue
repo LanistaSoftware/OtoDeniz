@@ -4,9 +4,9 @@
           <slot name="image"></slot>
     </div>
     <div class="top-text">
-      <p class="f_regular text-xdark">
+      <span class="f_regular text-xdark">
        <slot name="text"></slot>
-      </p>
+      </span>
     </div>
   </div>
 </template>
@@ -14,9 +14,11 @@
 .top-container {
   display: flex;
   align-items: center;
+  width: 100%;
 }
 .top-text{
     display: flex;
+    font-size: 1rem;
     align-items: flex-end;
 }
 .top-icon {

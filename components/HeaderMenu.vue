@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="d-header-menu">
     <ul>
       <li class="f_normal_bold" v-for="(item, i) in menu" :key="i">
         <nuxt-link :to="'#' + item.link" tag="a" exact
@@ -40,6 +40,9 @@ export default {
 };
 </script>
 <style lang="less" scoped>
+.d-header-menu {
+  width: 100%;
+}
 li {
   color: @htext;
   float: right;
@@ -51,6 +54,7 @@ li {
 }
 ul {
   display: flex;
+  padding: 0;
   align-items: center;
 }
 </style>
