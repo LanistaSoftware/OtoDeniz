@@ -1,6 +1,10 @@
 <template>
   <carousel-1d
     class="d-logo-carousel"
+    :autoplay="true"
+    :autoplayTimeout="1000"
+    :autoplayDirection="back"
+    :loop="false"
     :perPageCustom="[
       [768, 9],
       [1024, 11],
@@ -8,12 +12,13 @@
     ]"
     :paginationEnabled="false"
   >
-    <slide-1d class="d-logo-slide" v-for="(item,index) in logos" :key="index">
-      <d-logo :img="item.img" />
-      <h6 class="f_semibold">{{item.marka}}</h6>
+    <slide-1d class="d-logo-slide" v-for="(item, index) in logos" :key="index">
+      <div class="slide-logo">
+        <d-logo :img="item.img" />
+      </div>
+      <h6 class="f_semibold">{{ item.marka }}</h6>
     </slide-1d>
   </carousel-1d>
-
 </template>
 <script>
 export default {
@@ -77,13 +82,15 @@ export default {
 };
 </script>
 <style lang="less" scoped>
-.d-logo-carousel {
-  padding: 1rem;
-}
 .d-logo-slide {
   text-align: center;
   h6 {
-      color: @htext;
+    color: @htext;
   }
+}
+.slide-logo {
+  width: auto;
+  height: 3rem;
+  padding: 5px;
 }
 </style>

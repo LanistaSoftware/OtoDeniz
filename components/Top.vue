@@ -1,11 +1,11 @@
 <template>
   <div class="top-container">
     <div class="top-icon text-xdark">
-          <slot name="image"></slot>
+      <slot name="image"></slot>
     </div>
     <div class="top-text">
       <span class="f_regular text-xdark">
-       <slot name="text"></slot>
+        <slot name="text"></slot>
       </span>
     </div>
   </div>
@@ -16,10 +16,10 @@
   align-items: center;
   width: 100%;
 }
-.top-text{
-    display: flex;
-    font-size: 1rem;
-    align-items: flex-end;
+.top-text {
+  display: flex;
+  font-size: 0.8rem;
+  align-items: flex-end;
 }
 .top-icon {
   margin-right: 3px;

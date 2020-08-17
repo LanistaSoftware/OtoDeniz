@@ -1,5 +1,5 @@
 <template>
-  <div class="d-search">
+  <div class="d-search ">
     <img src="search.png" />
     <d-input class="d-search-input" sm />
     <d-button class="d-search-button" textVariant="text-white" bgVariant="bg-green" sm>Ara</d-button>
@@ -14,7 +14,7 @@ img {
 .d-search {
   display: inline-flex;
   align-items: center;
-  width: 100%;
+  width: 80%;
 }
 .d-search-button {
     width: 20%;

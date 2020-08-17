@@ -1,5 +1,4 @@
 <template>
-<client-only>
   <carousel-1d class="d-carousel" :perPage="1">
     <slide-1d v-for="item in cards" :key="item">
       <content-card
@@ -10,8 +9,6 @@
       >
     </slide-1d>
   </carousel-1d>
-  </client-only>
-
 </template>
 <script>
 export default {

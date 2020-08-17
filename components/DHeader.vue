@@ -1,6 +1,6 @@
 <template>
   <div class="header-container bg-yellow">
-    <div class="header-top">
+    <div class="header-top container">
       <div>
         <top
           ><template v-slot:text>(0432) 223 05 79</template>
@@ -73,21 +73,21 @@
         ></top>
       </div>
     </div>
-    <div class="header-center">
-      <div class="center-logo">
-        <img src="/oto_deniz_logo.svg" alt="" />
-      </div>
-      <div class="center-menu">
-        <header-menu />
-      </div>
-      <div class="center-login">
-        <LoginButton />
+    <div class="header-center-container">
+      <div class="container header-center">
+        <div class="center-logo ">
+          <img src="/oto_deniz_logo.svg" alt="" />
+        </div>
+        <div class="center-menu">
+          <header-menu />
+        </div>
+        <div class="center-login">
+          <LoginButton />
+        </div>
       </div>
     </div>
-    <div class="header-bottom">
-      <client-only>
-        <logo-slide />
-      </client-only>
+    <div class="header-bottom container">
+      <logo-slide />
     </div>
   </div>
 </template>
@@ -96,48 +96,64 @@
   display: grid;
   width: 100%;
   height: 100%;
-  gap: 1rem;
+  gap: 10px;
   grid-template-rows: 0.3fr 1fr 1fr;
   grid-template-areas: "top" "center" "bottom";
 }
 .header-center {
   display: grid;
   grid-area: center;
-  grid-template-columns: 0.5fr 1fr 0.5fr;
-  justify-items: center;
+  grid-template-columns: 0.3fr 1fr 0.3fr;
   align-content: center;
   grid-template-areas: "logo menu login";
   img {
-    width: 100%;
+    max-width: 160px;
+    height: auto;
   }
+}
+.header-center-container {
+  border-top: 0.3px solid rgba(216, 178, 54, 0.4);
+  border-bottom: 0.3px solid rgba(216, 178, 54, 0.4);
+  display: flex;
+  align-items: center;
 }
 .center-menu {
   grid-area: menu;
   display: grid;
-  align-self: center;
+  justify-self: center;
+  align-content: center;
 }
 .center-logo {
   grid-area: logo;
   display: grid;
-  justify-items: center;
-  align-content: center;
   img {
-    width: 70%;
+    width: 100%;
   }
 }
 .center-login {
-  width: 80%;
   grid-area: login;
   display: grid;
+  justify-self: end;
   align-self: center;
 }
 .header-top {
   display: grid;
-  padding-top: 1rem;
-  width: 100%;
+  padding-top: 0.5rem;
   grid-area: top;
-  justify-items: center;
-  grid-template-columns: 0.5fr 1fr 0.5fr;
-  grid-template-areas: "a b c";
+  grid-template-columns: 0.3fr 1fr 0.3fr;
+  div:nth-child(3) {
+    justify-self: right;
+  }
+  div:nth-child(2) {
+    justify-self: center;
+  }
+  div:nth-child(1) {
+    justify-self: left;
+  }
+}
+.header-bottom {
+  display: grid;
+  padding: 10px 0px;
+  grid-template-columns: 1fr;
 }
 </style>

@@ -73,7 +73,7 @@ export default {
   justify-content: start;
   align-content: center;
   h1 {
-    width: 80%;
+    width: 90%;
   }
 }
 

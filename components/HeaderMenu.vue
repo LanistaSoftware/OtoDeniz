@@ -47,7 +47,7 @@ li {
   color: @htext;
   float: right;
   display: grid;
-  font-size: 1rem;
+  font-size: 0.8rem;
   align-items: center;
   justify-content: center;
   padding: 0.5rem;
