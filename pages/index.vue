@@ -109,6 +109,7 @@
         </content-card>
       </div>
     </section>
+    <d-footer />
   </div>
 </template>
 <script>
@@ -241,8 +242,12 @@ export default {
 }
 .service-section-product {
   display: grid;
-  padding: 5rem 0px;
+    padding: 5rem;
+
   grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.product-section {
+  padding: 5rem 0rem;
 }
 .product-search {
   display: flex;

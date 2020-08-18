@@ -4,13 +4,17 @@
     v-bind="$attrs"
     :value="value"
     @input="$emit('input', $event.target.value)"
-    :class="{ 'd-input': !sm, 'd-sm-input': sm }"
+    :class="{ 'd-input': !sm, 'd-sm-input': sm, 'd-ts':ts}"
   />
 </template>
 <script>
 export default {
     props: {
         sm: {
+            type:Boolean,
+            default:false
+        },
+        ts: {
             type:Boolean,
             default:false
         }
@@ -27,6 +31,9 @@ export default {
   border-radius: 0.2em;
   color: @drop;
   font-size: 1.2rem;
+}
+.d-ts {
+  opacity: 1;
 }
 .d-sm-input {
   padding: 0.5rem;
