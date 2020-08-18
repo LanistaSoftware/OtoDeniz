@@ -1,6 +1,7 @@
 <template>
   <div>
-    <d-header></d-header>
+    <d-header id="desktop-header" />
+    <mobile-header id="mobile-header" />
     <section class="bg-cream">
       <div class="container">
         <content-slide />
@@ -109,7 +110,8 @@
         </content-card>
       </div>
     </section>
-    <d-footer />
+    <d-footer id="desktop-footer" />
+    <mobile-footer id="mobile-footer" />
   </div>
 </template>
 <script>
@@ -242,7 +244,7 @@ export default {
 }
 .service-section-product {
   display: grid;
-    padding: 5rem;
+  padding: 5rem;
 
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }
@@ -266,6 +268,26 @@ export default {
 }
 .map-section {
   padding: 5rem 0rem;
+}
+#mobile-header {
+  display: none;
+}
+#mobile-footer {
+  display: none;
+}
+@media @mobile {
+  #mobile-header {
+    display: grid;
+  }
+  #mobile-footer {
+    display: grid;
+  }
+  #desktop-header {
+    display: none;
+  }
+  #desktop-footer {
+    display: none;
+  }
 }
 </style>
 <style>
