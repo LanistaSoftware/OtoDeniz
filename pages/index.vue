@@ -13,7 +13,7 @@
           Hizmet Anlayışımız
         </h3>
       </div>
-      <div class="service-section-content">
+      <div class="service-section-content" id="service-desktop"> 
         <center-card
           v-for="(item, i) in centercards"
           :key="i"
@@ -22,6 +22,11 @@
         >
           {{ item.content }}</center-card
         >
+      </div>
+      <div class="service-section-content" id="service-mobile">
+        <center-card-slide
+         :cards="centercard"
+        />
       </div>
     </section>
     <section class="product-section bg-cream">
@@ -244,12 +249,16 @@ export default {
 }
 .service-section-product {
   display: grid;
-  padding: 5rem;
+  padding:5rem;
+  width: 100%;
+  justify-self: center;
 
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 .product-section {
-  padding: 5rem 0rem;
+  padding:5rem 0rem;
+  display: grid;
+  width: 100%;
 }
 .product-search {
   display: flex;
@@ -275,7 +284,15 @@ export default {
 #mobile-footer {
   display: none;
 }
+#service-mobile {
+  display: none;
+}
 @media @mobile {
+  .service-section-product {
+  grid-template-columns: 1fr 1fr;
+  align-self: center;
+  padding: 0rem;
+}
   #mobile-header {
     display: grid;
   }
@@ -288,6 +305,12 @@ export default {
   #desktop-footer {
     display: none;
   }
+  #service-desktop {
+  display: none;
+}
+  #service-mobile {
+  display: block;
+}
 }
 </style>
 <style>

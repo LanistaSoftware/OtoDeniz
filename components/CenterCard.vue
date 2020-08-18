@@ -57,7 +57,7 @@ export default {
   grid-area: content-header;
   display: grid;
   justify-items: center;
-  padding-top:0.8rem;
+  padding-top: 0.8rem;
 }
 .content-text {
   grid-area: content-text;
@@ -70,26 +70,8 @@ export default {
     font-size: 0.8rem;
   }
 }
-@media @xs {
-  .center-card-content {
-    grid-template-rows: 1fr;
-    grid-template-areas: "content-text";
-  }
-  .content-header {
-    display: none;
-  }
-  .content-text {
-    grid-area: content-text;
-    text-align: center;
-    color: @drop;
-    display: grid;
-    justify-items: center;
-    p {
-      width: 70%;
-    }
-  }
-}
-@media @sm {
+
+@media @mobile {
   .center-card-content {
     grid-template-rows: 1fr;
     grid-template-areas: "content-text";
@@ -105,7 +87,9 @@ export default {
     display: grid;
     justify-items: center;
     p {
+      padding-top: 2rem;
       width: 70%;
+      font-size: 1.5rem;
     }
   }
 }
