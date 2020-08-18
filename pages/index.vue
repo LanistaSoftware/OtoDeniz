@@ -76,6 +76,39 @@
         başlamış Van'ın önde gelen firmalarından birisidir.</content-card
       >
     </section>
+    <section class="bg-cream section-form">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <h3>
+              Parça İstek
+            </h3>
+            <p>
+              Aradığınız ve bulamadığınız bir parça mı var ? Bize parçayı
+              söyleyin, biz sizin yerinize araştırıp bulalım ve en iyi teklifi
+              verelim.
+            </p>
+          </div>
+        </div>
+        <div>
+          <d-form />
+        </div>
+      </div>
+    </section>
+    <section class="container">
+      <div class="map-section">
+        <content-card
+          title="Bizi yerimizde ziyaret edin"
+          buttontext="Haritalar ile açın"
+          map
+          reverse
+          >Haritaları kullanarak şubemize uğrayabilir ve bütün yedek parça
+          ihtiyaçlarınız için uzman kadromuzdan ayrıntılı bilgi alabilirsiniz.
+          Deniz Oto ve Yedek Parça, Seyrantepe, 10/32 Sk. No:3 Van Oto Sanayi'de
+          tanışmak ve bir çay ikram etmek için sizleri bekliyor.
+        </content-card>
+      </div>
+    </section>
   </div>
 </template>
 <script>
@@ -186,15 +219,24 @@ export default {
 };
 </script>
 <style lang="less" scoped>
+.section-form {
+  padding: 5rem 0rem;
+}
 .section-header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  text-align: center;
   padding-top: 5rem;
+  p {
+    width: 100%;
+    display: flex;
+    margin-top: 1rem;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
 }
 .service-section-content {
   display: grid;
-  padding: 5rem 0px;
+  padding: 5rem 0rem;
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 .service-section-product {
@@ -216,6 +258,9 @@ export default {
   svg {
     color: @blue;
   }
+}
+.map-section {
+  padding: 5rem 0rem;
 }
 </style>
 <style>

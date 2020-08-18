@@ -19,12 +19,12 @@ export default {
 </script>
 <style lang="less" scoped>
 .d-input {
-  padding: 1rem;
+  padding: 0.5rem;
   width: 100%;
   background-color: @white;
-  border: 1px solid @gray;
+  border: 1.4px solid @gray;
   outline: none;
-  border-radius: 0.3em;
+  border-radius: 0.2em;
   color: @drop;
   font-size: 1.2rem;
 }
