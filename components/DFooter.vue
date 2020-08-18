@@ -104,7 +104,7 @@
                   mailinizi kaydedin
                 </p>
               </li>
-              <li><d-input ts></d-input></li>
+              <li><d-mail /></li>
             </ul>
           </div>
         </div>

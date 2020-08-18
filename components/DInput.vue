@@ -33,7 +33,9 @@ export default {
   font-size: 1.2rem;
 }
 .d-ts {
-  opacity: 1;
+  background-color:rgba(0, 0, 0, 0);
+  border-radius:none;
+  border: none;
 }
 .d-sm-input {
   padding: 0.5rem;
