@@ -1,14 +1,14 @@
 <template>
 <div>
   <b-navbar toggleable="lg" type="light" variant="warning">
-    <b-navbar-brand href="#"><img src="/oto_deniz_logo.svg" width="80" alt="Oto Deniz Logo"></b-navbar-brand>
+    <b-navbar-brand href="#"><img src="/oto_deniz_logo.svg" width="150" alt="Oto Deniz Logo"></b-navbar-brand>
 
     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
     <b-collapse id="nav-collapse" is-nav>
       <b-navbar-nav>
         <b-nav-item href="/admin/panel/products">Parçalarım</b-nav-item>
-        <b-nav-item href="#">İstek Listesi</b-nav-item>
+        <b-nav-item href="/admin/panel/wishlist">İstek Listesi</b-nav-item>
         <b-nav-item href="#">Mail Listesi</b-nav-item>
         <b-nav-item href="#">Bilgilerim</b-nav-item>
       </b-navbar-nav>

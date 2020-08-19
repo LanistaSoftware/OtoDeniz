@@ -1,23 +1,34 @@
 <template>
-  <div class="service-section-product" id="ürünler">
-    <b-card
-      v-for="(item, i) in products"
-      :key="i"
-      :title="item.categories"
-      :img-src="'/'+item.img"
-      img-alt="Ürün Resmi"
-      img-top
-      tag="article"
-      style="max-width: 20rem;"
-      class="mb-2"
-    >
-      <b-card-text><h4 class="text-primary">{{item.name}}</h4></b-card-text>
-      <b-card-text>{{item.desc}}</b-card-text>
-
-
-      <b-button href="#" size="sm" variant="danger"><b-icon-trash /></b-button>
-      <b-button href="#" size="sm" variant="warning"><b-icon-pencil-square /></b-button>
-    </b-card>
+  <div class="service-section-product w-100 " id="ürünler">
+    <Operations>
+      <slot>
+        <b-button class="w-25" variant="success">
+          Ekle
+          <b-icon-plus></b-icon-plus>
+        </b-button>
+      </slot>
+    </Operations>
+    <b-row class="m-0 px-5 d-flex justify-content-center product-container">
+      <b-col sm="5" md="4" lg="3" xl="2" class="d-flex align-items-center p-2" v-for="(item, i) in products" :key="i">
+        <b-card :img-src="'/'+item.img" img-alt="Ürün Resmi" img-top tag="article" class="product-card mb-2">
+          <b-card-title>
+            <h5>{{item.categories}}</h5>
+          </b-card-title>
+          <b-card-text>
+            <h5 class="text-primary">{{item.name}}</h5>
+          </b-card-text>
+          <b-card-text>{{item.desc}}</b-card-text>
+          <b-col class="w-100 m-0 p-0 text-center">
+            <b-button href="#" size="sm" variant="danger">
+              <b-icon-trash />
+            </b-button>
+            <b-button href="#" size="sm" variant="warning">
+              <b-icon-pencil-square />
+            </b-button>
+          </b-col>
+        </b-card>
+      </b-col>
+    </b-row>
   </div>
 </template>
 
@@ -74,10 +85,3 @@ export default {
   },
 };
 </script>
-
-<style lang="less" scoped>
-.service-section-product {
-  width: 100%;
-  display: flex-box;
-}
-</style>
