@@ -7,7 +7,7 @@
           <template v-slot:image
             ><svg
               xmlns="http://www.w3.org/2000/svg"
-              class="icon icon-tabler icon-tabler-users"
+              class="icon icon-tabler icon-tabler-phone-call"
               width="24"
               height="24"
               viewBox="0 0 24 24"
@@ -18,10 +18,12 @@
               stroke-linejoin="round"
             >
               <path stroke="none" d="M0 0h24v24H0z" />
-              <circle cx="9" cy="7" r="4" />
-              <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
-              <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-              <path d="M21 21v-2a4 4 0 0 0 -3 -3.85" /></svg></template
+              <path
+                d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"
+              />
+              <path d="M15 7a2 2 0 0 1 2 2" />
+              <path d="M15 3a6 6 0 0 1 6 6" />
+            </svg> </template
         ></top>
       </div>
       <div>
@@ -32,7 +34,7 @@
           <template v-slot:image
             ><svg
               xmlns="http://www.w3.org/2000/svg"
-              class="icon icon-tabler icon-tabler-users"
+              class="icon icon-tabler icon-tabler-map"
               width="24"
               height="24"
               viewBox="0 0 24 24"
@@ -43,10 +45,10 @@
               stroke-linejoin="round"
             >
               <path stroke="none" d="M0 0h24v24H0z" />
-              <circle cx="9" cy="7" r="4" />
-              <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
-              <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-              <path d="M21 21v-2a4 4 0 0 0 -3 -3.85" /></svg></template
+              <polyline points="3 7 9 4 15 7 21 4 21 17 15 20 9 17 3 20 3 7" />
+              <line x1="9" y1="4" x2="9" y2="17" />
+              <line x1="15" y1="7" x2="15" y2="20" />
+            </svg> </template
         ></top>
       </div>
       <div>
@@ -55,7 +57,7 @@
           <template v-slot:image
             ><svg
               xmlns="http://www.w3.org/2000/svg"
-              class="icon icon-tabler icon-tabler-users"
+              class="icon icon-tabler icon-tabler-mail"
               width="24"
               height="24"
               viewBox="0 0 24 24"
@@ -66,10 +68,9 @@
               stroke-linejoin="round"
             >
               <path stroke="none" d="M0 0h24v24H0z" />
-              <circle cx="9" cy="7" r="4" />
-              <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
-              <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-              <path d="M21 21v-2a4 4 0 0 0 -3 -3.85" /></svg></template
+              <rect x="3" y="5" width="18" height="14" rx="2" />
+              <polyline points="3 7 12 13 21 7" />
+            </svg> </template
         ></top>
       </div>
     </div>
