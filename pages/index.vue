@@ -2,12 +2,12 @@
   <div>
     <d-header id="desktop-header" />
     <mobile-header id="mobile-header" />
-    <section class="bg-cream">
+    <section class="bg-cream" id="anasayfa">
       <div class="container">
         <content-slide />
       </div>
     </section>
-    <section class="bg-white service-section container">
+    <section class="bg-white service-section container" id="hakkımızda">
       <div class="section-header">
         <h3>
           Hizmet Anlayışımız
@@ -39,7 +39,7 @@
         <div class="product-search ">
           <d-search class="d_shaodw" />
         </div>
-        <div class="service-section-product">
+        <div class="service-section-product" id="ürünler">
           <product-card
             v-for="(item, i) in prodcutcards"
             :key="i"
@@ -82,7 +82,7 @@
         başlamış Van'ın önde gelen firmalarından birisidir.</content-card
       >
     </section>
-    <section class="bg-cream section-form">
+    <section class="bg-cream section-form" id="iletişim">
       <div class="container">
         <div class="section-header">
           <div>
@@ -101,7 +101,7 @@
         </div>
       </div>
     </section>
-    <section class="container">
+    <section class="container" id="isteklistesi">
       <div class="map-section">
         <content-card
           title="Bizi yerimizde ziyaret edin"
