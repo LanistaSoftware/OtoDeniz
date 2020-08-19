@@ -1,20 +1,13 @@
 <template>
-<no-ssr>
   <carousel-3d class="center-card-carousel" :border="0" :perspective="0" :height="300" :width="300" :space="280" :display="3">
-    <slide class="center-card-slide" v-for="(item, index) in cards" :key="index" :index="index">
+    <slide-3d class="center-card-slide" v-for="(item, index) in cards" :key="index" :index="index">
         <center-card :img="item.img" :title="item.title">{{item.content}}</center-card>
-    </slide>
+    </slide-3d>
   </carousel-3d>
-</no-ssr>
 </template>
 <script>
 
-import { Carousel3d, Slide } from 'vue-carousel-3d';
  export default {
-    components: {
-    Carousel3d,
-    Slide
-  },
   data() {
     return {
       cards: [

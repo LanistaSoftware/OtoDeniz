@@ -1,21 +1,40 @@
 <template>
-  <div class="content-card" :class="{ 'reverse-right': !reverse, 'reverse-left': reverse }">
+  <div
+    class="content-card"
+    :class="{ 'reverse-right': !reverse, 'reverse-left': reverse }"
+  >
     <div class="content-container">
       <div class="card-title">
         <h1 class="f_bold">{{ title }}</h1>
       </div>
       <div class="card-content">
         <p class="f_regular">
-         <slot />
+          <slot />
         </p>
       </div>
       <div class="card-button">
-        <d-button class="button" bgVariant="bg-yellow" textVariant="text-dark"
-          >{{buttontext}}</d-button
+        <d-button
+          class="button"
+          bgVariant="bg-yellow"
+          textVariant="text-dark"
+          >{{ buttontext }}</d-button
         >
       </div>
     </div>
-    <div class="image-container"><img :src="img" alt="card_img" /></div>
+    <div v-if="!map" class="image-container">
+      <img :src="img" alt="card_img" />
+    </div>
+    <div v-else class="image-container">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3007.3566675762777!2d28.78506281495511!3d41.08305312276978!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14caa5f570baaaab%3A0xac43b09ef54311fd!2sGochem!5e0!3m2!1str!2str!4v1585750999091!5m2!1str!2str"
+          frameborder="0"
+          allowfullscreen=""
+          aria-hidden="false"
+          tabindex="0"
+          title="oto deniz adresi"
+          class="d-map"
+        />
+    </div>
   </div>
 </template>
 <script>
@@ -24,6 +43,10 @@ export default {
     title: {
       type: String,
       default: null
+    },
+    map: {
+      type: Boolean,
+      default: false
     },
     img: {
       type: String,
@@ -49,10 +72,10 @@ export default {
   align-content: center;
 }
 .reverse-left {
-   grid-template-areas: "content-container image-container";
+  grid-template-areas: "content-container image-container";
 }
 .reverse-right {
-   grid-template-areas: "image-container content-container";
+  grid-template-areas: "image-container content-container";
 }
 .content-container {
   grid-area: content-container;
@@ -73,7 +96,7 @@ export default {
   justify-content: start;
   align-content: center;
   h1 {
-    width: 80%;
+    width: 90%;
   }
 }
 
@@ -102,7 +125,10 @@ export default {
   width: 100%;
   justify-content: center;
   align-content: center;
+  .d-map {
+    width: 100%;
 
+  }
   img {
     width: 80%;
     height: auto;

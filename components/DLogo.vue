@@ -8,7 +8,7 @@ export default {
 </script>
 <style lang="less" scoped>
 .d-logo {
-    width: 2.5rem;
-    height: 2.5rem;
+    width: auto;
+    height: 100%;
 }
 </style>
