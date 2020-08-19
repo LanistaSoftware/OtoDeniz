@@ -16,6 +16,7 @@
 .mail-button {
   margin-left: -8px;
   border-radius: 0.3em;
+  width: 45%;
 }
 .mail-input {
   border-radius: none;

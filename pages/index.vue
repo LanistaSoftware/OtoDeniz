@@ -249,9 +249,9 @@ export default {
 }
 .service-section-product {
   display: grid;
-  padding:5rem;
+  padding:3rem 1rem;
   width: 100%;
-  justify-self: center;
+    justify-items: center;
 
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }
@@ -290,7 +290,7 @@ export default {
 @media @mobile {
   .service-section-product {
   grid-template-columns: 1fr 1fr;
-  align-self: center;
+    justify-items: center;
   padding: 0rem;
 }
   #mobile-header {

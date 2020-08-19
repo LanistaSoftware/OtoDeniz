@@ -3,35 +3,35 @@
     <div class="form-group">
       <div>
         <label for="model">Araç marka modeli</label>
-        <d-input type="text" name="model" id="model" value="model" />
+        <d-input type="text" name="model" id="model"  />
       </div>
       <div>
-        <label for="model">Araç marka modeli</label>
-        <d-input type="text" name="model" id="model" value="model" />
+        <label for="yıl">Araç Yılı</label>
+        <d-input type="text" name="Araç Yılı" id="yıl" />
       </div>
       <div>
-        <label for="model">Araç marka modeli</label>
-        <d-input type="text" name="model" id="model" value="model" />
+        <label for="sno">Araç Şasi No</label>
+        <d-input type="text" name="sasiono" id="sno" />
       </div>
       <div>
-        <label for="model">Araç marka modeli</label>
-        <d-input type="text" name="model" id="model" value="model" />
+        <label for="parca">Aradığınız Parça</label>
+        <d-input type="text" name="parca" id="parca"  />
       </div>
       <div>
-        <label for="model">Araç marka modeli</label>
-        <d-input type="text" name="model" id="model" value="model" />
+        <label for="isim">İsim</label>
+        <d-input type="text" name="isim" id="isim"  />
       </div>
       <div>
-        <label for="model">Araç marka modeli</label>
-        <d-input type="text" name="model" id="model" value="model" />
+        <label for="soyisim">Soyisim</label>
+        <d-input type="text" name="soyisim" id="soyisim" />
       </div>
       <div>
-        <label for="model">Araç marka modeli</label>
-        <d-input type="text" name="model" id="model" value="model" />
+        <label for="tel">Telefon</label>
+        <d-input type="text" name="tel" id="tel" />
       </div>
       <div>
-        <label for="model">Araç marka modeli</label>
-        <d-input type="text" name="model" id="model" value="model" />
+        <label for="mail">E-Mail</label>
+        <d-input type="text" name="mail" id="mail" />
       </div>
     </div>
     <div class="form-button">
