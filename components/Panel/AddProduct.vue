@@ -54,8 +54,8 @@ export default {
   props: {
     formState: {
       type: String,
-      default: 'Add'
-    }
+      default: "Add",
+    },
   },
   data() {
     return {
@@ -70,10 +70,10 @@ export default {
   },
   methods: {
     reset() {
-      this.form.name = null
-      this.form.desc = null
-      this.form.file = null
-      this.form.categories = null
+      this.form.name = null;
+      this.form.desc = null;
+      this.form.file = null;
+      this.form.categories = null;
     },
   },
 };

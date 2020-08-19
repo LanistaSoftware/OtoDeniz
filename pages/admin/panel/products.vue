@@ -39,7 +39,13 @@
             <b-button href="#" size="sm" variant="danger">
               <b-icon-trash />
             </b-button>
-            <b-button @click="formState='Edit'" v-b-toggle.sidebar-1  href="#" size="sm" variant="warning">
+            <b-button
+              @click="formState='Edit'"
+              v-b-toggle.sidebar-1
+              href="#"
+              size="sm"
+              variant="warning"
+            >
               <b-icon-pencil-square />
             </b-button>
           </b-col>
