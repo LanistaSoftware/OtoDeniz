@@ -1,8 +1,5 @@
 <template>
-  <div
-    class="content-card"
-    :class="{ 'reverse-right': !reverse, 'reverse-left': reverse }"
-  >
+  <div class="content-card" :class="{ 'reverse-right': !reverse, 'reverse-left': reverse }">
     <div class="content-container">
       <div class="card-title">
         <h1 class="f_bold">{{ title }}</h1>
@@ -13,27 +10,22 @@
         </p>
       </div>
       <div class="card-button">
-        <d-button
-          class="button"
-          bgVariant="bg-yellow"
-          textVariant="text-dark"
-          >{{ buttontext }}</d-button
-        >
+        <d-button class="button" bgVariant="bg-yellow" textVariant="text-dark">{{ buttontext }}</d-button>
       </div>
     </div>
     <div v-if="!map" class="image-container">
       <img :src="img" alt="card_img" />
     </div>
     <div v-else class="image-container">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3007.3566675762777!2d28.78506281495511!3d41.08305312276978!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14caa5f570baaaab%3A0xac43b09ef54311fd!2sGochem!5e0!3m2!1str!2str!4v1585750999091!5m2!1str!2str"
-          frameborder="0"
-          allowfullscreen=""
-          aria-hidden="false"
-          tabindex="0"
-          title="oto deniz adresi"
-          class="d-map"
-        />
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3007.3566675762777!2d28.78506281495511!3d41.08305312276978!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14caa5f570baaaab%3A0xac43b09ef54311fd!2sGochem!5e0!3m2!1str!2str!4v1585750999091!5m2!1str!2str"
+        frameborder="0"
+        allowfullscreen
+        aria-hidden="false"
+        tabindex="0"
+        title="oto deniz adresi"
+        class="d-map"
+      />
     </div>
   </div>
 </template>
@@ -42,25 +34,25 @@ export default {
   props: {
     title: {
       type: String,
-      default: null
+      default: null,
     },
     map: {
       type: Boolean,
-      default: false
+      default: false,
     },
     img: {
       type: String,
-      default: null
+      default: null,
     },
     buttontext: {
       type: String,
-      default: null
+      default: null,
     },
     reverse: {
       type: Boolean,
-      default: false
-    }
-  }
+      default: false,
+    },
+  },
 };
 </script>
 <style lang="less" scoped>
@@ -127,7 +119,6 @@ export default {
   align-content: center;
   .d-map {
     width: 100%;
-
   }
   img {
     width: 80%;

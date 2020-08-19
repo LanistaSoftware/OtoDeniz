@@ -1,16 +1,15 @@
 <template>
   <div class="panel-body">
-      <PanelHeader />
-      <nuxt-child />
+    <PanelHeader />
+    <nuxt-child />
   </div>
 </template>
 
 <script>
 export default {
-name: 'Panel'
-}
+  name: "Panel",
+};
 </script>
 
 <style>
-
 </style>
