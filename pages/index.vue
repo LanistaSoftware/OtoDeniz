@@ -49,9 +49,7 @@
             :bodytext="item.bodytext"
             :buttontext="item.buttontext"
             v-show="i <= 7 || all == true"
-          >
-            {{ item.content }}</product-card
-          >
+          />
         </div>
       </div>
       <div class="icon-chevron text-blue" @click="all = !all">
