@@ -5,6 +5,7 @@
         :title="item.title"
         :buttontext="item.buttontext"
         :img="item.img"
+        reverse
         >{{item.content}}</content-card
       >
     </slide-1d>

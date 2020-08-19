@@ -6,6 +6,7 @@
     <div class="center-card-content">
       <div class="content-header">
         <h5 class="f_bolder">{{ title }}</h5>
+        <p class="f_bolder">{{ title }}</p>
       </div>
       <div class="content-text">
         <p class="f_regular">
@@ -58,6 +59,9 @@ export default {
   display: grid;
   justify-items: center;
   padding-top: 0.8rem;
+  p {
+    display: none;
+  }
 }
 .content-text {
   grid-area: content-text;
@@ -74,22 +78,25 @@ export default {
 @media @mobile {
   .center-card-content {
     grid-template-rows: 1fr;
-    grid-template-areas: "content-text";
+    grid-template-areas: "content-header";
   }
 
-  .content-header {
+  .content-text {
     display: none;
   }
-  .content-text {
-    grid-area: content-text;
+  .content-header {
+    grid-area: content-header;
     text-align: center;
-    color: @drop;
     display: grid;
     justify-items: center;
+    h5{
+      display: none;
+    }
     p {
-      padding-top: 2rem;
+      display: block;
+      padding-top: 1rem;
       width: 70%;
-      font-size: 1.5rem;
+      font-size: 2rem;
     }
   }
 }

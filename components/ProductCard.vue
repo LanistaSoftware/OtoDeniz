@@ -9,25 +9,25 @@
         <h5>Daha fazla bilgi almak için</h5>
       </div>
       <div>
-        <d-button bgVariant="bg-blue" class="button" textVariant="text-white"
-          >{{buttontext}}</d-button
-        >
+        <d-button bgVariant="bg-blue" class="button" textVariant="text-white">{{
+          buttontext
+        }}</d-button>
       </div>
     </div>
     <div class="product-card-body">
       <div class="body-title">
-        <h5 class="f_regular">{{title}}</h5>
+        <h5 class="f_regular">{{ title }}</h5>
       </div>
       <div class="body-subtitle">
-        <h5>{{subtitle}}</h5>
+        <h5>{{ subtitle }}</h5>
       </div>
       <div class="body-description">
-        <h5 class="desc-title">{{bodytext}}</h5>
+        <h5 class="desc-title">{{ bodytext }}</h5>
         <d-button
           class="body-button button"
           bgVariant="bg-blue"
           textVariant="text-white"
-          >{{buttontext}}</d-button
+          >{{ buttontext }}</d-button
         >
       </div>
     </div>
@@ -137,7 +137,7 @@ export default {
     filter: blur(0.1px) brightness(0.2);
   }
   100% {
-     height: 100%;
+    height: 100%;
     -webkit-filter: none;
     -moz-filter: none;
     -ms-filter: none;
@@ -202,7 +202,7 @@ export default {
   .body-button {
     display: block;
     width: 80%;
-    margin-bottom: 0.5rem;
+    padding: 5px !important;
   }
   .product-card-body {
     grid-template-rows: none;
@@ -220,6 +220,7 @@ export default {
   .body-button {
     display: block;
     width: 80%;
+    padding: 5px !important;
   }
   .product-card-body {
     grid-template-rows: none;

@@ -26,7 +26,7 @@ export default {
   font-family: @f;
   width: 100%;
   cursor: pointer;
-  padding: 0.5rem 0;
+  padding: 10px 0;
   outline: none;
   border-radius: 0.3em;
   font-size: 1rem;

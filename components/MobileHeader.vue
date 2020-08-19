@@ -1,9 +1,10 @@
 <template>
   <div class="mobile-header-container bg-yellow">
+    <mobile-menu :show="show" @show="emitMenu($event)" />
     <div class="mobile-header">
       <div class="mobile-header-top">
         <div>
-          <img src="/users.svg" alt="" srcset="" />
+          <img src="/grid.svg" alt="" srcset="" @click="show = true" />
         </div>
         <div>
           <img src="/oto_deniz_logo.svg" alt="" srcset="" />
@@ -18,6 +19,20 @@
     </div>
   </div>
 </template>
+<script>
+export default {
+  data() {
+    return {
+      show: false
+    };
+  },
+  methods: {
+    emitMenu(e) {
+      this.show = e;
+    }
+  }
+};
+</script>
 <style lang="less" scoped>
 .mobile-header {
   display: grid;
@@ -29,6 +44,8 @@
   grid-area: top;
   display: grid;
   margin: 1rem 3rem;
+  padding: 1rem 0rem;
+  align-self: start;
   grid-template-columns: 1fr 1fr 1fr;
   img {
     display: flex;
@@ -55,6 +72,7 @@
 .mobile-header-bottom {
   grid-area: bottom;
   overflow: hidden;
+  padding: 1rem;
   border-top: 0.3px solid rgba(216, 178, 54, 0.4);
   display: grid;
   align-self: center;

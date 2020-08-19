@@ -3,11 +3,12 @@
     <div class="top-contianer bg-yellow">
       <div class="footer-top container">
         <div class="footer-info">
-          <div class="info-group">
-            <h6>
-              İLETİŞİM
-            </h6>
-            <div>
+          <div>
+             <h6>
+            İLETİŞİM
+          </h6>
+          <ul>
+            <li>
               <top
                 ><template v-slot:text>(0432) 223 05 79</template>
                 <template v-slot:image
@@ -31,8 +32,8 @@
                     <path d="M15 3a6 6 0 0 1 6 6" />
                   </svg> </template
               ></top>
-            </div>
-            <div>
+            </li>
+            <li>
               <top
                 ><template v-slot:text
                   >Seyrantepe, 10/32. Sk. No:3, 65040 Van Merkez/Van</template
@@ -58,8 +59,8 @@
                     <line x1="15" y1="7" x2="15" y2="20" />
                   </svg> </template
               ></top>
-            </div>
-            <div>
+            </li>
+            <li>
               <top
                 ><template v-slot:text>info@otodeniz.com.tr</template>
                 <template v-slot:image
@@ -80,7 +81,8 @@
                     <polyline points="3 7 12 13 21 7" />
                   </svg> </template
               ></top>
-            </div>
+            </li>
+          </ul>
           </div>
           <div class="map-group">
             <h6>
@@ -145,7 +147,7 @@
   li {
     color: @dark;
     font-size: 0.8rem;
-    padding: 0.2rem;
+    padding: 0.5rem;
   }
   ul {
     padding: 0;
@@ -178,14 +180,6 @@
   }
   div {
     width: 80%;
-  }
-}
-.info-group {
-  display: grid;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
-
-  div {
-    justify-self: start;
   }
 }
 .footer-bottom {

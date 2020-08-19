@@ -42,6 +42,9 @@
   </div>
 </template>
 <style lang="less" scoped>
+input {
+  margin-top: 1rem;
+}
 .d-form {
     padding-top: 5rem;
 }
