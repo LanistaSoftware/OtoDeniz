@@ -13,7 +13,7 @@
           Hizmet Anlayışımız
         </h3>
       </div>
-      <div class="service-section-content" id="service-desktop"> 
+      <div class="service-section-content" id="service-desktop">
         <center-card
           v-for="(item, i) in centercards"
           :key="i"
@@ -24,9 +24,7 @@
         >
       </div>
       <div class="service-section-content" id="service-mobile">
-        <center-card-slide
-         :cards="centercard"
-        />
+        <center-card-slide :cards="centercard" />
       </div>
     </section>
     <section class="product-section bg-cream">
@@ -62,11 +60,12 @@
         <img v-else src="/chevron-up.svg" alt="" srcset="" />
       </div>
     </section>
-    <section class="container">
+    <section class="container section-about" id="section-about">
       <content-card
         title="Deniz Oto ve Yedek Parça Kimdir ?"
         buttontext="Hemen Arayın"
         img="section3.png"
+        top
         >1985 Yılında Van Oto Sanayi'de kurulmuş olan Oto Deniz ve Yedek parça,
         kurulduğu günden bu güne müşterilerine daima dürüstlük ilkesiyle
         yaklaşmıştır. İlk günden itibaren hedefi bölgenin en büyük yedek parça
@@ -108,6 +107,7 @@
           buttontext="Haritalar ile açın"
           map
           reverse
+          top
           >Haritaları kullanarak şubemize uğrayabilir ve bütün yedek parça
           ihtiyaçlarınız için uzman kadromuzdan ayrıntılı bilgi alabilirsiniz.
           Deniz Oto ve Yedek Parça, Seyrantepe, 10/32 Sk. No:3 Van Oto Sanayi'de
@@ -230,6 +230,9 @@ export default {
 .section-form {
   padding: 5rem 0rem;
 }
+.section-about {
+  padding: 1rem 0rem;
+}
 .section-header {
   text-align: center;
   padding-top: 5rem;
@@ -249,14 +252,13 @@ export default {
 }
 .service-section-product {
   display: grid;
-  padding:3rem 1rem;
+  padding: 3rem 1rem;
   width: 100%;
-    justify-items: center;
-
+  justify-items: center;
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 .product-section {
-  padding:5rem 0rem;
+  padding: 5rem 0rem;
   display: grid;
   width: 100%;
 }
@@ -269,10 +271,12 @@ export default {
   display: flex;
   cursor: pointer;
   justify-content: center;
+  align-items: center;
   color: @blue;
 
   svg {
     color: @blue;
+    margin-left: 0.2rem;
   }
 }
 .map-section {
@@ -287,12 +291,21 @@ export default {
 #service-mobile {
   display: none;
 }
+@media @smalpc {
+  .service-section-product {
+    display: grid;
+    padding: 3rem 1rem;
+    width: 100%;
+    justify-items: center;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
 @media @mobile {
   .service-section-product {
-  grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     justify-items: center;
-  padding: 0rem;
-}
+    padding: 2rem;
+  }
   #mobile-header {
     display: grid;
   }
@@ -306,16 +319,28 @@ export default {
     display: none;
   }
   #service-desktop {
-  display: none;
-}
+    display: none;
+  }
   #service-mobile {
-  display: block;
-}
+    display: block;
+  }
 }
 </style>
-<style>
+<style lang="less">
 .container {
   margin: 0 auto;
   width: 80% !important;
+}
+@media @mobile {
+  .container {
+    width: 90% !important;
+  }
+}
+  #section-about {
+  .content-card {
+  p {
+    font-size: 0.8rem !important;
+  }
+  }
 }
 </style>

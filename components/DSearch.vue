@@ -1,7 +1,7 @@
 <template>
-  <div class="d-search ">
+  <div class="d-search">
     <img src="search.png" />
-    <d-input class="d-search-input" sm />
+    <d-input class="d-search-input"/>
     <d-button
       class="d-search-button"
       textVariant="text-white"
@@ -16,23 +16,25 @@ img {
   width: 1rem;
   position: absolute;
   margin-left: 1rem;
+  align-self: center;
 }
 .d-search {
   display: inline-flex;
-  align-items: center;
   width: 80%;
-  border-bottom-right-radius: 0.3em;
-  border-top-right-radius: 0.3em;
+  border-radius: 0.7em !important;
+
+
 }
 .d-search-button {
   width: 20%;
-  border-bottom-right-radius: 0.3em;
-  border-top-right-radius: 0.3em;
+  border-bottom-right-radius: 0.5em;
+  border-top-right-radius: 0.5em;
   margin-left: -8px;
 }
 .d-search-input {
   width: 100%;
   padding-left: 3rem !important;
+  border-radius: 0.5em !important;
   width: 80%;
 }
 </style>

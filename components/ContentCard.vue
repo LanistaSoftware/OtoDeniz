@@ -1,8 +1,17 @@
 <template>
   <div
     class="content-card"
-    :class="{ 'reverse-right': !reverse, 'reverse-left': reverse }"
+    :class="{
+      'reverse-right': !reverse,
+      'reverse-left': reverse,
+      'img-center': top
+    }"
   >
+    <div v-if="top" class="title-container">
+      <div class="card-top-title">
+        <h1 class="f_bold">{{ title }}</h1>
+      </div>
+    </div>
     <div class="content-container">
       <div class="card-title">
         <h1 class="f_bold">{{ title }}</h1>
@@ -25,15 +34,15 @@
       <img :src="img" alt="card_img" />
     </div>
     <div v-else class="image-container">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3007.3566675762777!2d28.78506281495511!3d41.08305312276978!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14caa5f570baaaab%3A0xac43b09ef54311fd!2sGochem!5e0!3m2!1str!2str!4v1585750999091!5m2!1str!2str"
-          frameborder="0"
-          allowfullscreen=""
-          aria-hidden="false"
-          tabindex="0"
-          title="oto deniz adresi"
-          class="d-map"
-        />
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3007.3566675762777!2d28.78506281495511!3d41.08305312276978!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14caa5f570baaaab%3A0xac43b09ef54311fd!2sGochem!5e0!3m2!1str!2str!4v1585750999091!5m2!1str!2str"
+        frameborder="0"
+        allowfullscreen=""
+        aria-hidden="false"
+        tabindex="0"
+        title="oto deniz adresi"
+        class="d-map"
+      />
     </div>
   </div>
 </template>
@@ -51,6 +60,10 @@ export default {
     img: {
       type: String,
       default: null
+    },
+    top: {
+      type: Boolean,
+      default: false
     },
     buttontext: {
       type: String,
@@ -116,9 +129,12 @@ export default {
   align-content: flex-start;
   button {
     width: 50%;
+    margin-top: 1rem;
   }
 }
-
+.title-container {
+  display: none;
+}
 .image-container {
   grid-area: image-container;
   display: grid;
@@ -127,81 +143,51 @@ export default {
   align-content: center;
   .d-map {
     width: 100%;
-
   }
   img {
-    width: 80%;
+    width: 100%;
     height: auto;
   }
 }
-@media @sm {
+@media @mobile {
   .content-card {
     grid-template-columns: 1fr;
     grid-template-areas: "image-container" "content-container ";
   }
-
-  .content-container {
-    text-align: center;
-  }
-  .card-title {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    h2 {
-      width: 100%;
+  .img-center {
+    grid-template-columns: 1fr !important;
+    grid-template-rows: none !important;
+    grid-template-areas: "title-container" "image-container" "content-container " !important;
+    .d-map {
+      margin-top: 1rem;
+    }
+    .content-container {
+      grid-template-rows: none !important;
+      margin: 1rem 0rem;
+      button {
+        margin-top: 1rem;
+      }
     }
   }
-  .card-button {
-    grid-area: card-button;
-    display: grid;
-    width: 100%;
-    align-content: flex-end;
-    button {
-      width: 100%;
+  .title-container {
+    display: block;
+  }
+  .img-center {
+    .card-title {
+      display: none !important;
     }
-  }
-}
-@media @xs {
-  .content-card {
-    grid-template-columns: 1fr;
-    grid-template-areas: "image-container" "content-container ";
-  }
-
-  .content-container {
-    text-align: center;
-  }
-  .card-title {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    h2 {
-      width: 100%;
-    }
-  }
-  .card-button {
-    grid-area: card-button;
-    display: grid;
-    width: 100%;
-    align-content: flex-end;
-    button {
-      width: 100%;
-    }
-  }
-}
-@media @md {
-  .content-card {
-    grid-template-columns: 1fr;
-    grid-template-areas: "image-container" "content-container ";
-  }
-
-  .content-container {
-    text-align: center;
-  }
-  .card-title {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     h1 {
+      text-align: center;
+    }
+  }
+  .content-container {
+    text-align: center;
+  }
+  .card-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    h2 {
       width: 100%;
     }
   }
@@ -215,4 +201,83 @@ export default {
     }
   }
 }
+// @media @xs {
+//   .content-card {
+//     grid-template-columns: 1fr;
+//     grid-template-areas: "image-container" "content-container ";
+//   }
+//   .img-center {
+//     grid-template-columns: 1fr !important;
+//     grid-template-rows: none !important;
+
+//     grid-template-areas: "title-container" "image-container" "content-container " !important;
+//   }
+//   .img-center {
+//     .card-title {
+//       display: none !important;
+//     }
+//     h1 {
+//       text-align: center;
+//     }
+//   }
+//   .content-container {
+//     text-align: center;
+//   }
+//   .card-title {
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     h2 {
+//       width: 100%;
+//     }
+//   }
+//   .card-button {
+//     grid-area: card-button;
+//     display: grid;
+//     width: 100%;
+//     align-content: flex-end;
+//     button {
+//       width: 100%;
+//     }
+//   }
+// }
+// @media @md {
+//   .content-card {
+//     grid-template-columns: 1fr;
+//     grid-template-areas: "image-container" "content-container ";
+//   }
+//   .img-center {
+//     grid-template-columns: 1fr !important;
+//     grid-template-rows: none !important;
+//     grid-template-areas: "title-container" "image-container" "content-container " !important;
+//   }
+//   .content-container {
+//     text-align: center;
+//   }
+//   .img-center {
+//     .card-title {
+//       display: none !important;
+//     }
+//     h1 {
+//       text-align: center;
+//     }
+//   }
+//   .card-title {
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     h1 {
+//       width: 100%;
+//     }
+//   }
+//   .card-button {
+//     grid-area: card-button;
+//     display: grid;
+//     width: 100%;
+//     align-content: flex-end;
+//     button {
+//       width: 100%;
+//     }
+//   }
+// }
 </style>

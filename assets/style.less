@@ -15,6 +15,7 @@ html {
 }
 body {
     font-family: @f;
+    position:absolute;
 }
 h1,
 h2,
@@ -123,9 +124,9 @@ h6 {
   font-style: italic;
 }
 .d_shaodw {
--webkit-box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.3);
--moz-box-shadow: 2px 3px 4px 0px rgba(0,0,0,0.3);
-box-shadow: 2px 3px 4px 0px rgba(0,0,0,0.3);
+-webkit-box-shadow: 2px 2px 3px 0px rgba(0,0,0,0.1);
+-moz-box-shadow: 2px 3px 3px 0px rgba(0,0,0,0.1);
+box-shadow: 2px 3px 4px 0px rgba(0,0,0,0.1);
 }
 ul{
   list-style: none;
@@ -143,6 +144,15 @@ a{
       border-bottom: 0.22rem solid @dark;
       color: @dark; 
     }
+}
+label {
+  color: @labelcolor;
+  font-family: @f;
+  font-weight: 300;}
+@media @mobile {
+  label {
+    font-size: 1.7rem;
+  }
 }
 @import "./responsive.less";
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
