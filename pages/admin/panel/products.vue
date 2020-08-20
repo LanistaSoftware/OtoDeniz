@@ -1,11 +1,16 @@
 <template>
   <div class="service-section-product w-100" id="ürünler">
     <b-sidebar width="40%" id="sidebar-1" title="Ürün İşlemleri" shadow>
-      <AddProduct :form-state="formState" />
+      <AddProduct :item="edititem" :form-state="formState" />
     </b-sidebar>
     <Operations>
       <slot>
-        <b-button @click="formState='Add'" v-b-toggle.sidebar-1 class="w-25" variant="success">
+        <b-button
+          @click="formState = 'Add'"
+          v-b-toggle.sidebar-1
+          class="w-25"
+          variant="success"
+        >
           Ekle
           <b-icon-plus></b-icon-plus>
         </b-button>
@@ -18,29 +23,29 @@
         lg="3"
         xl="2"
         class="d-flex align-items-center p-2"
-        v-for="(item, i) in products"
+        v-for="(product, i) in products"
         :key="i"
       >
         <b-card
-          :img-src="'/'+item.img"
           img-alt="Ürün Resmi"
           img-top
           tag="article"
           class="product-card mb-2"
         >
+        <d-img :imgurl="product.item.file"/>
           <b-card-title>
-            <h5>{{item.categories}}</h5>
+            <h5>{{ product.item.categories }}</h5>
           </b-card-title>
           <b-card-text>
-            <h5 class="text-primary">{{item.name}}</h5>
+            <h5 class="text-primary">{{ product.item.name }}</h5>
           </b-card-text>
-          <b-card-text>{{item.desc}}</b-card-text>
+          <b-card-text>{{ product.item.desc }}</b-card-text>
           <b-col class="w-100 m-0 p-0 text-center">
-            <b-button href="#" size="sm" variant="danger">
+            <b-button href="#" size="sm" variant="danger" @click="deleteDoc(product.key,product.item.file)">
               <b-icon-trash />
             </b-button>
             <b-button
-              @click="formState='Edit'"
+              @click="formState = 'Edit',edititem=product"
               v-b-toggle.sidebar-1
               href="#"
               size="sm"
@@ -54,58 +59,34 @@
     </b-row>
   </div>
 </template>
-
 <script>
+import { mapActions, mapState } from "vuex";
 export default {
   name: "products",
+  computed: {
+    ...mapState({
+      products: "products"
+    })
+  },
   data() {
     return {
-      products: [
-        {
-          categories: "MOTOR PARÇALARI",
-          name: "Krank Mili",
-          desc: "Chevrolet Cruze 2013 1.6 Benzinli",
-          pageButton: "Hemen Arayın",
-          img: "2.png",
-        },
-        {
-          categories: "MOTOR PARÇALARI",
-          name: "Krank Mili",
-          desc: "Chevrolet Cruze 2013 1.6 Benzinli",
-          pageButton: "Hemen Arayın",
-          img: "2.png",
-        },
-        {
-          categories: "MOTOR PARÇALARI",
-          name: "Krank Mili",
-          desc: "Chevrolet Cruze 2013 1.6 Benzinli",
-          pageButton: "Hemen Arayın",
-          img: "2.png",
-        },
-        {
-          categories: "MOTOR PARÇALARI",
-          name: "Krank Mili",
-          desc: "Chevrolet Cruze 2013 1.6 Benzinli",
-          pageButton: "Hemen Arayın",
-          img: "2.png",
-        },
-        {
-          categories: "MOTOR PARÇALARI",
-          name: "Krank Mili",
-          desc: "Chevrolet Cruze 2013 1.6 Benzinli",
-          pageButton: "Hemen Arayın",
-          img: "2.png",
-        },
-        {
-          categories: "MOTOR PARÇALARI",
-          name: "Krank Mili",
-          desc: "Chevrolet Cruze 2013 1.6 Benzinli",
-          pageButton: "Hemen Arayın",
-          img: "2.png",
-        },
-      ],
       formState: null,
+      edititem:null
     };
   },
+  created() {
+    this.getAllProduct()
+  },
+  methods: {
+    ...mapActions({
+      getAllProduct: "getAllProduct",
+      deleteDocument :'deleteDocument'
+    }),
+    deleteDoc(id,file) {
+      this.deleteDocument({id:id, file:file}).then(() => {
+        this.getAllProduct()
+      })
+    }
+  }
 };
 </script>

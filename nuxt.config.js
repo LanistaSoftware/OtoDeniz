@@ -70,11 +70,17 @@ export default {
           projectId: "oto-deniz",
           storageBucket: "oto-deniz.appspot.com",
           messagingSenderId: "287682020228",
-          appId: "1:287682020228:web:478403d0c2a067f31a93d1"
+          appId: "1:287682020228:web:478403d0c2a067f31a93d1",
         },
         services: {
-          storage: true,
+          auth: true,
           firestore: true,
+          functions: true,
+          storage: true,
+          realtimeDb: true,
+          messaging: true,
+          performance: true,
+          remoteConfig: true
         }
       }
     ]
