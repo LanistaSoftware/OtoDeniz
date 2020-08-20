@@ -3,50 +3,86 @@
     <div class="form-group">
       <div>
         <label for="model">Araç marka modeli</label>
-        <d-input type="text" name="model" id="model"  />
+        <d-input v-model="form.model" type="text" name="model" id="model" />
       </div>
       <div>
         <label for="yıl">Araç Yılı</label>
-        <d-input type="text" name="Araç Yılı" id="yıl" />
+        <d-input v-model="form.yıl" type="text" name="Araç Yılı" id="yıl" />
       </div>
       <div>
         <label for="sno">Araç Şasi No</label>
-        <d-input type="text" name="sasiono" id="sno" />
+        <d-input v-model="form.sasi" type="text" name="sasiono" id="sno" />
       </div>
       <div>
         <label for="parca">Aradığınız Parça</label>
-        <d-input type="text" name="parca" id="parca"  />
+        <d-input v-model="form.parca" type="text" name="parca" id="parca" />
       </div>
       <div>
         <label for="isim">İsim</label>
-        <d-input type="text" name="isim" id="isim"  />
+        <d-input v-model="form.isim" type="text" name="isim" id="isim" />
       </div>
       <div>
         <label for="soyisim">Soyisim</label>
-        <d-input type="text" name="soyisim" id="soyisim" />
+        <d-input v-model="form.soyisim" type="text" name="soyisim" id="soyisim" />
       </div>
       <div>
         <label for="tel">Telefon</label>
-        <d-input type="text" name="tel" id="tel" />
+        <d-input v-model="form.tel" type="text" name="tel" id="tel" />
       </div>
       <div>
         <label for="mail">E-Mail</label>
-        <d-input type="text" name="mail" id="mail" />
+        <d-input v-model="form.email" type="text" name="mail" id="mail" />
       </div>
     </div>
     <div class="form-button">
-      <d-button textVariant="text-blue" bgVariant="bg-blue">
+      <d-button textVariant="text-blue" bgVariant="bg-blue" @click="Istekekle">
         Gönder
       </d-button>
     </div>
   </div>
 </template>
+<script>
+import {mapActions} from 'vuex'
+export default {
+  data() {
+    return {
+      form: {
+        model: null,
+        sasi: null,
+        parca: null,
+        yıl: null,
+        isim: null,
+        soyisim: null,
+        tel: null,
+        email: null
+      }
+    };
+  },
+  methods: {
+    ...mapActions({
+      parcaIstek: 'parcaIstek'
+    }),
+    Istekekle(){
+      this.parcaIstek(this.form).then(() => {
+        this.form.model = null
+        this.form.sasi = null
+        this.form.parca = null
+        this.form.yıl = null
+        this.form.isim = null
+        this.form.soyisim = null
+        this.form.tel = null
+        this.form.email = null
+      })
+    }
+  }
+};
+</script>
 <style lang="less" scoped>
 input {
   margin-top: 1rem;
 }
 .d-form {
-    padding-top: 5rem;
+  padding-top: 5rem;
 }
 .form-group {
   display: grid;
