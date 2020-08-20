@@ -8,14 +8,8 @@
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
       <b-collapse id="nav-collapse" is-nav>
-        <b-navbar-nav>
-          <b-nav-item href="/admin/panel/products">Parçalarım</b-nav-item>
-          <b-nav-item href="/admin/panel/wishlist">İstek Listesi</b-nav-item>
-          <b-nav-item href="/admin/panel/maillist">Mail Listesi</b-nav-item>
-          <b-nav-item href="/admin/panel/information">Bilgilerim</b-nav-item>
-        </b-navbar-nav>
+        <HeaderMenu inline="/" :content="menu" />
 
-        <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto">
           <b-nav-item-dropdown right>
             <!-- Using 'button-content' slot -->
@@ -33,6 +27,28 @@
 <script>
 export default {
   name: "PanelHeader",
+  data() {
+    return {
+      menu: [
+        {
+          text: "Parçalarım",
+          link: "admin/panel/products",
+        },
+        {
+          text: "İstek Listesi",
+          link: "admin/panel/wishlist",
+        },
+        {
+          text: "Mail Listesi",
+          link: "admin/panel/maillist",
+        },
+        {
+          text: "Bilgilerim",
+          link: "admin/panel/information",
+        },
+      ],
+    };
+  },
 };
 </script>
 
