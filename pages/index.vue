@@ -3,7 +3,7 @@
     <d-header id="desktop-header" />
     <mobile-header id="mobile-header" />
     <section class="bg-cream" id="anasayfa">
-      <div class="container">
+      <div class="d-container">
         <content-slide />
       </div>
     </section>
@@ -28,7 +28,7 @@
       </div>
     </section>
     <section class="product-section bg-cream">
-      <div class="container">
+      <div class="d-container">
         <div class="section-header">
           <h3>
             Öne Çıkan Ürünler
@@ -47,9 +47,7 @@
             :bodytext="item.bodytext"
             :buttontext="item.buttontext"
             v-show="i <= 7 || all == true"
-          >
-            {{ item.content }}</product-card
-          >
+          />
         </div>
       </div>
       <div class="icon-chevron text-blue" @click="all = !all">
@@ -60,7 +58,7 @@
         <img v-else src="/chevron-up.svg" alt="" srcset="" />
       </div>
     </section>
-    <section class="container section-about" id="section-about">
+    <section class="d-container section-about" id="section-about">
       <content-card
         title="Deniz Oto ve Yedek Parça Kimdir ?"
         buttontext="Hemen Arayın"
@@ -82,7 +80,7 @@
       >
     </section>
     <section class="bg-cream section-form" id="iletişim">
-      <div class="container">
+      <div class="d-container">
         <div class="section-header">
           <div>
             <h3>
@@ -100,7 +98,7 @@
         </div>
       </div>
     </section>
-    <section class="container" id="isteklistesi">
+    <section class="d-container" id="isteklistesi">
       <div class="map-section">
         <content-card
           title="Bizi yerimizde ziyaret edin"
@@ -327,12 +325,12 @@ export default {
 }
 </style>
 <style lang="less">
-.container {
+.d-container {
   margin: 0 auto;
   width: 80% !important;
 }
 @media @mobile {
-  .container {
+  .d-container {
     width: 90% !important;
   }
 }
