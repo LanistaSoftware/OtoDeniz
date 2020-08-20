@@ -2,10 +2,10 @@
   <div class="header-container bg-yellow">
     <div class="header-top container">
       <div>
-        <top
-          ><template v-slot:text>(0432) 223 05 79</template>
-          <template v-slot:image
-            ><svg
+        <top>
+          <template v-slot:text>(0432) 223 05 79</template>
+          <template v-slot:image>
+            <svg
               xmlns="http://www.w3.org/2000/svg"
               class="icon icon-tabler icon-tabler-phone-call"
               width="24"
@@ -23,16 +23,15 @@
               />
               <path d="M15 7a2 2 0 0 1 2 2" />
               <path d="M15 3a6 6 0 0 1 6 6" />
-            </svg> </template
-        ></top>
+            </svg>
+          </template>
+        </top>
       </div>
       <div>
-        <top
-          ><template v-slot:text
-            >Seyrantepe, 10/32. Sk. No:3, 65040 Van Merkez/Van</template
-          >
-          <template v-slot:image
-            ><svg
+        <top>
+          <template v-slot:text>Seyrantepe, 10/32. Sk. No:3, 65040 Van Merkez/Van</template>
+          <template v-slot:image>
+            <svg
               xmlns="http://www.w3.org/2000/svg"
               class="icon icon-tabler icon-tabler-map"
               width="24"
@@ -48,14 +47,15 @@
               <polyline points="3 7 9 4 15 7 21 4 21 17 15 20 9 17 3 20 3 7" />
               <line x1="9" y1="4" x2="9" y2="17" />
               <line x1="15" y1="7" x2="15" y2="20" />
-            </svg> </template
-        ></top>
+            </svg>
+          </template>
+        </top>
       </div>
       <div>
-        <top
-          ><template v-slot:text>info@otodeniz.com.tr</template>
-          <template v-slot:image
-            ><svg
+        <top>
+          <template v-slot:text>info@otodeniz.com.tr</template>
+          <template v-slot:image>
+            <svg
               xmlns="http://www.w3.org/2000/svg"
               class="icon icon-tabler icon-tabler-mail"
               width="24"
@@ -70,17 +70,18 @@
               <path stroke="none" d="M0 0h24v24H0z" />
               <rect x="3" y="5" width="18" height="14" rx="2" />
               <polyline points="3 7 12 13 21 7" />
-            </svg> </template
-        ></top>
+            </svg>
+          </template>
+        </top>
       </div>
     </div>
     <div class="header-center-container">
       <div class="container header-center">
-        <div class="center-logo ">
-          <img src="/oto_deniz_logo.svg" alt="" />
+        <div class="center-logo">
+          <img src="/oto_deniz_logo.svg" alt />
         </div>
         <div class="center-menu">
-          <header-menu />
+          <header-menu inline="#" :content="menu" />
         </div>
         <div class="center-login">
           <LoginButton />
@@ -92,6 +93,37 @@
     </div>
   </div>
 </template>
+<script>
+export default {
+  name: "DHeader",
+  data() {
+    return {
+      menu: [
+        {
+          text: "Ana sayfa",
+          link: "anasayfa",
+        },
+        {
+          text: "Hakkımızda",
+          link: "hakkımızda",
+        },
+        {
+          text: "Ürünler",
+          link: "ürünler",
+        },
+        {
+          text: "İstek Listesi",
+          link: "isteklistesi",
+        },
+        {
+          text: "İletişim",
+          link: "iletişim",
+        },
+      ],
+    };
+  },
+};
+</script>
 <style lang="less" scoped>
 .header-container {
   display: grid;

@@ -24,8 +24,6 @@
       <b-form-group id="input-group-1" label="Ürün Resmi :" label-for="file-upload">
         <b-form-file
           id="file-upload"
-          v-model="form.file"
-          :state="Boolean(file)"
           placeholder="Choose a file or drop it here..."
           drop-placeholder="Drop file here..."
         ></b-form-file>

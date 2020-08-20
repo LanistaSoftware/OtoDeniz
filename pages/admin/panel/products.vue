@@ -1,14 +1,15 @@
 <template>
   <div class="service-section-product w-100" id="ürünler">
-    <b-sidebar width="40%" id="sidebar-1" title="Ürün İşlemleri" shadow>
+    <b-sidebar  width="40%" ref="product-bar" id="productBar" title="Ürün İşlemleri" shadow>
       <AddProduct :form-state="formState" />
     </b-sidebar>
     <Operations>
       <slot>
-        <b-button @click="formState='Add'" v-b-toggle.sidebar-1 class="w-25" variant="success">
+        <b-button id="addbutton" @click="openSidebar('Add')" class="w-25" variant="success">
           Ekle
           <b-icon-plus></b-icon-plus>
         </b-button>
+        <b-button v-show="false" v-b-toggle.productBar ref="as" />
       </slot>
     </Operations>
     <b-row class="m-0 px-5 d-flex justify-content-center product-container">
@@ -40,8 +41,7 @@
               <b-icon-trash />
             </b-button>
             <b-button
-              @click="formState='Edit'"
-              v-b-toggle.sidebar-1
+              @click="openSidebar('Edit')"
               href="#"
               size="sm"
               variant="warning"
@@ -107,5 +107,11 @@ export default {
       formState: null,
     };
   },
+  methods: {
+    openSidebar(state) {
+      this.formState = state
+      this.$refs['as'].click()
+    }
+  }
 };
 </script>

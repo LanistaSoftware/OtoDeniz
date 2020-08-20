@@ -1,5 +1,5 @@
 <template>
-  <b-row class="m-0 px-5 py-3 w-100">
+  <b-row  class="m-0 mb-5 px-5 py-3 w-100 border-bottom border-warning">
     <b-col class="text-left p-0 m-0">
       <slot />
     </b-col>
