@@ -8,14 +8,8 @@
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
       <b-collapse id="nav-collapse" is-nav>
-        <!-- <b-navbar-nav>
-          <nuxt-link to="/admin/panel/products">Parçalarım</nuxt-link>
-          <nuxt-link to="/admin/panel/wishlist">İstek Listesi</nuxt-link>
-          <nuxt-link to="/admin/panel/maillist">Mail Listesi</nuxt-link>
-          <nuxt-link to="/admin/panel/information">Bilgilerim</nuxt-link>
-        </b-navbar-nav> -->
         <HeaderMenu inline="/" :content="menu" />
-        <!-- Right aligned nav items -->
+
         <b-navbar-nav class="ml-auto">
           <b-nav-item-dropdown right>
             <!-- Using 'button-content' slot -->
@@ -33,7 +27,7 @@
 <script>
 export default {
   name: "PanelHeader",
-    data() {
+  data() {
     return {
       menu: [
         {
@@ -51,7 +45,7 @@ export default {
         {
           text: "Bilgilerim",
           link: "admin/panel/information",
-        }
+        },
       ],
     };
   },

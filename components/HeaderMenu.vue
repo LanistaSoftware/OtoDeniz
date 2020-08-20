@@ -25,21 +25,34 @@ export default {
 };
 </script>
 <style lang="less" scoped>
+a {
+  text-decoration: none;
+}
 .d-header-menu {
   width: 100%;
 }
 li {
+  display: block;
   color: @htext;
-  float: right;
-  display: grid;
   font-size: 0.8rem;
   align-items: center;
   justify-content: center;
   padding: 0.5rem;
 }
 ul {
-  display: flex;
+  display: block;
   padding: 0;
   align-items: center;
+  justify-content: center;
+}
+
+@media only screen and (min-width: 991px) {
+  ul {
+    display: flex;
+  }
+  li {
+    float: right;
+    display: grid;
+  }
 }
 </style>
