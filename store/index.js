@@ -88,10 +88,7 @@ export const actions = {
         .then(() => {
           if (form.file.name !== undefined) {
             var storageRef = this.$fireStorage.ref(form.beforename);
-            storageRef
-              .delete()
-              .then(function() {
-              })
+            storageRef.delete().then(function() {});
           }
         })
         .then(() => {
@@ -111,5 +108,19 @@ export const actions = {
     } catch (error) {
       console.log(error);
     }
+  },
+  async addRequest({}, mail) {
+    console.log(mail)
+    try {
+      this.$fireStore.collection("requests").add({
+        mail: mail,
+        answer: false,
+        id: uniqid()
+      }).then(() => {
+      })
+    } catch (error) {
+      console.log(error)
+    }
+    
   }
 };

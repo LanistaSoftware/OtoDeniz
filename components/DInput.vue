@@ -1,14 +1,14 @@
 <template>
   <input
-    type="text"
     v-bind="$attrs"
-    :value="value"
+    type="text"
     @input="$emit('input', $event.target.value)"
     :class="{ 'd-input': !sm, 'd-sm-input': sm, 'd-ts':ts}"
   />
 </template>
 <script>
 export default {
+    prop: ['value'],
     props: {
         sm: {
             type:Boolean,
@@ -18,6 +18,16 @@ export default {
             type:Boolean,
             default:false
         }
+    },
+    data(){
+      return {
+        content: this.value
+      }
+    },
+    methods: {
+       handleInput (e) {
+      this.$emit('input', this.content)
+    }
     }
 }
 </script>
