@@ -110,13 +110,22 @@ export const actions = {
     }
   },
   async addRequest({}, mail) {
-    console.log(mail)
     try {
-      this.$fireStore.collection("requests").add({
+      this.$fireStore.collection("maillist").add({
         mail: mail,
         answer: false,
         id: uniqid()
       }).then(() => {
+      })
+    } catch (error) {
+      console.log(error)
+    }
+    
+  },
+  async parcaIstek({}, form) {
+    console.log(form)
+    try {
+      this.$fireStore.collection("requests").add(form).then(() => {
       })
     } catch (error) {
       console.log(error)
