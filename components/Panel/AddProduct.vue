@@ -22,7 +22,7 @@
         </b-card>
       </b-col>
     </b-row>
-    <b-form @submit.prevent="setProduct()">
+    <b-form @submit.prevent="handleSubmit()">
       <b-form-group
         id="input-group-1"
         label="Ürün Resmi :"
@@ -94,7 +94,7 @@ export default {
   data() {
     return {
       prewImage: null,
-      id:null,
+      id: null,
       form: {
         categories: null,
         name: null,
@@ -110,13 +110,13 @@ export default {
         this.form.name = to.item.name;
         this.form.desc = to.item.desc;
         this.form.file = to.item.file;
-        this.id = to.key
+        this.id = to.key;
         this.getimg(this.form.file);
-      }else {
-        this.form.categories =null
-        this.form.name = null
-        this.form.desc = null
-        this.form.file = null
+      } else {
+        this.form.categories = null;
+        this.form.name = null;
+        this.form.desc = null;
+        this.form.file = null;
       }
     }
   },
@@ -126,8 +126,18 @@ export default {
       getAllProduct: "getAllProduct",
       UpdateProduct: "UpdateProduct"
     }),
-    updateOnly(){
-      this.UpdateProduct({form:this.form,id:this.id})
+    handleSubmit() {
+      if (this.formState === "Edit") {
+        this.updateOnly();
+      } else {
+        this.setProduct();
+      }
+    },
+    updateOnly() {
+      this.UpdateProduct({ form: this.form, id: this.id }).then(() => {
+        this.getAllProduct();
+        this.prewImage = null;
+      });
     },
     setProduct() {
       this.addProduct(this.form).then(() => {

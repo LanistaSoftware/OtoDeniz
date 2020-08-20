@@ -10,19 +10,20 @@ export const mutations = {
 export const actions = {
   async addProduct({ commit, dispatch }, form) {
     try {
+      var uid = uniqid()
       this.$fireStore
         .collection("products")
         .add({
           categories: form.categories,
           name: form.name,
-          file: form.file.name,
+          file: uid,
           desc: form.desc,
           id: uniqid()
         })
         .then(() => {
           var storageRef = this.$fireStorage.ref();
           var file = form.file;
-          var thisRef = storageRef.child(file.name);
+          var thisRef = storageRef.child(uid);
           thisRef
             .put(file)
             .then(() => {})
@@ -84,19 +85,19 @@ export const actions = {
           desc: form.desc,
           file: name
         })
+        // .then(() => {
+        //   if (form.file.name !== undefined) {
+        //     var storageRef2 = this.$fireStorage.ref();
+        //     var file = form.file;
+        //     var thisRef2 = storageRef2.child(file.name);
+        //     thisRef2.put(file).then(() => {});
+        //   }
+        // })
         .then(() => {
-          if (form.file.name !== undefined) {
-            var storageRef2 = this.$fireStorage.ref();
-            var file = form.file;
-            var thisRef2 = storageRef2.child(file.name);
-            thisRef2.put(file).then(() => {});
-          }
-        })
-        .then(() => {
-          this.form.categories = null;
-          this.form.name = null;
-          this.form.desc = null;
-          this.form.file = null;
+          form.categories = null;
+          form.name = null;
+          form.desc = null;
+          form.file = null;
         });
     } catch (error) {
       console.log(error);
