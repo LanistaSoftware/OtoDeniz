@@ -1,4 +1,4 @@
-var uniqid = require('uniqid');
+var uniqid = require("uniqid");
 export const state = {
   products: []
 };
@@ -10,7 +10,7 @@ export const mutations = {
 export const actions = {
   async addProduct({ commit, dispatch }, form) {
     try {
-      var uid = uniqid()
+      var uid = uniqid();
       this.$fireStore
         .collection("products")
         .add({
@@ -69,10 +69,10 @@ export const actions = {
   },
   async UpdateProduct({ commit }, { form, id }) {
     try {
-        console.log(id)
+      console.log(id);
       var name;
       if (form.file.name !== undefined) {
-        name = form.file.name;
+        name = uniqid();
       } else {
         name = form.file;
       }
@@ -85,14 +85,23 @@ export const actions = {
           desc: form.desc,
           file: name
         })
-        // .then(() => {
-        //   if (form.file.name !== undefined) {
-        //     var storageRef2 = this.$fireStorage.ref();
-        //     var file = form.file;
-        //     var thisRef2 = storageRef2.child(file.name);
-        //     thisRef2.put(file).then(() => {});
-        //   }
-        // })
+        .then(() => {
+          if (form.file.name !== undefined) {
+            var storageRef = this.$fireStorage.ref(form.beforename);
+            storageRef
+              .delete()
+              .then(function() {
+              })
+          }
+        })
+        .then(() => {
+          if (form.file.name !== undefined) {
+            var storageRef2 = this.$fireStorage.ref();
+            var file = form.file;
+            var thisRef2 = storageRef2.child(name);
+            thisRef2.put(file).then(() => {});
+          }
+        })
         .then(() => {
           form.categories = null;
           form.name = null;

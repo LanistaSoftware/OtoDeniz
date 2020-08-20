@@ -1,5 +1,5 @@
 <template>
-  <b-img width="240" height="135" class="rounded-0" :src="url" :alt="imgurl"/>
+  <b-img width="120" height="120" class="rounded-0" :src="url" :alt="imgurl"/>
 </template>
 <script>
 export default {

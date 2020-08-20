@@ -99,6 +99,7 @@ export default {
         categories: null,
         name: null,
         desc: null,
+        beforename:null,
         file: null
       }
     };
@@ -110,6 +111,7 @@ export default {
         this.form.name = to.item.name;
         this.form.desc = to.item.desc;
         this.form.file = to.item.file;
+        this.form.beforename = to.item.file;
         this.id = to.key;
         this.getimg(this.form.file);
       } else {
