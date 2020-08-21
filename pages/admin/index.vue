@@ -1,6 +1,6 @@
 <template>
        <div class="login-body bg-cream text-center">
-         <b-form class="form-signin">
+         <b-form @submit.prevent="Login(form)" class="form-signin">
            <img class="mb-4" src="oto_deniz_logo.svg" alt="" width="%100"
              height="72">
       <b-form-group class="text-left" id="input-group-2" label="Kullanıcı Adı:" label-for="userName">
@@ -15,22 +15,19 @@
         <b-form-input
           id="password"
           v-model="form.password"
+          type="password"
           required
           placeholder="Şifre"
         ></b-form-input>
       </b-form-group>
-      <b-form-group id="input-group-3">
-        <b-form-checkbox-group v-model="form.checked" id="checkbox">
-          <b-form-checkbox value="me">Beni Hatırla</b-form-checkbox>
-        </b-form-checkbox-group>
-      </b-form-group>
-           <b-button variant="warning" size="lg" block type="submit">Giriş Yap</b-button>
+           <b-button variant="warning" size="md" block type="submit">Giriş Yap</b-button>
            <p class="mt-5 mb-3 text-muted">&copy; 2020 </p>
          </b-form>
        </div>
 </template>
 
 <script>
+import {mapActions} from 'vuex'
 export default {
 name: 'Panel',
 data() {
@@ -42,6 +39,11 @@ data() {
 		}
 	}
 },
+methods: {
+  ...mapActions({
+    Login: 'Login'
+  })
+}
 }
 </script>
 
