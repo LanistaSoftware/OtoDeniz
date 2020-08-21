@@ -1,10 +1,10 @@
 <template>
-  <div class="footer-container">
-    <div class="top-contianer bg-yellow">
-      <div class="footer-top container">
+  <div class="footer-container bg-yellow">
+    <div class="top-contianer ">
+      <div class="footer-top  d-container">
         <div class="footer-info">
           <div>
-             <h6>
+          <h6>
             İLETİŞİM
           </h6>
           <ul>
@@ -147,7 +147,7 @@
   li {
     color: @dark;
     font-size: 0.8rem;
-    padding: 0.5rem;
+    padding: 0.2rem;
   }
   ul {
     padding: 0;
@@ -159,7 +159,7 @@
 .top-contianer {
   display: grid;
   grid-template-rows: 1fr 0.6fr;
-  padding: 4rem;
+  padding: 4rem 0rem;
   p {
     color: @drop;
   }
@@ -179,7 +179,7 @@
     display: flex;
   }
   div {
-    width: 80%;
+    width: 100%;
   }
 }
 .footer-bottom {

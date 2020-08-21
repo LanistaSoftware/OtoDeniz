@@ -136,8 +136,9 @@ export default {
     width: 100%;
   }
   img {
-    width: 100%;
+    width: 90%;
     height: auto;
+    justify-self: center;
   }
 }
 @media @mobile {

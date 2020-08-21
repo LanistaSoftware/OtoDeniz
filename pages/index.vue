@@ -7,7 +7,7 @@
         <content-slide :cards="contentslidecards" />
       </div>
     </section>
-    <section class="bg-white service-section container" id="hakkımızda">
+    <section class="bg-white service-section d-container" id="hakkımızda">
       <div class="section-header">
         <h3>
           Hizmet Anlayışımız
@@ -159,8 +159,8 @@ export default {
         {
           title: "Kredi kartı ve mail order ile uygun ödeme seçenekleri ",
           buttontext: "Bizi ziyaret edin",
-          bgVariant: 'bg-green',
-          textVariant: 'text-white',
+          bgVariant: "bg-green",
+          textVariant: "text-white",
           img: "slide2.png",
           content:
             "En uygun fiyatlara sahip orijinal yedek parçaları isterseniz kredi kartınızla,isterseniz mail order hizmetini kullanarak ödeyebilirsiniz. Farklı ödeme seçenekleri için şubemizi ziyaret edebiliriniz."
@@ -168,8 +168,8 @@ export default {
         {
           title: "Bulamadığınız parçaları sizin için biz bulalım",
           buttontext: "Parça talep edin",
-          bgVariant: 'bg-blue',
-          textVariant: 'text-white',
+          bgVariant: "bg-blue",
+          textVariant: "text-white",
           img: "slide3.png",
           content:
             "Arayıp bulamadığınız bir yedek parça varsa talep oluşturmanız halinde Deniz Oto ve Yedek Parça uzman kadrosuyla size kısa sürede ihtiyacınız olan parçayı bulabilir."
