@@ -10,7 +10,7 @@
         </p>
       </div>
       <div class="card-button">
-        <d-button class="button" bgVariant="bg-yellow" textVariant="text-dark">{{ buttontext }}</d-button>
+        <d-button class="button" :bgVariant="bgVariant" :textVariant="textVariant">{{ buttontext }}</d-button>
       </div>
     </div>
     <div v-if="!map" class="image-container">
@@ -43,6 +43,14 @@ export default {
     img: {
       type: String,
       default: null,
+    },
+    bgVariant: {
+      type:String,
+      default:'bg-yellow'
+    },
+    textVariant: {
+      type:String,
+      default:'text-dark'
     },
     top: {
       type: Boolean,

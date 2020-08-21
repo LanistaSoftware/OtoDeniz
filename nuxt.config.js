@@ -22,7 +22,7 @@ export default {
     link: [{
       rel: 'icon',
       type: 'image/x-icon',
-      href: '/favicon.ico'
+      href: '/favicon.png'
     }]
   },
   /*
@@ -74,9 +74,13 @@ export default {
         },
         services: {
           auth: true,
-          firestore: true,
+          firestore:{
+            ssr:true
+          },
           functions: true,
-          storage: true,
+          storage: {
+            ssr:true
+          },
           realtimeDb: true,
           messaging: true,
           performance: true,

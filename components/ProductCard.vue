@@ -2,7 +2,7 @@
   <div class="product-card d_shaodw">
     <div
       class="product-card-image"
-      :style="{ 'background-image': `url(/${img})` }"
+      :style="{ 'background-image': `url(${prewImage})` }"
     />
     <div class="product-hover-body">
       <div>
@@ -35,10 +35,15 @@
 </template>
 <script>
 export default {
+  data() {
+    return {
+      prewImage: null
+    };
+  },
   props: {
     img: {
       type: String,
-      default: "2.png"
+      default: null
     },
     title: {
       type: String,
@@ -55,6 +60,20 @@ export default {
     buttontext: {
       type: String,
       default: null
+    }
+  },
+  created() {
+    this.getimg(this.img);
+  },
+  methods: {
+    async getimg(img) {
+      try {
+        let ref = await this.$fireStorage.ref().child(img);
+        const url = await ref.getDownloadURL();
+        this.prewImage = url;
+        return url;
+      } catch (error) {
+      }
     }
   }
 };

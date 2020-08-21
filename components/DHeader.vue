@@ -101,7 +101,7 @@ export default {
       menu: [
         {
           text: "Ana sayfa",
-          link: "anasayfa",
+          link: "/",
         },
         {
           text: "Hakkımızda",

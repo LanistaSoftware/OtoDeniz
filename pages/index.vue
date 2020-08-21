@@ -4,7 +4,7 @@
     <mobile-header id="mobile-header" />
     <section class="bg-cream" id="anasayfa">
       <div class="d-container">
-        <content-slide />
+        <content-slide :cards="contentslidecards" />
       </div>
     </section>
     <section class="bg-white service-section container" id="hakkımızda">
@@ -24,7 +24,7 @@
         >
       </div>
       <div class="service-section-content" id="service-mobile">
-        <center-card-slide :cards="centercard" />
+        <center-card-slide :cards="centercards" />
       </div>
     </section>
     <section class="product-section bg-cream">
@@ -35,17 +35,17 @@
           </h3>
         </div>
         <div class="product-search ">
-          <d-search class="d_shaodw" />
+          <d-search class="d_shaodw" @pr="searchValue($event)" />
         </div>
         <div class="service-section-product" id="ürünler">
           <product-card
-            v-for="(item, i) in prodcutcards"
+            v-for="(product, i) in pageproduct"
             :key="i"
-            :img="item.img"
-            :title="item.title"
-            :subtitle="item.subtitle"
-            :bodytext="item.bodytext"
-            :buttontext="item.buttontext"
+            :img="product.item.file"
+            :title="product.item.categories"
+            :subtitle="product.item.name"
+            :bodytext="product.item.desc"
+            buttontext="Hemen Arayın"
             v-show="i <= 7 || all == true"
           />
         </div>
@@ -118,82 +118,12 @@
   </div>
 </template>
 <script>
+import { mapActions, mapState } from "vuex";
 export default {
   data() {
     return {
       all: false,
-      prodcutcards: [
-        {
-          title: "MOTOR PARÇALARI",
-          subtitle: "Krank Mili",
-          bodytext: "Chevrolet Cruze 2013 1.6 Benzinli",
-          buttontext: "Hemen Arayın",
-          img: "2.png"
-        },
-        {
-          title: "MOTOR PARÇALARI",
-          subtitle: "Krank Mili",
-          bodytext: "Chevrolet Cruze 2013 1.6 Benzinli",
-          buttontext: "Hemen Arayın",
-          img: "2.png"
-        },
-        {
-          title: "MOTOR PARÇALARI",
-          subtitle: "Krank Mili",
-          bodytext: "Chevrolet Cruze 2013 1.6 Benzinli",
-          buttontext: "Hemen Arayın",
-          img: "2.png"
-        },
-        {
-          title: "MOTOR PARÇALARI",
-          subtitle: "Krank Mili",
-          bodytext: "Chevrolet Cruze 2013 1.6 Benzinli",
-          buttontext: "Hemen Arayın",
-          img: "2.png"
-        },
-        {
-          title: "MOTOR PARÇALARI",
-          subtitle: "Krank Mili",
-          bodytext: "Chevrolet Cruze 2013 1.6 Benzinli",
-          buttontext: "Hemen Arayın",
-          img: "2.png"
-        },
-        {
-          title: "MOTOR PARÇALARI",
-          subtitle: "Krank Mili",
-          bodytext: "Chevrolet Cruze 2013 1.6 Benzinli",
-          buttontext: "Hemen Arayın",
-          img: "2.png"
-        },
-        {
-          title: "MOTOR PARÇALARI",
-          subtitle: "Krank Mili",
-          bodytext: "Chevrolet Cruze 2013 1.6 Benzinli",
-          buttontext: "Hemen Arayın",
-          img: "2.png"
-        },
-        {
-          title: "MOTOR PARÇALARI",
-          subtitle: "Krank Mili",
-          bodytext: "Chevrolet Cruze 2013 1.6 Benzinli",
-          buttontext: "Hemen Arayın",
-          img: "2.png"
-        },
-        {
-          title: "MOTOR PARÇALARI",
-          subtitle: "Krank Mili",
-          bodytext: "Chevrolet Cruze 2013 1.6 Benzinli",
-          buttontext: "Hemen Arayın",
-          img: "2.png"
-        },
-        {
-          title: "MOTOR PARÇALARI",
-          subtitle: "Krank Mili",
-          bodytext: "Chevrolet Cruze 2013 1.6 Benzinli",
-          buttontext: "Hemen Arayın",
-          img: "2.png"
-        }
-      ],
+      pageproduct: [],
       centercards: [
         {
           title: "Bölgenin en geniş yedek parça ağı",
@@ -202,25 +132,68 @@ export default {
           img: "1.svg"
         },
         {
-          title: "Bölgenin en geniş yedek parça ağı",
+          title: "Uzman kadro ile hızlı ve kalıcı çözüm",
           content:
-            "Van ve çevre iller bazında mevcut en geniş yedek parça ağı ",
-          img: "1.svg"
+            "Otuz yılı aşkın tecrübe ile anında hızlı ve en etkili çözüm ",
+          img: "2.svg"
         },
         {
-          title: "Bölgenin en geniş yedek parça ağı",
-          content:
-            "Van ve çevre iller bazında mevcut en geniş yedek parça ağı ",
-          img: "1.svg"
+          title: "Orijinal parçalarla güvenli alışveriş",
+          content: "Orjinal ve güvenilir parçalarla garantili hizmet anlayışı ",
+          img: "3.svg"
         },
         {
-          title: "Bölgenin en geniş yedek parça ağı",
+          title: "Kredi Kartı ile Ödeme kolaylığı",
+          content: "Kredi kartı ve mail order ile kolay ödeme seçenekleri ",
+          img: "4.svg"
+        }
+      ],
+      contentslidecards: [
+        {
+          title: "Bölgedeki en iyi yedek parçaları keşfedin",
+          buttontext: "Hemen arayın",
+          img: "1.png",
           content:
-            "Van ve çevre iller bazında mevcut en geniş yedek parça ağı ",
-          img: "1.svg"
+            "Aradığınız bütün orijinal yedek parçaları en uygun fiyatlarla bölgenin en iyi yedek parça marketi Deniz Oto ve Yedek Parça da haftanın her günü bulabilirsiniz."
+        },
+        {
+          title: "Kredi kartı ve mail order ile uygun ödeme seçenekleri ",
+          buttontext: "Bizi ziyaret edin",
+          bgVariant: 'bg-green',
+          textVariant: 'text-white',
+          img: "slide2.png",
+          content:
+            "En uygun fiyatlara sahip orijinal yedek parçaları isterseniz kredi kartınızla,isterseniz mail order hizmetini kullanarak ödeyebilirsiniz. Farklı ödeme seçenekleri için şubemizi ziyaret edebiliriniz."
+        },
+        {
+          title: "Bulamadığınız parçaları sizin için biz bulalım",
+          buttontext: "Parça talep edin",
+          bgVariant: 'bg-blue',
+          textVariant: 'text-white',
+          img: "slide3.png",
+          content:
+            "Arayıp bulamadığınız bir yedek parça varsa talep oluşturmanız halinde Deniz Oto ve Yedek Parça uzman kadrosuyla size kısa sürede ihtiyacınız olan parçayı bulabilir."
         }
       ]
     };
+  },
+  methods: {
+    ...mapActions({
+      getAllProduct: "getAllProduct"
+    }),
+    searchValue(e) {
+      this.pageproduct = e;
+    }
+  },
+  computed: {
+    ...mapState({
+      products: "products"
+    })
+  },
+  created() {
+    this.getAllProduct().then(() => {
+      this.pageproduct = this.products;
+    });
   }
 };
 </script>
@@ -334,11 +307,11 @@ export default {
     width: 90% !important;
   }
 }
-  #section-about {
+#section-about {
   .content-card {
-  p {
-    font-size: 0.8rem !important;
-  }
+    p {
+      font-size: 0.8rem !important;
+    }
   }
 }
 </style>

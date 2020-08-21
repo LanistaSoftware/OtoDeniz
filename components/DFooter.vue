@@ -132,7 +132,7 @@
         </p>
       </div>
       <div class="bottom-right">
-        <img src="/oto_deniz_logo.svg" alt="" />
+        <img src="/lanista.png" alt="" />
         <p class="text-white">
           Think, create, develop!
         </p>
@@ -195,7 +195,7 @@
 }
 .bottom-left {
   display: grid;
-  justify-self: start;
+  justify-self: left;
   img {
     display: grid;
     justify-self: center;
@@ -205,7 +205,7 @@
 }
 .bottom-right {
   display: grid;
-  justify-self: center;
+  justify-self: right;
   img {
     display: grid;
     justify-self: center;

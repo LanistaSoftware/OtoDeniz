@@ -5,6 +5,8 @@
         :title="item.title"
         :buttontext="item.buttontext"
         :img="item.img"
+        :bgVariant="item.bgVariant"
+        :textVariant="item.textVariant"
         reverse
         >{{item.content}}</content-card
       >
@@ -17,26 +19,7 @@ export default {
   props:{
     cards: {
       type:Array,
-      default: [
-        {
-          title: 'Bölgedeki en iyi yedek parçaları keşfedin',
-          buttontext: "Hemen arayın",
-          img: '1.png',
-          content :'Aradığınız bütün orijinal yedek parçaları en uygun fiyatlarla bölgenin en iyi yedek parça marketi Deniz Oto ve Yedek Parça da haftanın her günü bulabilirsiniz.'
-        },
-        {
-          title: 'Bölgedeki en iyi yedek parçaları keşfedin',
-          buttontext: "Hemen arayın",
-          img: '1.png',
-          content :'Aradığınız bütün orijinal yedek parçaları en uygun fiyatlarla bölgenin en iyi yedek parça marketi Deniz Oto ve Yedek Parça da haftanın her günü bulabilirsiniz.'
-        },
-        {
-          title: 'Bölgedeki en iyi yedek parçaları keşfedin',
-          buttontext: "Hemen arayın",
-          img: '1.png',
-          content :'Aradığınız bütün orijinal yedek parçaları en uygun fiyatlarla bölgenin en iyi yedek parça marketi Deniz Oto ve Yedek Parça da haftanın her günü bulabilirsiniz.'
-        }
-      ]
+      default:null
     }
   }
 }
@@ -44,6 +27,7 @@ export default {
 <style lang="less">
 .d-carousel {
   padding: 1rem;
+  width: 100%;
 }
 .VueCarousel-dot {
   width: 20px !important;
