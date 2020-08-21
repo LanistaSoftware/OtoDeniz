@@ -27,7 +27,7 @@
               </svg> </template
           ></top>
           <p>
-            Seyrantepe, 10/32. Sk. No:3 65040 Van Merkez/Van
+            {{ Info.adress }}
           </p>
         </div>
         <div>
@@ -55,7 +55,7 @@
               </svg> </template
           ></top>
           <p>
-            (0432) 223 05 79
+            {{ Info.phone }}
           </p>
         </div>
         <div>
@@ -80,7 +80,7 @@
               </svg> </template
           ></top>
           <p>
-            info@otodeniz.com.tr
+            {{ Info.email }}
           </p>
         </div>
       </div>
@@ -100,6 +100,16 @@
     </div>
   </div>
 </template>
+<script>
+import { mapState } from "vuex";
+export default {
+  computed: {
+    ...mapState({
+      Info: "Info"
+    })
+  }
+};
+</script>
 <style lang="less">
 .mobile-footer {
   display: grid;

@@ -1,5 +1,8 @@
 <template>
-  <div class="content-card" :class="{ 'reverse-right': !reverse, 'reverse-left': reverse }">
+  <div
+    class="content-card"
+    :class="{ 'reverse-right': !reverse, 'reverse-left': reverse }"
+  >
     <div class="content-container">
       <div class="card-title">
         <h1 class="f_bold">{{ title }}</h1>
@@ -10,47 +13,74 @@
         </p>
       </div>
       <div class="card-button">
-        <d-button class="button" :bgVariant="bgVariant" :textVariant="textVariant">{{ buttontext }}</d-button>
+        <d-button
+          class="button"
+          :bgVariant="bgVariant"
+          :textVariant="textVariant"
+          @click="handleSubmit()"
+          >{{ buttontext }}</d-button
+        >
       </div>
     </div>
     <div v-if="!map" class="image-container">
       <img :src="img" alt="card_img" />
     </div>
     <div v-else class="image-container">
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3007.3566675762777!2d28.78506281495511!3d41.08305312276978!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14caa5f570baaaab%3A0xac43b09ef54311fd!2sGochem!5e0!3m2!1str!2str!4v1585750999091!5m2!1str!2str"
-        frameborder="0"
-        allowfullscreen
-        aria-hidden="false"
-        tabindex="0"
-        title="oto deniz adresi"
-        class="d-map"
-      />
+      <div           class="d-map"
+>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3007.3566675762777!2d28.78506281495511!3d41.08305312276978!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14caa5f570baaaab%3A0xac43b09ef54311fd!2sGochem!5e0!3m2!1str!2str!4v1585750999091!5m2!1str!2str"
+          frameborder="0"
+          allowfullscreen
+          aria-hidden="true"
+          height="100%" width="100%"
+          tabindex="0"
+          title="oto deniz adresi"
+        />
+      </div>
     </div>
   </div>
 </template>
 <script>
 export default {
+  methods: {
+    handleSubmit() {
+      if (this.mapClick) {
+        this.$router.push("#map");
+      }
+      if (this.requests) {
+        this.$router.push("#iletişim");
+      }
+    }
+  },
   props: {
     title: {
       type: String,
-      default: null,
+      default: null
+    },
+    mapClick: {
+      type: Boolean,
+      default: false
     },
     map: {
       type: Boolean,
-      default: false,
+      default: false
+    },
+    requests: {
+      type: Boolean,
+      default: false
     },
     img: {
       type: String,
-      default: null,
+      default: null
     },
     bgVariant: {
-      type:String,
-      default:'bg-yellow'
+      type: String,
+      default: "bg-yellow"
     },
     textVariant: {
-      type:String,
-      default:'text-dark'
+      type: String,
+      default: "text-dark"
     },
     top: {
       type: Boolean,
@@ -58,13 +88,13 @@ export default {
     },
     buttontext: {
       type: String,
-      default: null,
+      default: null
     },
     reverse: {
       type: Boolean,
-      default: false,
-    },
-  },
+      default: false
+    }
+  }
 };
 </script>
 <style lang="less" scoped>
@@ -86,7 +116,7 @@ export default {
   padding: 1rem 0;
   width: 100%;
   display: grid;
-  grid-template-rows: 1fr 1fr 0.5fr;
+  grid-template-rows: auto 1fr auto;
   grid-template-areas:
     "card-title"
     "card-content"
@@ -130,13 +160,13 @@ export default {
   grid-area: image-container;
   display: grid;
   width: 100%;
-  justify-content: center;
-  align-content: center;
   .d-map {
     width: 100%;
+    height: 100%;
+    padding: 1rem;
   }
   img {
-    width: 90%;
+    width: 100%;
     height: auto;
     justify-self: center;
   }

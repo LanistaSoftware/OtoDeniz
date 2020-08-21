@@ -10,7 +10,7 @@
           <ul>
             <li>
               <top
-                ><template v-slot:text>(0432) 223 05 79</template>
+                ><template v-slot:text>{{Info.phone}}</template>
                 <template v-slot:image
                   ><svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -35,8 +35,30 @@
             </li>
             <li>
               <top
+                ><template v-slot:text>{{Info.email}}</template>
+                <template v-slot:image
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="icon icon-tabler icon-tabler-mail"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    stroke="currentColor"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" />
+                    <rect x="3" y="5" width="18" height="14" rx="2" />
+                    <polyline points="3 7 12 13 21 7" />
+                  </svg> </template
+              ></top>
+            </li>
+             <li>
+              <top
                 ><template v-slot:text
-                  >Seyrantepe, 10/32. Sk. No:3, 65040 Van Merkez/Van</template
+                  >{{Info.adress}}</template
                 >
                 <template v-slot:image
                   ><svg
@@ -57,28 +79,6 @@
                     />
                     <line x1="9" y1="4" x2="9" y2="17" />
                     <line x1="15" y1="7" x2="15" y2="20" />
-                  </svg> </template
-              ></top>
-            </li>
-            <li>
-              <top
-                ><template v-slot:text>info@otodeniz.com.tr</template>
-                <template v-slot:image
-                  ><svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="icon icon-tabler icon-tabler-mail"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    stroke-width="2"
-                    stroke="currentColor"
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <path stroke="none" d="M0 0h24v24H0z" />
-                    <rect x="3" y="5" width="18" height="14" rx="2" />
-                    <polyline points="3 7 12 13 21 7" />
                   </svg> </template
               ></top>
             </li>
@@ -140,6 +140,16 @@
     </div>
   </div>
 </template>
+<script>
+import {mapState} from 'vuex'
+export default {
+    computed: {
+    ...mapState({
+      Info: "Info"
+    })
+  }
+}
+</script>
 <style lang="less" scoped>
 .footer-container {
   display: grid;

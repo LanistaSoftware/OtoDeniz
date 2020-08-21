@@ -40,7 +40,7 @@
         <div class="service-section-product" id="ürünler">
           <product-card
             v-for="(product, i) in pageproduct"
-            :key="i"
+            :key="product.key"
             :img="product.item.file"
             :title="product.item.categories"
             :subtitle="product.item.name"
@@ -98,7 +98,7 @@
         </div>
       </div>
     </section>
-    <section class="d-container" id="isteklistesi">
+    <section class="d-container" id="map">
       <div class="map-section">
         <content-card
           title="Bizi yerimizde ziyaret edin"
@@ -161,7 +161,8 @@ export default {
           buttontext: "Bizi ziyaret edin",
           bgVariant: "bg-green",
           textVariant: "text-white",
-          img: "slide2.png",
+          mapClick: true,
+          img: "1.png",
           content:
             "En uygun fiyatlara sahip orijinal yedek parçaları isterseniz kredi kartınızla,isterseniz mail order hizmetini kullanarak ödeyebilirsiniz. Farklı ödeme seçenekleri için şubemizi ziyaret edebiliriniz."
         },
@@ -170,6 +171,7 @@ export default {
           buttontext: "Parça talep edin",
           bgVariant: "bg-blue",
           textVariant: "text-white",
+          requests: true,
           img: "slide3.png",
           content:
             "Arayıp bulamadığınız bir yedek parça varsa talep oluşturmanız halinde Deniz Oto ve Yedek Parça uzman kadrosuyla size kısa sürede ihtiyacınız olan parçayı bulabilir."
@@ -305,13 +307,6 @@ export default {
 @media @mobile {
   .d-container {
     width: 90% !important;
-  }
-}
-#section-about {
-  .content-card {
-    p {
-      font-size: 0.8rem !important;
-    }
   }
 }
 </style>

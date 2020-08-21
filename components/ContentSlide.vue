@@ -7,6 +7,8 @@
         :img="item.img"
         :bgVariant="item.bgVariant"
         :textVariant="item.textVariant"
+        :requests="item.requests"
+        :mapClick="item.mapClick"
         reverse
         >{{item.content}}</content-card
       >
