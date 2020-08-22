@@ -1,10 +1,15 @@
 <template>
   <div>
-    <d-header id="desktop-header" />
-    <mobile-header id="mobile-header" />
+    <no-ssr>
+      <d-header id="desktop-header" />
+      <mobile-header id="mobile-header" />
+    </no-ssr>
+
     <section class="bg-cream" id="anasayfa">
       <div class="d-container">
-        <content-slide :cards="contentslidecards" />
+        <no-ssr>
+          <content-slide :cards="contentslidecards" />
+        </no-ssr>
       </div>
     </section>
     <section class="bg-white service-section d-container" id="hakkımızda">
@@ -24,7 +29,9 @@
         >
       </div>
       <div class="service-section-content" id="service-mobile">
-        <center-card-slide :cards="centercards" />
+        <no-ssr>
+          <center-card-slide :cards="centercards" />
+        </no-ssr>
       </div>
     </section>
     <section class="product-section bg-cream">
@@ -38,16 +45,18 @@
           <d-search class="d_shaodw" @pr="searchValue($event)" />
         </div>
         <div class="service-section-product" id="ürünler">
-          <product-card
-            v-for="(product, i) in pageproduct"
-            :key="product.key"
-            :img="product.item.file"
-            :title="product.item.categories"
-            :subtitle="product.item.name"
-            :bodytext="product.item.desc"
-            buttontext="Hemen Arayın"
-            v-show="i <= 7 || all == true"
-          />
+          <no-ssr>
+            <product-card
+              v-for="(product, i) in pageproduct"
+              :key="product.key"
+              :img="product.item.file"
+              :title="product.item.categories"
+              :subtitle="product.item.name"
+              :bodytext="product.item.desc"
+              buttontext="Hemen Arayın"
+              v-show="i <= 7 || all == true"
+            />
+          </no-ssr>
         </div>
       </div>
       <div class="icon-chevron text-blue" @click="all = !all">

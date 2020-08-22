@@ -14,7 +14,9 @@
         </div>
       </div>
       <div class="mobile-header-bottom">
+        <no-ssr>
         <logo-slide />
+        </no-ssr>      
       </div>
     </div>
   </div>

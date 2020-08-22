@@ -41,11 +41,11 @@ export default {
    ** Plugins to load before mounting the App
    */
   plugins: [{
-      src: '@/plugins/carousel.js',
+      src: '~/plugins/carousel.js',
       ssr: false
     },
     {
-      src: '@/plugins/carousel3d.js',
+      src: '~/plugins/carousel3d.js',
       ssr: false
     }
   ],
@@ -99,6 +99,8 @@ export default {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {}
+    extend(config, ctx) {},
+    babel: { compact: true }
+
   }
 }

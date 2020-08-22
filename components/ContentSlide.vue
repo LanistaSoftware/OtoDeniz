@@ -1,6 +1,6 @@
 <template>
   <carousel-1d class="d-carousel" :perPage="1">
-    <slide-1d v-for="item in cards" :key="item">
+    <slide-1d v-for="(item,i) in cards" :key="i">
       <content-card
         :title="item.title"
         :buttontext="item.buttontext"
@@ -21,7 +21,7 @@ export default {
   props:{
     cards: {
       type:Array,
-      default:null
+      required:false
     }
   }
 }
