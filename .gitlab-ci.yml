@@ -1,34 +1,33 @@
 stages:
-    - build
-    - deploy
+  - build
+  - deploy
 build_app:
-    image: node:latest
-    stage: build
-    script:
-        - npm install
-        - npm run build
+  image: node:latest
+  stage: build
+  script:
+    - npm install
+    - npm run generate
 
-    cache:
-        paths:
-        - node_modules/
-    artifacts:
-        paths:
-            # build folder
-            - .nuxt/
-        expire_in: 1 week
+  cache:
+    paths:
+      - node_modules/
+  artifacts:
+    paths:
+      # build folder
+      - dist/
+    expire_in: 1 week
 production:
-    stage: deploy
-    before_script:
-        - apt-get update -qq
-        - apt-get install rsync -y
-        # Setup SSH deploy keyss
-        - 'which ssh-agent || ( apt-get install -qq openssh-client )'
-        - mkdir -p ~/.ssh
-        - eval $(ssh-agent -s)
-        - echo -e "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
-        - chmod 600 ~/.ssh/id_rsa
-        - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
-            
-    script:
-        - rsync --recursive -e 'ssh -p 22' .nuxt/* package.json  142.93.111.148:/var/www/html
-        - pm2 start
+  stage: deploy
+  before_script:
+    - apt-get update -qq
+    - apt-get install rsync -y
+    # Setup SSH deploy keyss
+    - "which ssh-agent || ( apt-get install -qq openssh-client )"
+    - mkdir -p ~/.ssh
+    - eval $(ssh-agent -s)
+    - echo -e "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+    - chmod 600 ~/.ssh/id_rsa
+    - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+
+  script:
+    - rsync --recursive -e 'ssh -p 22' dist/* 165.232.71.19:/var/www/otodeniz.com.tr/html

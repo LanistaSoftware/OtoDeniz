@@ -135,8 +135,6 @@ export default {
   },
   created(){
     this.getInfo().then(() => {
-    console.log(this.Info)
-
     })
   }
 };

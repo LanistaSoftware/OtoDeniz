@@ -50,9 +50,7 @@ export const actions = {
               form.categories = null;
             });
         });
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
   },
   async getAllProduct({ commit }) {
     try {
@@ -60,9 +58,7 @@ export const actions = {
       const snapshot = await this.$fireStore.collection("products").get();
       snapshot.docs.map(doc => items.push({ item: doc.data(), key: doc.id }));
       commit("setProducts", items);
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
   },
   async deleteDocument({}, { id, file }) {
     try {
@@ -73,19 +69,12 @@ export const actions = {
       var storageRef = this.$fireStorage.ref(file);
       storageRef
         .delete()
-        .then(function() {
-          console.log("silindi");
-        })
-        .catch(function(error) {
-          console.log(error);
-        });
-    } catch (error) {
-      console.log(error);
-    }
+        .then(function() {})
+        .catch(function(error) {});
+    } catch (error) {}
   },
   async UpdateProduct({ commit }, { form, id }) {
     try {
-      console.log(id);
       var name;
       if (form.file.name !== undefined) {
         name = uniqid();
@@ -121,9 +110,7 @@ export const actions = {
           form.desc = null;
           form.file = null;
         });
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
   },
   async addRequest({}, mail) {
     try {
@@ -135,20 +122,15 @@ export const actions = {
           id: uniqid()
         })
         .then(() => {});
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
   },
   async parcaIstek({}, form) {
-    console.log(form);
     try {
       this.$fireStore
         .collection("requests")
         .add(form)
         .then(() => {});
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
   },
   async getAllRequest({ commit }) {
     try {
@@ -156,9 +138,7 @@ export const actions = {
       const snapshot = await this.$fireStore.collection("requests").get();
       snapshot.docs.map(doc => items.push({ item: doc.data(), key: doc.id }));
       commit("setRequests", items);
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
   },
   async updateStatus({ commit }, id) {
     try {
@@ -168,9 +148,7 @@ export const actions = {
         .update({
           status: true
         });
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
   },
   async deleteRequest({ commit }, id) {
     try {
@@ -178,9 +156,7 @@ export const actions = {
         .collection("requests")
         .doc(id)
         .delete();
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
   },
   async getAllList({ commit }) {
     try {
@@ -188,9 +164,7 @@ export const actions = {
       const snapshot = await this.$fireStore.collection("maillist").get();
       snapshot.docs.map(doc => items.push({ item: doc.data(), key: doc.id }));
       commit("setList", items);
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
   },
   async deleteList({ commit }, id) {
     try {
@@ -198,9 +172,7 @@ export const actions = {
         .collection("maillist")
         .doc(id)
         .delete();
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
   },
   async getInfo({ commit }) {
     try {
@@ -209,9 +181,7 @@ export const actions = {
         .doc("company")
         .get();
       commit("setInfo", snapshot.data());
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
   },
   async updateInfo({ commit }, field) {
     try {
@@ -219,9 +189,7 @@ export const actions = {
         .collection("information")
         .doc("company")
         .update(field);
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
   },
   async addLogo({}, file) {
     try {
@@ -240,9 +208,7 @@ export const actions = {
             thisRef.put(file);
           });
       });
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
   },
   async Login({ commit }, form) {
     try {
@@ -260,17 +226,13 @@ export const actions = {
       } else {
         commit("setAuth", true);
       }
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
   },
   LogOut({ commit }) {
     commit("setAuth", false);
     $nuxt.$router.push("/admin/");
   },
-  // async nuxtServerInit ({dispatch}) {
-  //   console.log('çalıştı')
-  //   await  dispatch('getAllProduct')
-  // }
+  async nuxtServerInit(vuexContext) {
+    return vuexContext.dispatch('getAllProduct')
+  }
 };
-
