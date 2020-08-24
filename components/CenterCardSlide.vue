@@ -1,6 +1,6 @@
 <template>
   <carousel-3d class="center-card-carousel" :border="0" :perspective="0" :height="300" :width="300" :space="280" :display="3">
-    <slide-3d class="center-card-slide" v-for="(item, index) in cards" :key="index" :index="index">
+    <slide-3d class="center-card-slide" v-for="(item, index) in cardsslide" :key="index" :index="index">
         <center-card :img="item.img" :title="item.title">{{item.content}}</center-card>
     </slide-3d>
   </carousel-3d>
@@ -8,6 +8,13 @@
 <script>
 
  export default {
+   props: {
+     cardsslide: {
+      type:String,
+      required:false  
+     }
+   },
+
   data() {
     return {
       cards: [

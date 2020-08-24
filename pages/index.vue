@@ -30,7 +30,7 @@
       </div>
       <div class="service-section-content" id="service-mobile">
         <no-ssr>
-          <center-card-slide :cards="centercards" />
+          <center-card-slide :cardsslide="centercards" />
         </no-ssr>
       </div>
     </section>
