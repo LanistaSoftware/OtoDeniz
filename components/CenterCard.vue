@@ -5,7 +5,8 @@
     </div>
     <div class="center-card-content">
       <div class="content-header">
-        <h2 class="f_light">{{ title }}</h2>
+        <h5 class="f_bolder">{{ title }}</h5>
+        <p class="f_bolder">{{ title }}</p>
       </div>
       <div class="content-text">
         <p class="f_regular">
@@ -35,6 +36,7 @@ export default {
   text-align: center;
   grid-template-rows: 1fr 1fr;
   width: 100%;
+  align-content: center;
   grid-template-areas: "card-image" "content";
 }
 .center-card-content {
@@ -46,17 +48,20 @@ export default {
 .center-card-image {
   grid-area: card-image;
   display: grid;
-  justify-content: center;
-  align-content: center;
   img {
-    width: 100%;
+    width: 50%;
+    justify-self: center;
     height: auto;
   }
 }
 .content-header {
   grid-area: content-header;
   display: grid;
-  justify-items: center;
+  align-self: center;
+  padding-top: 0.8rem;
+  p {
+    display: none;
+  }
 }
 .content-text {
   grid-area: content-text;
@@ -65,45 +70,33 @@ export default {
   display: grid;
   justify-items: center;
   p {
-    width: 30%;
+    width: 80%;
+    font-size: 0.8rem;
   }
 }
-@media @xs {
+
+@media @mobile {
   .center-card-content {
     grid-template-rows: 1fr;
-    grid-template-areas: "content-text";
-  }
-  .content-header {
-    display: none;
-  }
-  .content-text {
-    grid-area: content-text;
-    text-align: center;
-    color: @drop;
-    display: grid;
-    justify-items: center;
-    p {
-      width: 70%;
-    }
-  }
-}
-@media @sm {
-  .center-card-content {
-    grid-template-rows: 1fr;
-    grid-template-areas: "content-text";
+    grid-template-areas: "content-header";
   }
 
-  .content-header {
+  .content-text {
     display: none;
   }
-  .content-text {
-    grid-area: content-text;
+  .content-header {
+    grid-area: content-header;
     text-align: center;
-    color: @drop;
     display: grid;
     justify-items: center;
+    h5{
+      display: none;
+    }
     p {
+      display: block;
+      padding-top: 1rem;
       width: 70%;
+      font-size: 2rem;
     }
   }
 }

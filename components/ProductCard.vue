@@ -2,32 +2,37 @@
   <div class="product-card d_shaodw">
     <div
       class="product-card-image"
-      :style="{ 'background-image': `url(/${img})` }"
+      :style="{ 'background-image': `url(${prewImage})` }"
     />
     <div class="product-hover-body">
       <div>
         <h5>Daha fazla bilgi almak için</h5>
       </div>
       <div>
-        <d-button bgVariant="bg-blue" class="button" textVariant="text-white"
-          >{{buttontext}}</d-button
+        <d-button
+          phone
+          bgVariant="bg-blue"
+          class="button"
+          textVariant="text-white"
+          >{{ buttontext }}</d-button
         >
       </div>
     </div>
     <div class="product-card-body">
       <div class="body-title">
-        <h5 class="f_regular">{{title}}</h5>
+        <h5 class="f_regular">{{ title }}</h5>
       </div>
       <div class="body-subtitle">
-        <h5>{{subtitle}}</h5>
+        <h5>{{ subtitle }}</h5>
       </div>
       <div class="body-description">
-        <h5 class="desc-title">{{bodytext}}</h5>
+        <h5 class="desc-title">{{ bodytext }}</h5>
         <d-button
+          phone
           class="body-button button"
           bgVariant="bg-blue"
           textVariant="text-white"
-          >{{buttontext}}</d-button
+          >{{ buttontext }}</d-button
         >
       </div>
     </div>
@@ -35,10 +40,15 @@
 </template>
 <script>
 export default {
+  data() {
+    return {
+      prewImage: null
+    };
+  },
   props: {
     img: {
       type: String,
-      default: "2.png"
+      default: null
     },
     title: {
       type: String,
@@ -55,6 +65,21 @@ export default {
     buttontext: {
       type: String,
       default: null
+    }
+  },
+  created() {
+    this.getimg(this.img);
+  },
+  methods: {
+    async getimg(img) {
+      try {
+        if (process.client) {
+          let ref = await this.$fireStorage.ref().child(img);
+          const url = await ref.getDownloadURL();
+          this.prewImage = url;
+          return url;
+        }
+      } catch (error) {}
     }
   }
 };
@@ -137,7 +162,7 @@ export default {
     filter: blur(0.1px) brightness(0.2);
   }
   100% {
-     height: 100%;
+    height: 100%;
     -webkit-filter: none;
     -moz-filter: none;
     -ms-filter: none;
@@ -202,7 +227,7 @@ export default {
   .body-button {
     display: block;
     width: 80%;
-    margin-bottom: 0.5rem;
+    padding: 5px !important;
   }
   .product-card-body {
     grid-template-rows: none;
@@ -220,6 +245,7 @@ export default {
   .body-button {
     display: block;
     width: 80%;
+    padding: 5px !important;
   }
   .product-card-body {
     grid-template-rows: none;

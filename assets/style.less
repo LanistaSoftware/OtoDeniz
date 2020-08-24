@@ -60,6 +60,10 @@ h6 {
   font-family: @f;
   font-weight: 300;
 }
+.f_normal_bold {
+  font-family: @f;
+  font-weight: 450;
+}
 
 .f_bold_italic {
   font-family: @f;
@@ -119,23 +123,57 @@ h6 {
   font-style: italic;
 }
 .d_shaodw {
--webkit-box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.3);
--moz-box-shadow: 2px 3px 4px 0px rgba(0,0,0,0.3);
-box-shadow: 2px 3px 4px 0px rgba(0,0,0,0.3);
+-webkit-box-shadow: 2px 2px 3px 0px rgba(0,0,0,0.1);
+-moz-box-shadow: 2px 3px 3px 0px rgba(0,0,0,0.1);
+box-shadow: 2px 3px 4px 0px rgba(0,0,0,0.1);
 }
 ul{
   list-style: none;
 }
 a{
-  text-decoration: none;
-  color: @htext;
+  text-decoration: none !important;
+  color: @white !important;
 }
-.nuxt-link-active {
-  span {
-    display: block;
-    height: 2px;
-    width: 1px;
-    color: @dark;
+a:link {
+  color: none !important;
+}
+
+/* visited link */
+a:visited {
+  color: none !important;
+}
+
+/* mouse over link */
+a:hover {
+  color: none !important;
+}
+
+/* selected link */
+a:active {
+  color: none !important;
+}
+.nuxt-link-active  {
+    span {
+      height: 0.5rem;
+      width: 2.3rem;
+      display: grid;
+      position: absolute;
+      border-bottom: 0.22rem solid @dark;
+      color: @dark; 
+    }
+}
+.center-menu,.mobile-menu,.map-group {
+  a {
+    color:@htext !important;
+  }
+}
+label {
+  color: @labelcolor;
+  font-family: @f;
+  font-weight: 300;}
+@media @mobile {
+  label {
+    font-size: 1.7rem;
   }
 }
 @import "./responsive.less";

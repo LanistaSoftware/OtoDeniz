@@ -11,8 +11,13 @@
 @white:#FFFFFF;
 @drop:#848484;
 @bgray:#374757;
+@ftext: #555555;
+@labelcolor: #373A3C;
 .bg-black {
     background-color: @htext;
+}
+.bg-cream {
+    background-color: @cream;
 }
 .bg-yellow {
     background-color: @yellow;
@@ -25,6 +30,9 @@
 }
 .bg-bgray {
     background-color: @bgray;
+}
+.bg-dark {
+    background-color: @dark;
 }
 .text-yellow {
     color: @yellow;
@@ -41,6 +49,7 @@
 p {
     font-size: 1.3rem;
 }
+
 @f:'Open Sans', sans-serif;
 
 @xs: ~"only screen and (max-width: 377px)";
@@ -49,3 +58,5 @@ p {
 @lg: ~"only screen and (min-width: 769px) and (max-width: 992px)";
 @xl: ~"only screen and (min-width: 993px) and (max-width: 1200px)";
 @xxl: ~"only screen and (min-width: 1201px)";
+@smalpc: ~"only screen and (min-width: 768px) and (max-width: 1440px)";
+@mobile: ~"only screen and (max-width: 768px)";

@@ -1,33 +1,98 @@
 <template>
-  <div class="content-card" :class="{ 'reverse-right': !reverse, 'reverse-left': reverse }">
+  <div
+    class="content-card"
+    :class="{ 'reverse-right': !reverse, 'reverse-left': reverse }"
+  >
     <div class="content-container">
       <div class="card-title">
         <h1 class="f_bold">{{ title }}</h1>
       </div>
       <div class="card-content">
         <p class="f_regular">
-         <slot />
+          <slot />
         </p>
       </div>
       <div class="card-button">
-        <d-button class="button" bgVariant="bg-yellow" textVariant="text-dark"
-          >{{buttontext}}</d-button
+        <d-button
+          class="button"
+          :bgVariant="bgVariant"
+          :textVariant="textVariant"
+          @click="handleSubmit()"
+          >{{ buttontext }}</d-button
         >
       </div>
     </div>
-    <div class="image-container"><img :src="img" alt="card_img" /></div>
+    <div v-if="!map" class="image-container">
+      <img :src="img" alt="card_img" />
+    </div>
+    <div v-else class="image-container">
+      <div           class="d-map"
+>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3007.3566675762777!2d28.78506281495511!3d41.08305312276978!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14caa5f570baaaab%3A0xac43b09ef54311fd!2sGochem!5e0!3m2!1str!2str!4v1585750999091!5m2!1str!2str"
+          frameborder="0"
+          allowfullscreen
+          aria-hidden="true"
+          height="100%" width="100%"
+          tabindex="0"
+          title="oto deniz adresi"
+        />
+      </div>
+    </div>
   </div>
 </template>
 <script>
+import {mapState} from 'vuex'
 export default {
+  computed: {
+    ...mapState({
+      Info:'Info'
+    })
+  },
+  methods: {
+    handleSubmit() {
+      if (this.mapClick) {
+        this.$router.push("#map");
+      }
+     else if (this.requests) {
+        this.$router.push("#iletişim");
+      }else {
+        window.open(`tel:${this.Info.phone}`);
+      }
+    }
+  },
   props: {
     title: {
       type: String,
       default: null
     },
+    mapClick: {
+      type: Boolean,
+      default: false
+    },
+    map: {
+      type: Boolean,
+      default: false
+    },
+    requests: {
+      type: Boolean,
+      default: false
+    },
     img: {
       type: String,
       default: null
+    },
+    bgVariant: {
+      type: String,
+      default: "bg-yellow"
+    },
+    textVariant: {
+      type: String,
+      default: "text-dark"
+    },
+    top: {
+      type: Boolean,
+      default: false
     },
     buttontext: {
       type: String,
@@ -49,17 +114,17 @@ export default {
   align-content: center;
 }
 .reverse-left {
-   grid-template-areas: "content-container image-container";
+  grid-template-areas: "content-container image-container";
 }
 .reverse-right {
-   grid-template-areas: "image-container content-container";
+  grid-template-areas: "image-container content-container";
 }
 .content-container {
   grid-area: content-container;
   padding: 1rem 0;
   width: 100%;
   display: grid;
-  grid-template-rows: 1fr 1fr 0.5fr;
+  grid-template-rows: auto 1fr auto;
   grid-template-areas:
     "card-title"
     "card-content"
@@ -73,7 +138,7 @@ export default {
   justify-content: start;
   align-content: center;
   h1 {
-    width: 80%;
+    width: 90%;
   }
 }
 
@@ -93,89 +158,66 @@ export default {
   align-content: flex-start;
   button {
     width: 50%;
+    margin-top: 1rem;
   }
 }
-
+.title-container {
+  display: none;
+}
 .image-container {
   grid-area: image-container;
   display: grid;
   width: 100%;
-  justify-content: center;
-  align-content: center;
-
+  .d-map {
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+  }
   img {
-    width: 80%;
+    width: 100%;
     height: auto;
+    justify-self: center;
   }
 }
-@media @sm {
+@media @mobile {
   .content-card {
     grid-template-columns: 1fr;
     grid-template-areas: "image-container" "content-container ";
   }
-
-  .content-container {
-    text-align: center;
-  }
-  .card-title {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    h2 {
-      width: 100%;
+  .img-center {
+    grid-template-columns: 1fr !important;
+    grid-template-rows: none !important;
+    grid-template-areas: "title-container" "image-container" "content-container " !important;
+    .d-map {
+      margin-top: 1rem;
+    }
+    .content-container {
+      grid-template-rows: none !important;
+      margin: 1rem 0rem;
+      button {
+        margin-top: 1rem;
+      }
     }
   }
-  .card-button {
-    grid-area: card-button;
-    display: grid;
-    width: 100%;
-    align-content: flex-end;
-    button {
-      width: 100%;
+  .title-container {
+    display: block;
+  }
+  .img-center {
+    .card-title {
+      display: none !important;
     }
-  }
-}
-@media @xs {
-  .content-card {
-    grid-template-columns: 1fr;
-    grid-template-areas: "image-container" "content-container ";
-  }
-
-  .content-container {
-    text-align: center;
-  }
-  .card-title {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    h2 {
-      width: 100%;
-    }
-  }
-  .card-button {
-    grid-area: card-button;
-    display: grid;
-    width: 100%;
-    align-content: flex-end;
-    button {
-      width: 100%;
-    }
-  }
-}
-@media @md {
-  .content-card {
-    grid-template-columns: 1fr;
-    grid-template-areas: "image-container" "content-container ";
-  }
-
-  .content-container {
-    text-align: center;
-  }
-  .card-title {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     h1 {
+      text-align: center;
+    }
+  }
+  .content-container {
+    text-align: center;
+  }
+  .card-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    h2 {
       width: 100%;
     }
   }
@@ -189,4 +231,83 @@ export default {
     }
   }
 }
+// @media @xs {
+//   .content-card {
+//     grid-template-columns: 1fr;
+//     grid-template-areas: "image-container" "content-container ";
+//   }
+//   .img-center {
+//     grid-template-columns: 1fr !important;
+//     grid-template-rows: none !important;
+
+//     grid-template-areas: "title-container" "image-container" "content-container " !important;
+//   }
+//   .img-center {
+//     .card-title {
+//       display: none !important;
+//     }
+//     h1 {
+//       text-align: center;
+//     }
+//   }
+//   .content-container {
+//     text-align: center;
+//   }
+//   .card-title {
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     h2 {
+//       width: 100%;
+//     }
+//   }
+//   .card-button {
+//     grid-area: card-button;
+//     display: grid;
+//     width: 100%;
+//     align-content: flex-end;
+//     button {
+//       width: 100%;
+//     }
+//   }
+// }
+// @media @md {
+//   .content-card {
+//     grid-template-columns: 1fr;
+//     grid-template-areas: "image-container" "content-container ";
+//   }
+//   .img-center {
+//     grid-template-columns: 1fr !important;
+//     grid-template-rows: none !important;
+//     grid-template-areas: "title-container" "image-container" "content-container " !important;
+//   }
+//   .content-container {
+//     text-align: center;
+//   }
+//   .img-center {
+//     .card-title {
+//       display: none !important;
+//     }
+//     h1 {
+//       text-align: center;
+//     }
+//   }
+//   .card-title {
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     h1 {
+//       width: 100%;
+//     }
+//   }
+//   .card-button {
+//     grid-area: card-button;
+//     display: grid;
+//     width: 100%;
+//     align-content: flex-end;
+//     button {
+//       width: 100%;
+//     }
+//   }
+// }
 </style>
