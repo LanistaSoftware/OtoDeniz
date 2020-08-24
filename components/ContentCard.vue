@@ -42,14 +42,22 @@
   </div>
 </template>
 <script>
+import {mapState} from 'vuex'
 export default {
+  computed: {
+    ...mapState({
+      Info:'Info'
+    })
+  },
   methods: {
     handleSubmit() {
       if (this.mapClick) {
         this.$router.push("#map");
       }
-      if (this.requests) {
+     else if (this.requests) {
         this.$router.push("#iletişim");
+      }else {
+        window.open(`tel:${this.Info.phone}`);
       }
     }
   },

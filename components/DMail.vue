@@ -1,30 +1,36 @@
 <template>
   <div class="d-mail">
-    <d-input class="mail-input"  v-model="mail" ts />
-    <d-button class="mail-button" bgVariant="bg-black" textVariant="text-yellow"
-      @click="handleSubmit">Gönder</d-button
+    <d-input class="mail-input" v-model="mail" ts />
+    <d-button
+      class="mail-button"
+      bgVariant="bg-black"
+      textVariant="text-yellow"
+      @click="handleSubmit"
+      >Gönder</d-button
     >
   </div>
 </template>
 <script>
-import {mapActions} from 'vuex';
+import { mapActions } from "vuex";
 export default {
-  data(){
+  data() {
     return {
-      mail:null
-    }
+      mail: null
+    };
   },
   methods: {
     ...mapActions({
-      addRequest:'addRequest'
+      addRequest: "addRequest"
     }),
-    handleSubmit(){
-      this.addRequest(this.mail).then(() => {
-        this.mail = null
-      })
+    handleSubmit() {
+      if (this.mail !== "" || this.mail !== null) {
+        this.addRequest(this.mail).then(() => {
+          this.mail = null;
+        });
+      }
     }
   }
-}
+};
 </script>
 <style lang="less" scoped>
 .d-mail {
@@ -41,6 +47,5 @@ export default {
 .mail-input {
   border-radius: none;
   width: 100%;
-
 }
 </style>

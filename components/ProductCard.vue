@@ -9,7 +9,7 @@
         <h5>Daha fazla bilgi almak için</h5>
       </div>
       <div>
-        <d-button bgVariant="bg-blue" class="button" textVariant="text-white">{{
+        <d-button phone bgVariant="bg-blue" class="button" textVariant="text-white">{{
           buttontext
         }}</d-button>
       </div>
@@ -24,6 +24,7 @@
       <div class="body-description">
         <h5 class="desc-title">{{ bodytext }}</h5>
         <d-button
+          phone
           class="body-button button"
           bgVariant="bg-blue"
           textVariant="text-white"

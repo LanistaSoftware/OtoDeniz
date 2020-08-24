@@ -92,8 +92,8 @@
               <li><a href="#anasayfa">Ana Sayfa</a></li>
               <li><a href="#hakkımızda">Hakkımızda</a></li>
               <li><a href="#ürünler">Öne Çıkan Ürünler</a></li>
-              <li><a href="#isteklistesi">İstek Listesi </a></li>
-              <li><a href="#isteklistesi">Harita</a></li>
+              <li><a href="#desktop-footer">İstek Listesi </a></li>
+              <li><a href="#map">Harita</a></li>
             </ul>
           </div>
           <div class="right-group">

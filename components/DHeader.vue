@@ -114,7 +114,7 @@ export default {
         },
         {
           text: "İstek Listesi",
-          link: "isteklistesi"
+          link: "desktop-footer"
         },
         {
           text: "İletişim",

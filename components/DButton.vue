@@ -1,10 +1,22 @@
 <template>
-  <button :class="[bgVariant, textVariant,{ 'd-button': !sm, 'd-sm-button': sm }]" v-on="$listeners">
-    <slot />
+  <button
+    :class="[bgVariant, textVariant, { 'd-button': !sm, 'd-sm-button': sm }]"
+    @click="callback($event)"
+  >
+    <slot v-if="!phone" />
+    <a v-else :href="'tel:'+Info.phone">
+      <slot></slot>
+    </a>
   </button>
 </template>
 <script>
+import {mapState} from 'vuex'
 export default {
+    computed: {
+    ...mapState({
+      Info:'Info'
+    })
+  },
   props: {
     bgVariant: {
       type: String,
@@ -17,6 +29,15 @@ export default {
     sm: {
       type: Boolean,
       default: null
+    },
+    phone: {
+      type: Boolean,
+      default: false
+    }
+  },
+  methods: {
+    callback: function(e) {
+      this.$emit("click", e);
     }
   }
 };

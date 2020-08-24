@@ -8,8 +8,8 @@
         <li><a href="#anasayfa" @click="emitShow">Ana Sayfa</a></li>
         <li><a href="#hakkımızda" @click="emitShow">Hakkımızda</a></li>
         <li><a href="#ürünler" @click="emitShow">Öne Çıkan Ürünler</a></li>
-        <li><a href="#isteklistesi" @click="emitShow">İstek Listesi </a></li>
-        <li><a href="#isteklistesi" @click="emitShow">Harita</a></li>
+        <li><a href="#mobile-footer" @click="emitShow">İstek Listesi </a></li>
+        <li><a href="#map" @click="emitShow">Harita</a></li>
       </ul>
     </div>
   </div>
