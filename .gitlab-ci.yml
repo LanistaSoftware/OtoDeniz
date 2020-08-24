@@ -6,18 +6,15 @@ build_app:
   stage: build
   script:
     - npm install
-    - npm run build
-    - npm install -g pm2
+    - npm run generate
 
   cache:
     paths:
       - node_modules/
-      - ecosystem.config.js
   artifacts:
     paths:
       # build folder
-      - .nuxt/
-      - ecosystem.config.js
+      - dist/
     expire_in: 1 week
 production:
   stage: deploy
@@ -31,7 +28,6 @@ production:
     - echo -e "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
     - chmod 600 ~/.ssh/id_rsa
     - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
-    - pm2 start
+
   script:
-    - rsync --recursive -e 'ssh -p 22' .nuxt/* package.json  142.93.111.148:/var/www/html
-    - exit
+    - rsync --recursive -e 'ssh -p 22' dist/* 165.232.71.19:/var/www/otodeniz.com.tr/html

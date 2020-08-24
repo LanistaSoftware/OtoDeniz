@@ -45,7 +45,6 @@
           <d-search class="d_shaodw" @pr="searchValue($event)" />
         </div>
         <div class="service-section-product" id="ürünler">
-          <no-ssr>
             <product-card
               v-for="(product, i) in pageproduct"
               :key="product.key"
@@ -56,7 +55,6 @@
               buttontext="Hemen Arayın"
               v-show="i <= 7 || all == true"
             />
-          </no-ssr>
         </div>
       </div>
       <div class="icon-chevron text-blue" @click="all = !all">
@@ -157,7 +155,7 @@ export default {
           img: "4.svg"
         }
       ],
-      contentslidecards: [
+     contentslidecards: [
         {
           title: "Bölgedeki en iyi yedek parçaları keşfedin",
           buttontext: "Hemen arayın",
@@ -185,7 +183,7 @@ export default {
           content:
             "Arayıp bulamadığınız bir yedek parça varsa talep oluşturmanız halinde Deniz Oto ve Yedek Parça uzman kadrosuyla size kısa sürede ihtiyacınız olan parçayı bulabilir."
         }
-      ]
+      ] 
     };
   },
   methods: {

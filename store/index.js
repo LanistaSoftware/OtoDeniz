@@ -51,7 +51,6 @@ export const actions = {
             });
         });
     } catch (error) {
-      console.log(error);
     }
   },
   async getAllProduct({ commit }) {
@@ -61,7 +60,6 @@ export const actions = {
       snapshot.docs.map(doc => items.push({ item: doc.data(), key: doc.id }));
       commit("setProducts", items);
     } catch (error) {
-      console.log(error);
     }
   },
   async deleteDocument({}, { id, file }) {
@@ -74,18 +72,14 @@ export const actions = {
       storageRef
         .delete()
         .then(function() {
-          console.log("silindi");
         })
         .catch(function(error) {
-          console.log(error);
         });
     } catch (error) {
-      console.log(error);
     }
   },
   async UpdateProduct({ commit }, { form, id }) {
     try {
-      console.log(id);
       var name;
       if (form.file.name !== undefined) {
         name = uniqid();
@@ -122,7 +116,6 @@ export const actions = {
           form.file = null;
         });
     } catch (error) {
-      console.log(error);
     }
   },
   async addRequest({}, mail) {
@@ -136,18 +129,15 @@ export const actions = {
         })
         .then(() => {});
     } catch (error) {
-      console.log(error);
     }
   },
   async parcaIstek({}, form) {
-    console.log(form);
     try {
       this.$fireStore
         .collection("requests")
         .add(form)
         .then(() => {});
     } catch (error) {
-      console.log(error);
     }
   },
   async getAllRequest({ commit }) {
@@ -157,7 +147,6 @@ export const actions = {
       snapshot.docs.map(doc => items.push({ item: doc.data(), key: doc.id }));
       commit("setRequests", items);
     } catch (error) {
-      console.log(error);
     }
   },
   async updateStatus({ commit }, id) {
@@ -169,7 +158,6 @@ export const actions = {
           status: true
         });
     } catch (error) {
-      console.log(error);
     }
   },
   async deleteRequest({ commit }, id) {
@@ -179,7 +167,6 @@ export const actions = {
         .doc(id)
         .delete();
     } catch (error) {
-      console.log(error);
     }
   },
   async getAllList({ commit }) {
@@ -189,7 +176,6 @@ export const actions = {
       snapshot.docs.map(doc => items.push({ item: doc.data(), key: doc.id }));
       commit("setList", items);
     } catch (error) {
-      console.log(error);
     }
   },
   async deleteList({ commit }, id) {
@@ -199,7 +185,6 @@ export const actions = {
         .doc(id)
         .delete();
     } catch (error) {
-      console.log(error);
     }
   },
   async getInfo({ commit }) {
@@ -210,7 +195,6 @@ export const actions = {
         .get();
       commit("setInfo", snapshot.data());
     } catch (error) {
-      console.log(error);
     }
   },
   async updateInfo({ commit }, field) {
@@ -220,7 +204,6 @@ export const actions = {
         .doc("company")
         .update(field);
     } catch (error) {
-      console.log(error);
     }
   },
   async addLogo({}, file) {
@@ -241,7 +224,6 @@ export const actions = {
           });
       });
     } catch (error) {
-      console.log(error);
     }
   },
   async Login({ commit }, form) {
@@ -261,16 +243,15 @@ export const actions = {
         commit("setAuth", true);
       }
     } catch (error) {
-      console.log(error);
     }
   },
   LogOut({ commit }) {
     commit("setAuth", false);
     $nuxt.$router.push("/admin/");
   },
-  // async nuxtServerInit ({dispatch}) {
-  //   console.log('çalıştı')
-  //   await  dispatch('getAllProduct')
-  // }
+  async nuxtServerInit ({dispatch}) {
+    await  dispatch('getAllProduct')
+    await  dispatch('getInfo')
+  }
 };
 
