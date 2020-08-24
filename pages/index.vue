@@ -200,9 +200,7 @@ export default {
     })
   },
   created() {
-    this.getAllProduct().then(() => {
       this.pageproduct = this.products;
-    });
   }
 };
 </script>

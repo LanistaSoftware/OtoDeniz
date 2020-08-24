@@ -232,15 +232,7 @@ export const actions = {
     commit("setAuth", false);
     $nuxt.$router.push("/admin/");
   },
-  async nuxtServerInit({ commit }) {
-    const items = [];
-    const snapshot = await this.$fireStore.collection("products").get();
-    snapshot.docs.map(doc => items.push({ item: doc.data(), key: doc.id }));
-    commit("setProducts", items);
-    const snapshot2 = await this.$fireStore
-      .collection("information")
-      .doc("company")
-      .get();
-    commit("setInfo", snapshot2.data());
+  async nuxtServerInit(vuexContext) {
+    return vuexContext.dispatch('getAllProduct')
   }
 };

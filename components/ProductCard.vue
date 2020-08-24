@@ -9,9 +9,13 @@
         <h5>Daha fazla bilgi almak için</h5>
       </div>
       <div>
-        <d-button phone bgVariant="bg-blue" class="button" textVariant="text-white">{{
-          buttontext
-        }}</d-button>
+        <d-button
+          phone
+          bgVariant="bg-blue"
+          class="button"
+          textVariant="text-white"
+          >{{ buttontext }}</d-button
+        >
       </div>
     </div>
     <div class="product-card-body">
@@ -69,12 +73,13 @@ export default {
   methods: {
     async getimg(img) {
       try {
-        let ref = await this.$fireStorage.ref().child(img);
-        const url = await ref.getDownloadURL();
-        this.prewImage = url;
-        return url;
-      } catch (error) {
-      }
+        if (process.client) {
+          let ref = await this.$fireStorage.ref().child(img);
+          const url = await ref.getDownloadURL();
+          this.prewImage = url;
+          return url;
+        }
+      } catch (error) {}
     }
   }
 };
