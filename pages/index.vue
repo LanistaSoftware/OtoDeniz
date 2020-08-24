@@ -155,7 +155,7 @@ export default {
           img: "4.svg"
         }
       ],
-     contentslidecards: [
+      contentslidecards: [
         {
           title: "Bölgedeki en iyi yedek parçaları keşfedin",
           buttontext: "Hemen arayın",
@@ -183,7 +183,7 @@ export default {
           content:
             "Arayıp bulamadığınız bir yedek parça varsa talep oluşturmanız halinde Deniz Oto ve Yedek Parça uzman kadrosuyla size kısa sürede ihtiyacınız olan parçayı bulabilir."
         }
-      ] 
+      ]
     };
   },
   methods: {

@@ -248,10 +248,6 @@ export const actions = {
   LogOut({ commit }) {
     commit("setAuth", false);
     $nuxt.$router.push("/admin/");
-  },
-  async nuxtServerInit ({dispatch}) {
-    await  dispatch('getAllProduct')
-    await  dispatch('getInfo')
   }
 };
 
