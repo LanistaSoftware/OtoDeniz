@@ -6,7 +6,7 @@ build_app:
     stage: build
     script:
         - npm install
-        - npm run generate
+        - npm run build
 
     cache:
         paths:
@@ -14,7 +14,7 @@ build_app:
     artifacts:
         paths:
             # build folder
-            - dist/
+            - .nuxt/
         expire_in: 1 week
 production:
     stage: deploy
@@ -30,4 +30,5 @@ production:
         - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
             
     script:
-        - rsync --recursive -e 'ssh -p 22' dist/* package.json  161.35.16.228:/var/www/html
+        - rsync --recursive -e 'ssh -p 22' .nuxt/* package.json  142.93.111.148:/var/www/html
+        - pm2 start
