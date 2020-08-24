@@ -1,9 +1,9 @@
 <template>
   <div class="header-container bg-yellow">
-    <div class="header-top container">
+    <div class="header-top d-container">
       <div>
         <top>
-          <template v-slot:text>(0432) 223 05 79</template>
+          <template v-slot:text>{{ Info.phone }}</template>
           <template v-slot:image>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -29,7 +29,7 @@
       </div>
       <div>
         <top>
-          <template v-slot:text>Seyrantepe, 10/32. Sk. No:3, 65040 Van Merkez/Van</template>
+          <template v-slot:text>{{ Info.adress }}</template>
           <template v-slot:image>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -53,7 +53,7 @@
       </div>
       <div>
         <top>
-          <template v-slot:text>info@otodeniz.com.tr</template>
+          <template v-slot:text>{{ Info.email }}</template>
           <template v-slot:image>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -76,7 +76,7 @@
       </div>
     </div>
     <div class="header-center-container">
-      <div class="container header-center">
+      <div class="d-container header-center">
         <div class="center-logo">
           <img src="/oto_deniz_logo.svg" alt />
         </div>
@@ -88,12 +88,13 @@
         </div>
       </div>
     </div>
-    <div class="header-bottom container">
+    <div class="header-bottom d-container">
       <logo-slide />
     </div>
   </div>
 </template>
 <script>
+import { mapState, mapActions } from "vuex";
 export default {
   name: "DHeader",
   data() {
@@ -101,27 +102,43 @@ export default {
       menu: [
         {
           text: "Ana sayfa",
-          link: "anasayfa",
+          link: "/"
         },
         {
           text: "Hakkımızda",
-          link: "hakkımızda",
+          link: "hakkımızda"
         },
         {
           text: "Ürünler",
-          link: "ürünler",
+          link: "ürünler"
         },
         {
           text: "İstek Listesi",
-          link: "isteklistesi",
+          link: "desktop-footer"
         },
         {
           text: "İletişim",
-          link: "iletişim",
-        },
-      ],
+          link: "iletişim"
+        }
+      ]
     };
   },
+  methods: {
+    ...mapActions({
+      getInfo: "getInfo"
+    })
+  },
+  computed: {
+    ...mapState({
+      Info: "Info"
+    })
+  },
+  created(){
+    this.getInfo().then(() => {
+    console.log(this.Info)
+
+    })
+  }
 };
 </script>
 <style lang="less" scoped>

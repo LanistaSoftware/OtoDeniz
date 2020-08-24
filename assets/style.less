@@ -131,8 +131,26 @@ ul{
   list-style: none;
 }
 a{
-  text-decoration: none;
-  color: @htext;
+  text-decoration: none !important;
+  color: @white !important;
+}
+a:link {
+  color: none !important;
+}
+
+/* visited link */
+a:visited {
+  color: none !important;
+}
+
+/* mouse over link */
+a:hover {
+  color: none !important;
+}
+
+/* selected link */
+a:active {
+  color: none !important;
 }
 .nuxt-link-active  {
     span {
@@ -143,6 +161,11 @@ a{
       border-bottom: 0.22rem solid @dark;
       color: @dark; 
     }
+}
+.center-menu,.mobile-menu,.map-group {
+  a {
+    color:@htext !important;
+  }
 }
 label {
   color: @labelcolor;

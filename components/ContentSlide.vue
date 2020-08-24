@@ -1,10 +1,14 @@
 <template>
   <carousel-1d class="d-carousel" :perPage="1">
-    <slide-1d v-for="item in cards" :key="item">
+    <slide-1d v-for="(item,i) in cards" :key="i">
       <content-card
         :title="item.title"
         :buttontext="item.buttontext"
         :img="item.img"
+        :bgVariant="item.bgVariant"
+        :textVariant="item.textVariant"
+        :requests="item.requests"
+        :mapClick="item.mapClick"
         reverse
         >{{item.content}}</content-card
       >
@@ -17,26 +21,7 @@ export default {
   props:{
     cards: {
       type:Array,
-      default: [
-        {
-          title: 'Bölgedeki en iyi yedek parçaları keşfedin',
-          buttontext: "Hemen arayın",
-          img: '1.png',
-          content :'Aradığınız bütün orijinal yedek parçaları en uygun fiyatlarla bölgenin en iyi yedek parça marketi Deniz Oto ve Yedek Parça da haftanın her günü bulabilirsiniz.'
-        },
-        {
-          title: 'Bölgedeki en iyi yedek parçaları keşfedin',
-          buttontext: "Hemen arayın",
-          img: '1.png',
-          content :'Aradığınız bütün orijinal yedek parçaları en uygun fiyatlarla bölgenin en iyi yedek parça marketi Deniz Oto ve Yedek Parça da haftanın her günü bulabilirsiniz.'
-        },
-        {
-          title: 'Bölgedeki en iyi yedek parçaları keşfedin',
-          buttontext: "Hemen arayın",
-          img: '1.png',
-          content :'Aradığınız bütün orijinal yedek parçaları en uygun fiyatlarla bölgenin en iyi yedek parça marketi Deniz Oto ve Yedek Parça da haftanın her günü bulabilirsiniz.'
-        }
-      ]
+      required:false
     }
   }
 }
@@ -44,6 +29,7 @@ export default {
 <style lang="less">
 .d-carousel {
   padding: 1rem;
+  width: 100%;
 }
 .VueCarousel-dot {
   width: 20px !important;

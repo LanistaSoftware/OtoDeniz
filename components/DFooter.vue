@@ -1,16 +1,16 @@
 <template>
-  <div class="footer-container">
-    <div class="top-contianer bg-yellow">
-      <div class="footer-top container">
+  <div class="footer-container bg-yellow">
+    <div class="top-contianer ">
+      <div class="footer-top  d-container">
         <div class="footer-info">
           <div>
-             <h6>
+          <h6>
             İLETİŞİM
           </h6>
           <ul>
             <li>
               <top
-                ><template v-slot:text>(0432) 223 05 79</template>
+                ><template v-slot:text>{{Info.phone}}</template>
                 <template v-slot:image
                   ><svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -35,8 +35,30 @@
             </li>
             <li>
               <top
+                ><template v-slot:text>{{Info.email}}</template>
+                <template v-slot:image
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="icon icon-tabler icon-tabler-mail"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    stroke="currentColor"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" />
+                    <rect x="3" y="5" width="18" height="14" rx="2" />
+                    <polyline points="3 7 12 13 21 7" />
+                  </svg> </template
+              ></top>
+            </li>
+             <li>
+              <top
                 ><template v-slot:text
-                  >Seyrantepe, 10/32. Sk. No:3, 65040 Van Merkez/Van</template
+                  >{{Info.adress}}</template
                 >
                 <template v-slot:image
                   ><svg
@@ -60,28 +82,6 @@
                   </svg> </template
               ></top>
             </li>
-            <li>
-              <top
-                ><template v-slot:text>info@otodeniz.com.tr</template>
-                <template v-slot:image
-                  ><svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="icon icon-tabler icon-tabler-mail"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    stroke-width="2"
-                    stroke="currentColor"
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <path stroke="none" d="M0 0h24v24H0z" />
-                    <rect x="3" y="5" width="18" height="14" rx="2" />
-                    <polyline points="3 7 12 13 21 7" />
-                  </svg> </template
-              ></top>
-            </li>
           </ul>
           </div>
           <div class="map-group">
@@ -92,8 +92,8 @@
               <li><a href="#anasayfa">Ana Sayfa</a></li>
               <li><a href="#hakkımızda">Hakkımızda</a></li>
               <li><a href="#ürünler">Öne Çıkan Ürünler</a></li>
-              <li><a href="#isteklistesi">İstek Listesi </a></li>
-              <li><a href="#isteklistesi">Harita</a></li>
+              <li><a href="#desktop-footer">İstek Listesi </a></li>
+              <li><a href="#map">Harita</a></li>
             </ul>
           </div>
           <div class="right-group">
@@ -132,7 +132,7 @@
         </p>
       </div>
       <div class="bottom-right">
-        <img src="/oto_deniz_logo.svg" alt="" />
+        <img src="/lanista.png" alt="" />
         <p class="text-white">
           Think, create, develop!
         </p>
@@ -140,6 +140,16 @@
     </div>
   </div>
 </template>
+<script>
+import {mapState} from 'vuex'
+export default {
+    computed: {
+    ...mapState({
+      Info: "Info"
+    })
+  }
+}
+</script>
 <style lang="less" scoped>
 .footer-container {
   display: grid;
@@ -147,7 +157,7 @@
   li {
     color: @dark;
     font-size: 0.8rem;
-    padding: 0.5rem;
+    padding: 0.2rem;
   }
   ul {
     padding: 0;
@@ -159,7 +169,7 @@
 .top-contianer {
   display: grid;
   grid-template-rows: 1fr 0.6fr;
-  padding: 4rem;
+  padding: 4rem 0rem;
   p {
     color: @drop;
   }
@@ -179,7 +189,7 @@
     display: flex;
   }
   div {
-    width: 80%;
+    width: 100%;
   }
 }
 .footer-bottom {
@@ -195,7 +205,7 @@
 }
 .bottom-left {
   display: grid;
-  justify-self: start;
+  justify-self: left;
   img {
     display: grid;
     justify-self: center;
@@ -205,7 +215,7 @@
 }
 .bottom-right {
   display: grid;
-  justify-self: center;
+  justify-self: right;
   img {
     display: grid;
     justify-self: center;

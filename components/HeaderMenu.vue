@@ -2,7 +2,7 @@
   <div class="d-header-menu">
     <ul>
       <li class="f_normal_bold" v-for="(item, i) in content" :key="i">
-        <nuxt-link :to="inline + item.link" tag="a" exact>
+        <nuxt-link :to="inline + item.link" tag="a">
           {{ item.text }}
           <span />
         </nuxt-link>

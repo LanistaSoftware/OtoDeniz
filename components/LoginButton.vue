@@ -21,7 +21,9 @@
       </svg>
     </span>
     <span class="btn-text f_regular">
+      <a href="https://islem-takip.otodeniz.com.tr/" target="_blank" class="text-yellow">
       Kullanıcı Girişi
+      </a>
     </span>
   </d-button>
 </template>
@@ -34,6 +36,9 @@ button {
   align-items: center;
   width: 167px;
   border-radius: 5px;
+  a {
+    color: @yellow !important;
+  }
 }
 
 .btn-icon {

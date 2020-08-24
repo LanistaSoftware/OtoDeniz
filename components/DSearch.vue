@@ -1,16 +1,59 @@
 <template>
   <div class="d-search">
     <img src="search.png" />
-    <d-input class="d-search-input"/>
+    <d-input v-model="val" class="d-search-input" />
     <d-button
       class="d-search-button"
       textVariant="text-white"
       bgVariant="bg-green"
       sm
+      @click="searchprod()"
       >Ara</d-button
     >
   </div>
 </template>
+<script>
+import { mapActions, mapState } from "vuex";
+
+export default {
+  data() {
+    return {
+      val: null
+    };
+  },
+  watch: {
+    val() {
+      if (this.val == null || this.val == "") {
+        this.$emit("pr", this.products);
+      }
+    }
+  },
+  computed: {
+    ...mapState({
+      products: "products"
+    })
+  },
+  methods: {
+    searchprod() {
+      var products = [];
+      if (this.val == null || this.val == "") {
+        this.$emit("pr", this.products);
+      } else {
+        this.products.map(pr => {
+          if (
+            pr.item.name == this.val ||
+            pr.item.categories == this.val ||
+            pr.item.desc == this.val
+          ) {
+            products.push(pr);
+          }
+          this.$emit("pr", products);
+        });
+      }
+    }
+  }
+};
+</script>
 <style lang="less" scoped>
 img {
   width: 1rem;
@@ -22,8 +65,6 @@ img {
   display: inline-flex;
   width: 80%;
   border-radius: 0.7em !important;
-
-
 }
 .d-search-button {
   width: 20%;

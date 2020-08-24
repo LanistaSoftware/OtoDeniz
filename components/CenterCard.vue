@@ -57,7 +57,7 @@ export default {
 .content-header {
   grid-area: content-header;
   display: grid;
-  justify-items: center;
+  align-self: center;
   padding-top: 0.8rem;
   p {
     display: none;

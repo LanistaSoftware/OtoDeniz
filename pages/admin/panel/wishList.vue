@@ -8,14 +8,15 @@
             <b-icon-download class="ml-2"></b-icon-download>
           </b-button>
           <b-form-checkbox
-            v-if="selected.length!=0"
+            v-if="selected.length != 0"
             class="ml-3"
             id="checkbox"
             v-model="status"
             name="checkbox"
             value="answered"
             unchecked-value="not_answered"
-          >Cevaplandı olarak işaretle.</b-form-checkbox>
+            >Cevaplandı olarak işaretle.</b-form-checkbox
+          >
         </b-col>
       </slot>
     </Operations>
@@ -24,17 +25,38 @@
         responsive
         striped
         hover
-        :items="items"
+        :items="requests"
         :fields="fields"
-        selectable
         ref="selectableTable"
-        :select-mode="selectMode"
         @row-selected="onRowSelected"
       >
-        <template v-slot:cell(islemler) class="text-center">
+        <template v-slot:cell(Islemler)="row" class="text-center">
           <div class="d-flex w-100">
-            <b-button variant="danger" size="sm" class="mr-2">
+            <b-button variant="danger" size="sm" class="mr-2" @click="deletereq(row.item.key)">
+              <span>Sil</span>
               <b-icon-trash></b-icon-trash>
+            </b-button>
+            <b-button
+              v-if="row.item.item.status"
+              variant="success"
+              size="sm"
+              class="mr-2"
+              disabled
+            >
+              <span>Cevaplandı</span>
+              <b-icon-check></b-icon-check>
+            </b-button>
+            <b-button
+              v-if="!row.item.item.status"
+              variant="info"
+              size="sm"
+              class="mr-2"
+              @click="updatereq(row.item.key)"
+            >
+              <span>
+                Tamamlandı
+              </span>
+              <b-icon-chat></b-icon-chat>
             </b-button>
           </div>
         </template>
@@ -44,20 +66,50 @@
 </template>
 
 <script>
+import { mapActions, mapState } from "vuex";
 export default {
   name: "wishList",
   data() {
     return {
       fields: [
-        "carInfo",
-        "modelYear",
-        "chassisNo",
-        "partName",
-        "name",
-        "surName",
-        "phone",
-        "email",
-        "islemler",
+        {
+          key: "item.model",
+          label: "Araç Bilgisi"
+        },
+        {
+          key: "item.yıl",
+          label: "Araç Yılı"
+        },
+        {
+          key: "item.sasi",
+          label: "Şasi No"
+        },
+        {
+          key: "item.parca",
+          label: "Parça Adı"
+        },
+        {
+          key: "item.isim",
+          label: "İsim"
+        },
+        {
+          key: "item.soyisim",
+          label: "Soyisim"
+        },
+        {
+          key: "item.tel",
+          label: "Telefon"
+        },
+        {
+          key: "item.email",
+          label: "E-mail"
+        },
+        {
+          key: "item.date",
+          label: "Ekleme tarihi",
+          sortable: true
+        },
+        "Islemler"
       ],
       items: [
         {
@@ -68,7 +120,7 @@ export default {
           name: "Serkan",
           surName: "Korkaç",
           phone: "05340303000",
-          email: "korkac@kackor.com",
+          email: "korkac@kackor.com"
         },
         {
           carInfo: "Ford Focus 1.6 TDI",
@@ -78,7 +130,7 @@ export default {
           name: "Serkan",
           surName: "Korkaç",
           phone: "05340303000",
-          email: "korkac@kackor.com",
+          email: "korkac@kackor.com"
         },
         {
           carInfo: "Ford Focus 1.6 TDI",
@@ -88,18 +140,42 @@ export default {
           name: "Serkan",
           surName: "Korkaç",
           phone: "05340303000",
-          email: "korkac@kackor.com",
-        },
+          email: "korkac@kackor.com"
+        }
       ],
       selectMode: "multi",
       selected: [],
-      status: null,
+      status: null
     };
   },
+  computed: {
+    ...mapState({
+      requests: "requests"
+    })
+  },
+  created() {
+    this.getAllRequest();
+  },
+
   methods: {
+    ...mapActions({
+      getAllRequest: "getAllRequest",
+      updateStatus: "updateStatus",
+      deleteRequest: "deleteRequest"
+    }),
     onRowSelected(items) {
       this.selected = items;
     },
-  },
+    updatereq(id) {
+      this.updateStatus(id).then(() => {
+        this.getAllRequest();
+      });
+    },
+    deletereq(id) {
+      this.deleteRequest(id).then(() => {
+        this.getAllRequest();
+      });
+    }
+  }
 };
 </script>

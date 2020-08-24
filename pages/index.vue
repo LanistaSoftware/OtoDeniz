@@ -1,13 +1,18 @@
 <template>
   <div>
-    <d-header id="desktop-header" />
-    <mobile-header id="mobile-header" />
+    <no-ssr>
+      <d-header id="desktop-header" />
+      <mobile-header id="mobile-header" />
+    </no-ssr>
+
     <section class="bg-cream" id="anasayfa">
       <div class="d-container">
-        <content-slide />
+        <no-ssr>
+          <content-slide :cards="contentslidecards" />
+        </no-ssr>
       </div>
     </section>
-    <section class="bg-white service-section container" id="hakkımızda">
+    <section class="bg-white service-section d-container" id="hakkımızda">
       <div class="section-header">
         <h3>
           Hizmet Anlayışımız
@@ -24,7 +29,9 @@
         >
       </div>
       <div class="service-section-content" id="service-mobile">
-        <center-card-slide :cards="centercard" />
+        <no-ssr>
+          <center-card-slide :cardsslide="centercards" />
+        </no-ssr>
       </div>
     </section>
     <section class="product-section bg-cream">
@@ -35,19 +42,21 @@
           </h3>
         </div>
         <div class="product-search ">
-          <d-search class="d_shaodw" />
+          <d-search class="d_shaodw" @pr="searchValue($event)" />
         </div>
         <div class="service-section-product" id="ürünler">
-          <product-card
-            v-for="(item, i) in prodcutcards"
-            :key="i"
-            :img="item.img"
-            :title="item.title"
-            :subtitle="item.subtitle"
-            :bodytext="item.bodytext"
-            :buttontext="item.buttontext"
-            v-show="i <= 7 || all == true"
-          />
+          <no-ssr>
+            <product-card
+              v-for="(product, i) in pageproduct"
+              :key="product.key"
+              :img="product.item.file"
+              :title="product.item.categories"
+              :subtitle="product.item.name"
+              :bodytext="product.item.desc"
+              buttontext="Hemen Arayın"
+              v-show="i <= 7 || all == true"
+            />
+          </no-ssr>
         </div>
       </div>
       <div class="icon-chevron text-blue" @click="all = !all">
@@ -98,7 +107,7 @@
         </div>
       </div>
     </section>
-    <section class="d-container" id="isteklistesi">
+    <section class="d-container" id="map">
       <div class="map-section">
         <content-card
           title="Bizi yerimizde ziyaret edin"
@@ -118,82 +127,12 @@
   </div>
 </template>
 <script>
+import { mapActions, mapState } from "vuex";
 export default {
   data() {
     return {
       all: false,
-      prodcutcards: [
-        {
-          title: "MOTOR PARÇALARI",
-          subtitle: "Krank Mili",
-          bodytext: "Chevrolet Cruze 2013 1.6 Benzinli",
-          buttontext: "Hemen Arayın",
-          img: "2.png"
-        },
-        {
-          title: "MOTOR PARÇALARI",
-          subtitle: "Krank Mili",
-          bodytext: "Chevrolet Cruze 2013 1.6 Benzinli",
-          buttontext: "Hemen Arayın",
-          img: "2.png"
-        },
-        {
-          title: "MOTOR PARÇALARI",
-          subtitle: "Krank Mili",
-          bodytext: "Chevrolet Cruze 2013 1.6 Benzinli",
-          buttontext: "Hemen Arayın",
-          img: "2.png"
-        },
-        {
-          title: "MOTOR PARÇALARI",
-          subtitle: "Krank Mili",
-          bodytext: "Chevrolet Cruze 2013 1.6 Benzinli",
-          buttontext: "Hemen Arayın",
-          img: "2.png"
-        },
-        {
-          title: "MOTOR PARÇALARI",
-          subtitle: "Krank Mili",
-          bodytext: "Chevrolet Cruze 2013 1.6 Benzinli",
-          buttontext: "Hemen Arayın",
-          img: "2.png"
-        },
-        {
-          title: "MOTOR PARÇALARI",
-          subtitle: "Krank Mili",
-          bodytext: "Chevrolet Cruze 2013 1.6 Benzinli",
-          buttontext: "Hemen Arayın",
-          img: "2.png"
-        },
-        {
-          title: "MOTOR PARÇALARI",
-          subtitle: "Krank Mili",
-          bodytext: "Chevrolet Cruze 2013 1.6 Benzinli",
-          buttontext: "Hemen Arayın",
-          img: "2.png"
-        },
-        {
-          title: "MOTOR PARÇALARI",
-          subtitle: "Krank Mili",
-          bodytext: "Chevrolet Cruze 2013 1.6 Benzinli",
-          buttontext: "Hemen Arayın",
-          img: "2.png"
-        },
-        {
-          title: "MOTOR PARÇALARI",
-          subtitle: "Krank Mili",
-          bodytext: "Chevrolet Cruze 2013 1.6 Benzinli",
-          buttontext: "Hemen Arayın",
-          img: "2.png"
-        },
-        {
-          title: "MOTOR PARÇALARI",
-          subtitle: "Krank Mili",
-          bodytext: "Chevrolet Cruze 2013 1.6 Benzinli",
-          buttontext: "Hemen Arayın",
-          img: "2.png"
-        }
-      ],
+      pageproduct: [],
       centercards: [
         {
           title: "Bölgenin en geniş yedek parça ağı",
@@ -202,25 +141,70 @@ export default {
           img: "1.svg"
         },
         {
-          title: "Bölgenin en geniş yedek parça ağı",
+          title: "Uzman kadro ile hızlı ve kalıcı çözüm",
           content:
-            "Van ve çevre iller bazında mevcut en geniş yedek parça ağı ",
-          img: "1.svg"
+            "Otuz yılı aşkın tecrübe ile anında hızlı ve en etkili çözüm ",
+          img: "2.svg"
         },
         {
-          title: "Bölgenin en geniş yedek parça ağı",
-          content:
-            "Van ve çevre iller bazında mevcut en geniş yedek parça ağı ",
-          img: "1.svg"
+          title: "Orijinal parçalarla güvenli alışveriş",
+          content: "Orjinal ve güvenilir parçalarla garantili hizmet anlayışı ",
+          img: "3.svg"
         },
         {
-          title: "Bölgenin en geniş yedek parça ağı",
+          title: "Kredi Kartı ile Ödeme kolaylığı",
+          content: "Kredi kartı ve mail order ile kolay ödeme seçenekleri ",
+          img: "4.svg"
+        }
+      ],
+      contentslidecards: [
+        {
+          title: "Bölgedeki en iyi yedek parçaları keşfedin",
+          buttontext: "Hemen arayın",
+          img: "1.png",
           content:
-            "Van ve çevre iller bazında mevcut en geniş yedek parça ağı ",
-          img: "1.svg"
+            "Aradığınız bütün orijinal yedek parçaları en uygun fiyatlarla bölgenin en iyi yedek parça marketi Deniz Oto ve Yedek Parça da haftanın her günü bulabilirsiniz."
+        },
+        {
+          title: "Kredi kartı ve mail order ile uygun ödeme seçenekleri ",
+          buttontext: "Bizi ziyaret edin",
+          bgVariant: "bg-green",
+          textVariant: "text-white",
+          mapClick: true,
+          img: "1.png",
+          content:
+            "En uygun fiyatlara sahip orijinal yedek parçaları isterseniz kredi kartınızla,isterseniz mail order hizmetini kullanarak ödeyebilirsiniz. Farklı ödeme seçenekleri için şubemizi ziyaret edebiliriniz."
+        },
+        {
+          title: "Bulamadığınız parçaları sizin için biz bulalım",
+          buttontext: "Parça talep edin",
+          bgVariant: "bg-blue",
+          textVariant: "text-white",
+          requests: true,
+          img: "slide3.png",
+          content:
+            "Arayıp bulamadığınız bir yedek parça varsa talep oluşturmanız halinde Deniz Oto ve Yedek Parça uzman kadrosuyla size kısa sürede ihtiyacınız olan parçayı bulabilir."
         }
       ]
     };
+  },
+  methods: {
+    ...mapActions({
+      getAllProduct: "getAllProduct"
+    }),
+    searchValue(e) {
+      this.pageproduct = e;
+    }
+  },
+  computed: {
+    ...mapState({
+      products: "products"
+    })
+  },
+  created() {
+    this.getAllProduct().then(() => {
+      this.pageproduct = this.products;
+    });
   }
 };
 </script>
@@ -332,13 +316,6 @@ export default {
 @media @mobile {
   .d-container {
     width: 90% !important;
-  }
-}
-  #section-about {
-  .content-card {
-  p {
-    font-size: 0.8rem !important;
-  }
   }
 }
 </style>

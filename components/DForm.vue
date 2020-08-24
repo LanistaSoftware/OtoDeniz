@@ -54,6 +54,8 @@ export default {
         isim: null,
         soyisim: null,
         tel: null,
+        status:false,
+        date:new Date().toLocaleString(),
         email: null
       }
     };

@@ -22,7 +22,7 @@ export default {
     link: [{
       rel: 'icon',
       type: 'image/x-icon',
-      href: '/favicon.ico'
+      href: '/favicon.png'
     }]
   },
   /*
@@ -41,11 +41,11 @@ export default {
    ** Plugins to load before mounting the App
    */
   plugins: [{
-      src: '@/plugins/carousel.js',
+      src: '~/plugins/carousel.js',
       ssr: false
     },
     {
-      src: '@/plugins/carousel3d.js',
+      src: '~/plugins/carousel3d.js',
       ssr: false
     }
   ],
@@ -74,9 +74,13 @@ export default {
         },
         services: {
           auth: true,
-          firestore: true,
+          firestore:{
+            ssr:true
+          },
           functions: true,
-          storage: true,
+          storage: {
+            ssr:true
+          },
           realtimeDb: true,
           messaging: true,
           performance: true,
@@ -95,6 +99,8 @@ export default {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {}
+    extend(config, ctx) {},
+    babel: { compact: true }
+
   }
 }

@@ -10,11 +10,16 @@
           <img src="/oto_deniz_logo.svg" alt="" srcset="" />
         </div>
         <div>
-          <img src="/users.svg" alt="" srcset="" />
+          <a href="https://islem-takip.otodeniz.com.tr">
+                      <img src="/users.svg" alt="" srcset="" />
+
+          </a>
         </div>
       </div>
       <div class="mobile-header-bottom">
+        <no-ssr>
         <logo-slide />
+        </no-ssr>      
       </div>
     </div>
   </div>

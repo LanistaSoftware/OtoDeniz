@@ -3,7 +3,6 @@
     class="d-logo-carousel"
     :autoplay="true"
     :autoplayTimeout="1000"
-    :autoplayDirection="back"
     :loop="false"
     :perPageCustom="[
       [768, 9],

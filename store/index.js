@@ -1,10 +1,26 @@
 var uniqid = require("uniqid");
 export const state = {
-  products: []
+  products: [],
+  requests: [],
+  List: [],
+  Info: {},
+  auth: false
 };
 export const mutations = {
   setProducts(state, val) {
     state.products = val;
+  },
+  setRequests(state, val) {
+    state.requests = val;
+  },
+  setList(state, val) {
+    state.List = val;
+  },
+  setInfo(state, val) {
+    state.Info = val;
+  },
+  setAuth(state, val) {
+    state.auth = val;
   }
 };
 export const actions = {
@@ -111,25 +127,150 @@ export const actions = {
   },
   async addRequest({}, mail) {
     try {
-      this.$fireStore.collection("maillist").add({
-        mail: mail,
-        answer: false,
-        id: uniqid()
-      }).then(() => {
-      })
+      this.$fireStore
+        .collection("maillist")
+        .add({
+          mail: mail,
+          answer: false,
+          id: uniqid()
+        })
+        .then(() => {});
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-    
   },
   async parcaIstek({}, form) {
-    console.log(form)
+    console.log(form);
     try {
-      this.$fireStore.collection("requests").add(form).then(() => {
-      })
+      this.$fireStore
+        .collection("requests")
+        .add(form)
+        .then(() => {});
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-    
-  }
+  },
+  async getAllRequest({ commit }) {
+    try {
+      const items = [];
+      const snapshot = await this.$fireStore.collection("requests").get();
+      snapshot.docs.map(doc => items.push({ item: doc.data(), key: doc.id }));
+      commit("setRequests", items);
+    } catch (error) {
+      console.log(error);
+    }
+  },
+  async updateStatus({ commit }, id) {
+    try {
+      this.$fireStore
+        .collection("requests")
+        .doc(id)
+        .update({
+          status: true
+        });
+    } catch (error) {
+      console.log(error);
+    }
+  },
+  async deleteRequest({ commit }, id) {
+    try {
+      await this.$fireStore
+        .collection("requests")
+        .doc(id)
+        .delete();
+    } catch (error) {
+      console.log(error);
+    }
+  },
+  async getAllList({ commit }) {
+    try {
+      const items = [];
+      const snapshot = await this.$fireStore.collection("maillist").get();
+      snapshot.docs.map(doc => items.push({ item: doc.data(), key: doc.id }));
+      commit("setList", items);
+    } catch (error) {
+      console.log(error);
+    }
+  },
+  async deleteList({ commit }, id) {
+    try {
+      await this.$fireStore
+        .collection("maillist")
+        .doc(id)
+        .delete();
+    } catch (error) {
+      console.log(error);
+    }
+  },
+  async getInfo({ commit }) {
+    try {
+      const snapshot = await this.$fireStore
+        .collection("information")
+        .doc("company")
+        .get();
+      commit("setInfo", snapshot.data());
+    } catch (error) {
+      console.log(error);
+    }
+  },
+  async updateInfo({ commit }, field) {
+    try {
+      this.$fireStore
+        .collection("information")
+        .doc("company")
+        .update(field);
+    } catch (error) {
+      console.log(error);
+    }
+  },
+  async addLogo({}, file) {
+    try {
+      var uid = uniqid();
+      var storageRef = await this.$fireStorage.ref();
+      var thisRef = storageRef.child(uid);
+      thisRef.put(file).then(() => {
+        this.$fireStore
+          .collection("information")
+          .doc("company")
+          .update({
+            logo: uid
+          })
+          .then(() => {
+            var thisRef = storageRef.child(uid);
+            thisRef.put(file);
+          });
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  },
+  async Login({ commit }, form) {
+    try {
+      const snapshot = await this.$fireStore
+        .collection("information")
+        .doc("Login")
+        .get();
+      const logininfo = snapshot.data();
+      if (
+        form.userName === logininfo.username &&
+        form.password === logininfo.password
+      ) {
+        commit("setAuth", true);
+        $nuxt.$router.push("admin/panel/products");
+      } else {
+        commit("setAuth", true);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  },
+  LogOut({ commit }) {
+    commit("setAuth", false);
+    $nuxt.$router.push("/admin/");
+  },
+  // async nuxtServerInit ({dispatch}) {
+  //   console.log('çalıştı')
+  //   await  dispatch('getAllProduct')
+  // }
 };
+

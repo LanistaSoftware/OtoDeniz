@@ -16,7 +16,7 @@
             <template v-slot:button-content>
               <em>Kullanıcı İşlemleri</em>
             </template>
-            <b-dropdown-item href="#">Çıkış</b-dropdown-item>
+            <b-dropdown-item href="#" @click="LogOut">Çıkış</b-dropdown-item>
           </b-nav-item-dropdown>
         </b-navbar-nav>
       </b-collapse>
@@ -25,6 +25,7 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
 export default {
   name: "PanelHeader",
   data() {
@@ -32,25 +33,29 @@ export default {
       menu: [
         {
           text: "Parçalarım",
-          link: "admin/panel/products",
+          link: "admin/panel/products"
         },
         {
           text: "İstek Listesi",
-          link: "admin/panel/wishlist",
+          link: "admin/panel/wishlist"
         },
         {
           text: "Mail Listesi",
-          link: "admin/panel/maillist",
+          link: "admin/panel/maillist"
         },
         {
           text: "Bilgilerim",
-          link: "admin/panel/information",
-        },
-      ],
+          link: "admin/panel/information"
+        }
+      ]
     };
   },
+  methods: {
+    ...mapActions({
+      LogOut: "LogOut"
+    })
+  }
 };
 </script>
 
-<style>
-</style>
+<style></style>

@@ -10,31 +10,45 @@
             </tr>
           </thead>
           <tbody>
-            <EditInfo edit-tag="Şirket Ünvanı" :edit-field="company.name" />
-            <EditInfo edit-tag="Şirket Adresi" :edit-field="company.adress" />
-            <EditInfo edit-tag="Şirket Telefon" :edit-field="company.phone" />
-            <EditInfo edit-tag="Şirket Eposta" :edit-field="company.email" />
-            <EditInfo logo edit-tag="Şirket Logo" :edit-field="company.logo" />
+            <EditInfo edit-key= 'name' edit-tag="Şirket Ünvanı" :edit-field="Info.name" />
+            <EditInfo edit-key= 'adress' edit-tag="Şirket Adresi" :edit-field="Info.adress" />
+            <EditInfo edit-key= 'phone' edit-tag="Şirket Telefon" :edit-field="Info.phone" />
+            <EditInfo edit-key= 'email' edit-tag="Şirket Eposta" :edit-field="Info.email" />
+            <EditInfo edit-key= 'logo' logo edit-tag="Şirket Logo" :edit-field="Info.logo" />
           </tbody>
         </table>
       </b-card>
     </b-row>
   </div>
 </template>
-
 <script>
+import { mapActions,mapState } from "vuex";
+
 export default {
   name: "Information",
+  methods: {
+    ...mapActions({
+    getInfo: "getInfo"
+    })
+  },
+  created() {
+    this.getInfo();
+  },
+  computed: {
+    ...mapState({
+      Info: 'Info'
+    })
+  },
   data() {
     return {
-      company: {
-        name: "Oto Deniz Ltd. Şti.",
-        adress: "Oto Deniz Cad. Oto Deniz Sk.",
-        phone: "444 0 536",
-        email: "otodeniz.gmail.com",
-        logo: "oto_deniz_logo.svg",
-      },
+      // company: {
+      //   name: "Oto Deniz Ltd. Şti.",
+      //   adress: "Oto Deniz Cad. Oto Deniz Sk.",
+      //   phone: "444 0 536",
+      //   email: "otodeniz.gmail.com",
+      //   logo: "oto_deniz_logo.svg"
+      // }
     };
-  },
+  }
 };
 </script>
