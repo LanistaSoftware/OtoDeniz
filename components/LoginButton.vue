@@ -36,6 +36,9 @@ button {
   align-items: center;
   width: 167px;
   border-radius: 5px;
+  a {
+    color: @yellow !important;
+  }
 }
 
 .btn-icon {
