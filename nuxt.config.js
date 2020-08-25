@@ -13,10 +13,11 @@ export default {
         name: 'viewport',
         content: 'width=device-width, initial-scale=1'
       },
+      { name: 'keywords', content: 'yedek parça,otomobil,servis,parça,van otomobil parça,doğu anadolu yedek parça'},
       {
         hid: 'description',
         name: 'description',
-        content: process.env.npm_package_description || ''
+        content: 'Oto Deniz Doğu Anadolunun en büyük yedek parça tedarikçisi.'
       }
     ],
     link: [{
