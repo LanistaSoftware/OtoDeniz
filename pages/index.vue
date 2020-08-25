@@ -157,7 +157,7 @@ export default {
         {
           title: "Bölgedeki en iyi yedek parçaları keşfedin",
           buttontext: "Hemen arayın",
-          img: "Slider 1.png",
+          img: "s1.webp",
           content:
             "Aradığınız bütün orijinal yedek parçaları en uygun fiyatlarla bölgenin en iyi yedek parça marketi Deniz Oto ve Yedek Parça da haftanın her günü bulabilirsiniz."
         },
@@ -167,7 +167,7 @@ export default {
           bgVariant: "bg-green",
           textVariant: "text-white",
           mapClick: true,
-          img: "Slider2.png",
+          img: "s2.webp",
           content:
             "En uygun fiyatlara sahip orijinal yedek parçaları isterseniz kredi kartınızla,isterseniz mail order hizmetini kullanarak ödeyebilirsiniz. Farklı ödeme seçenekleri için şubemizi ziyaret edebiliriniz."
         },
@@ -177,7 +177,7 @@ export default {
           bgVariant: "bg-blue",
           textVariant: "text-white",
           requests: true,
-          img: "Slider3.png",
+          img: "s3.webp",
           content:
             "Arayıp bulamadığınız bir yedek parça varsa talep oluşturmanız halinde Deniz Oto ve Yedek Parça uzman kadrosuyla size kısa sürede ihtiyacınız olan parçayı bulabilir."
         }

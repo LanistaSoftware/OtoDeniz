@@ -23,7 +23,7 @@
       </div>
     </div>
     <div v-if="!map" class="image-container">
-      <img :src="img" alt="card_img" />
+      <img loading="lazy"  :src="img" alt="card_img" />
     </div>
     <div v-else class="image-container">
       <div class="d-map">

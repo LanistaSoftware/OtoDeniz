@@ -121,7 +121,7 @@
       <div class="d-container footer-bottom">
         <div class="bottom-left">
           <div class="left-container">
-            <img src="/oto_deniz_logo.svg" alt="" />
+            <img src="/oto_deniz_logo.svg" alt="Oto deniz" />
             <p class="text-white">
               Oto Yedek Parça
             </p>
@@ -133,7 +133,7 @@
           </p>
         </div>
         <div class="bottom-right">
-          <img src="/lanista.png" alt="" />
+          <img src="/lanista.png" alt="lanista software" />
           <p class="text-white">
             Think, create, develop!
           </p>
