@@ -67,7 +67,7 @@
       <content-card
         title="Deniz Oto ve Yedek Parça Kimdir ?"
         buttontext="Hemen Arayın"
-        img="section3.png"
+        png="section3.png"
         top
         >1985 Yılında Van Oto Sanayi'de kurulmuş olan Oto Deniz ve Yedek parça,
         kurulduğu günden bu güne müşterilerine daima dürüstlük ilkesiyle
@@ -157,7 +157,8 @@ export default {
         {
           title: "Bölgedeki en iyi yedek parçaları keşfedin",
           buttontext: "Hemen arayın",
-          img: "s1.webp",
+          webp: "s1.webp",
+          png: "Slider 1.png",
           content:
             "Aradığınız bütün orijinal yedek parçaları en uygun fiyatlarla bölgenin en iyi yedek parça marketi Deniz Oto ve Yedek Parça da haftanın her günü bulabilirsiniz."
         },
@@ -167,7 +168,8 @@ export default {
           bgVariant: "bg-green",
           textVariant: "text-white",
           mapClick: true,
-          img: "s2.webp",
+          webp: "s2.webp",
+          png: "Slider2.png",
           content:
             "En uygun fiyatlara sahip orijinal yedek parçaları isterseniz kredi kartınızla,isterseniz mail order hizmetini kullanarak ödeyebilirsiniz. Farklı ödeme seçenekleri için şubemizi ziyaret edebiliriniz."
         },
@@ -177,7 +179,8 @@ export default {
           bgVariant: "bg-blue",
           textVariant: "text-white",
           requests: true,
-          img: "s3.webp",
+          webp: "s3.webp",
+          png: "Slider3.png",
           content:
             "Arayıp bulamadığınız bir yedek parça varsa talep oluşturmanız halinde Deniz Oto ve Yedek Parça uzman kadrosuyla size kısa sürede ihtiyacınız olan parçayı bulabilir."
         }

@@ -22,8 +22,14 @@
         >
       </div>
     </div>
+
     <div v-if="!map" class="image-container">
-      <img loading="lazy"  :src="img" alt="card_img" />
+      <picture>
+        <source :srcset="webp" type="image/webp" />
+        <source :srcset="png" type="image/jpeg" />
+          <img :alt="webp">
+
+      </picture>
     </div>
     <div v-else class="image-container">
       <div class="d-map">
@@ -78,6 +84,14 @@ export default {
       default: false
     },
     img: {
+      type: String,
+      default: null
+    },
+    webp: {
+      type: String,
+      default: null
+    },
+    png: {
       type: String,
       default: null
     },
