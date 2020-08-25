@@ -24,12 +24,13 @@
     </div>
 
     <div v-if="!map" class="image-container">
+      <no-ssr>
       <picture>
-        <source :srcset="webp" type="image/webp" />
-        <source :srcset="png" type="image/jpeg" />
-          <img :alt="webp">
-
+        <source :srcset="webp" type="image/webp">
+        <source :srcset="png" type="image/png">
+        <img alt="oto deniz" />
       </picture>
+      </no-ssr>
     </div>
     <div v-else class="image-container">
       <div class="d-map">

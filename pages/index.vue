@@ -158,7 +158,7 @@ export default {
           title: "Bölgedeki en iyi yedek parçaları keşfedin",
           buttontext: "Hemen arayın",
           webp: "s1.webp",
-          png: "Slider 1.png",
+          png: "Slider1.png",
           content:
             "Aradığınız bütün orijinal yedek parçaları en uygun fiyatlarla bölgenin en iyi yedek parça marketi Deniz Oto ve Yedek Parça da haftanın her günü bulabilirsiniz."
         },
