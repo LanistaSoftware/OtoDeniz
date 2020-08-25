@@ -19,8 +19,8 @@
         lg="3"
         xl="2"
         class="d-flex align-items-center p-2"
-        v-for="(product, i) in products"
-        :key="i"
+        v-for="product in products"
+        :key="product.key"
       >
         <b-card
           img-alt="Ürün Resmi"

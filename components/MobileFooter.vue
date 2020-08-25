@@ -4,7 +4,7 @@
       <div class="info-group">
         <div>
           <top
-            ><template v-slot:text>Adres</template>
+            ><template v-slot:text><h4>Adres</h4></template>
             <template v-slot:image
               ><svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -32,7 +32,7 @@
         </div>
         <div>
           <top
-            ><template v-slot:text>Telefon</template>
+            ><template v-slot:text><h4>Telefon</h4></template>
             <template v-slot:image
               ><svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -60,7 +60,7 @@
         </div>
         <div>
           <top
-            ><template v-slot:text>E-Mail</template>
+            ><template v-slot:text><h4>E-Mail</h4></template>
             <template v-slot:image
               ><svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -114,9 +114,6 @@ export default {
 .mobile-footer {
   display: grid;
   grid-template-rows: 1fr 0.1fr;
-  .top-text {
-    font-size: 2rem;
-  }
 }
 .mobile-top-footer {
   display: grid;
@@ -130,7 +127,7 @@ export default {
     display: flex;
     font-size: 1.5rem;
     width: 60%;
-    margin-left: 3.3rem;
+    margin-left: 1.5rem;
     padding-top: 0.1rem;
     color: @ftext;
   }

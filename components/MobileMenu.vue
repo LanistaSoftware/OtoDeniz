@@ -5,11 +5,13 @@
     </div>
     <div class="mobile-menu">
       <ul>
-        <li><a href="#anasayfa" @click="emitShow">Ana Sayfa</a></li>
-        <li><a href="#hakkımızda" @click="emitShow">Hakkımızda</a></li>
-        <li><a href="#ürünler" @click="emitShow">Öne Çıkan Ürünler</a></li>
-        <li><a href="#mobile-footer" @click="emitShow">İstek Listesi </a></li>
-        <li><a href="#map" @click="emitShow">Harita</a></li>
+            <ul>
+              <li @click="emitShow"><nuxt-link to="/">Ana Sayfa</nuxt-link></li>
+              <li @click="emitShow"><nuxt-link to="#hakkımızda">Hakkımızda</nuxt-link></li>
+              <li @click="emitShow"><nuxt-link to="#ürünler">Ürünler</nuxt-link></li>
+              <li @click="emitShow"><nuxt-link to="#iletişim">İstek Listesi</nuxt-link></li>
+              <li @click="emitShow"><nuxt-link to="#desktop-footer">İletişim</nuxt-link></li>
+            </ul>
       </ul>
     </div>
   </div>

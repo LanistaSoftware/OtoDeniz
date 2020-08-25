@@ -26,14 +26,14 @@
       <img :src="img" alt="card_img" />
     </div>
     <div v-else class="image-container">
-      <div           class="d-map"
->
+      <div class="d-map">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3007.3566675762777!2d28.78506281495511!3d41.08305312276978!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14caa5f570baaaab%3A0xac43b09ef54311fd!2sGochem!5e0!3m2!1str!2str!4v1585750999091!5m2!1str!2str"
           frameborder="0"
           allowfullscreen
           aria-hidden="true"
-          height="100%" width="100%"
+          height="100%"
+          width="100%"
           tabindex="0"
           title="oto deniz adresi"
         />
@@ -42,21 +42,20 @@
   </div>
 </template>
 <script>
-import {mapState} from 'vuex'
+import { mapState } from "vuex";
 export default {
   computed: {
     ...mapState({
-      Info:'Info'
+      Info: "Info"
     })
   },
   methods: {
     handleSubmit() {
       if (this.mapClick) {
         this.$router.push("#map");
-      }
-     else if (this.requests) {
+      } else if (this.requests) {
         this.$router.push("#iletişim");
-      }else {
+      } else {
         window.open(`tel:${this.Info.phone}`);
       }
     }
@@ -124,7 +123,6 @@ export default {
   padding: 1rem 0;
   width: 100%;
   display: grid;
-  grid-template-rows: auto 1fr auto;
   grid-template-areas:
     "card-title"
     "card-content"
@@ -155,10 +153,11 @@ export default {
   grid-area: card-button;
   display: grid;
   width: 100%;
-  align-content: flex-start;
+  padding-left: 3px;
+
+  align-self: end;
   button {
     width: 50%;
-    margin-top: 1rem;
   }
 }
 .title-container {
@@ -184,6 +183,9 @@ export default {
     grid-template-columns: 1fr;
     grid-template-areas: "image-container" "content-container ";
   }
+  .card-content {
+    margin-top: 15px;
+  }
   .img-center {
     grid-template-columns: 1fr !important;
     grid-template-rows: none !important;
@@ -193,10 +195,15 @@ export default {
     }
     .content-container {
       grid-template-rows: none !important;
-      margin: 1rem 0rem;
+      margin: 20px 0rem;
       button {
         margin-top: 1rem;
       }
+    }
+  }
+  .image-container {
+    img {
+      height: auto;
     }
   }
   .title-container {
@@ -217,6 +224,8 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 22px;
+
     h2 {
       width: 100%;
     }
@@ -228,6 +237,7 @@ export default {
     align-content: flex-end;
     button {
       width: 100%;
+      margin: 20px 0px;
     }
   }
 }

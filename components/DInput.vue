@@ -33,14 +33,13 @@ export default {
 </script>
 <style lang="less" scoped>
 .d-input {
-  padding: 0.5rem;
+  height: 50px;
   width: 100%;
   background-color: @white;
   border: 1.4px solid @gray;
   outline: none;
   border-radius: 0.2em;
   color: @drop;
-  font-size: 1.2rem;
 }
 .d-ts {
   background-color:rgba(0, 0, 0, 0);
@@ -56,5 +55,10 @@ export default {
   border-radius: 0.3em;
   color: @drop;
   font-size: 0.6rem;
+}
+@media @mobile {
+  .d-input {
+    height: 30px;
+  }
 }
 </style>

@@ -50,7 +50,7 @@ export default {
   padding: 10px 0;
   outline: none;
   border-radius: 0.3em;
-  font-size: 1rem;
+  font-size: 17px;
   border: none;
   transition: 0.2s;
 

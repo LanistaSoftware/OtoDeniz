@@ -10,7 +10,7 @@
  export default {
    props: {
      cardsslide: {
-      type:String,
+      type:Array,
       required:false  
      }
    },

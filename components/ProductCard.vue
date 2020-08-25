@@ -255,4 +255,10 @@ export default {
     }
   }
 }
+@media @xsmobile {
+  .product-card {
+    width: 80%;
+    height: 260px;
+  }
+}
 </style>
