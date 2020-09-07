@@ -10,7 +10,7 @@
               <li @click="emitShow"><nuxt-link to="#hakkımızda">Hakkımızda</nuxt-link></li>
               <li @click="emitShow"><nuxt-link to="#ürünler">Ürünler</nuxt-link></li>
               <li @click="emitShow"><nuxt-link to="#iletişim">İstek Listesi</nuxt-link></li>
-              <li @click="emitShow"><nuxt-link to="#desktop-footer">İletişim</nuxt-link></li>
+              <li @click="emitShow"><nuxt-link to="#mobile-footer">İletişim</nuxt-link></li>
             </ul>
       </ul>
     </div>

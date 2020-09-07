@@ -1,4 +1,6 @@
 <template>
+<client-only>
+
   <carousel-1d
     class="d-logo-carousel"
     :autoplay="true"
@@ -18,6 +20,8 @@
       <h6 class="f_semibold">{{ item.marka }}</h6>
     </slide-1d>
   </carousel-1d>
+  </client-only>
+
 </template>
 <script>
 export default {

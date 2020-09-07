@@ -1,13 +1,13 @@
 <template>
   <div>
-    <no-ssr>
+    <client-only>
       <d-header id="desktop-header" />
       <mobile-header id="mobile-header" />
-    </no-ssr>
+    </client-only>
 
     <section class="bg-cream" id="anasayfa">
       <div class="d-container">
-          <content-slide class="home-slide" :cards="contentslidecards" />
+        <content-slide class="home-slide" :cards="contentslidecards" />
       </div>
     </section>
     <section class="bg-white service-section d-container" id="section-about">
@@ -16,7 +16,7 @@
           Hizmet Anlayışımız
         </h3>
       </div>
-      <div class="service-section-content"  id="service-desktop">
+      <div class="service-section-content" id="service-desktop">
         <center-card
           v-for="(item, i) in centercards"
           :key="i"
@@ -27,9 +27,9 @@
         >
       </div>
       <div class="service-section-content" id="service-mobile">
-        <no-ssr>
+        <client-only>
           <center-card-slide :cardsslide="centercards" />
-        </no-ssr>
+        </client-only>
       </div>
     </section>
     <section class="product-section bg-cream">
@@ -63,7 +63,7 @@
         <img v-else src="/chevron-up.svg" alt="" srcset="" />
       </div>
     </section>
-    <section  id="hakkımızda" class="d-container section-about" >
+    <section id="hakkımızda" class="d-container section-about">
       <content-card
         title="Deniz Oto ve Yedek Parça Kimdir ?"
         buttontext="Hemen Arayın"
@@ -201,15 +201,14 @@ export default {
     })
   },
   created() {
-      this.pageproduct = this.products;
+    this.pageproduct = this.products;
   }
 };
 </script>
 <style lang="less" scoped>
 #anasayfa {
   .home-slide {
-      padding-top: 2rem !important; 
-
+    padding-top: 2rem !important;
   }
 }
 .section-form {
@@ -219,8 +218,7 @@ export default {
   padding: 100px 0px;
 }
 .service-section {
-    padding: 100px 0rem;
-
+  padding: 100px 0rem;
 }
 .section-header {
   text-align: center;
@@ -235,7 +233,7 @@ export default {
 }
 .service-section-content {
   display: grid;
-  padding-top: 50px ;
+  padding-top: 50px;
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 .service-section-product {

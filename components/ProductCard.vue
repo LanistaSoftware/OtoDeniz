@@ -2,7 +2,7 @@
   <div class="product-card d_shaodw">
     <div
       class="product-card-image"
-      :style="{ 'background-image': `url(${prewImage})` }"
+      :style="{ 'background-image': `url(${prewImage !==null ? prewImage : '/'})` }"
     />
     <div class="product-hover-body">
       <div>

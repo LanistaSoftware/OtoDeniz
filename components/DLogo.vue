@@ -3,7 +3,12 @@
 </template>
 <script>
 export default {
-    props:['img']
+    props:{
+        img: {
+            type:String,
+            default: null
+        }
+    }
 }
 </script>
 <style lang="less" scoped>
