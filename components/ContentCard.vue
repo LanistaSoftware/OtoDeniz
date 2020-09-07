@@ -25,7 +25,7 @@
 
     <div v-if="!map" class="image-container">
       <no-ssr>
-      <picture>
+      <picture class="picture">
         <source :srcset="webp" type="image/webp">
         <source :srcset="png" type="image/png">
         <img alt="oto deniz" />
@@ -123,7 +123,7 @@ export default {
 .content-card {
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 7fr 5fr;
   justify-content: center;
   align-content: center;
 }
@@ -186,6 +186,10 @@ export default {
     width: 100%;
     height: 100%;
     padding: 1rem;
+  }
+  .picture {
+    display: grid;
+    justify-content: center;
   }
   img {
     width: 100%;
@@ -256,83 +260,5 @@ export default {
     }
   }
 }
-// @media @xs {
-//   .content-card {
-//     grid-template-columns: 1fr;
-//     grid-template-areas: "image-container" "content-container ";
-//   }
-//   .img-center {
-//     grid-template-columns: 1fr !important;
-//     grid-template-rows: none !important;
 
-//     grid-template-areas: "title-container" "image-container" "content-container " !important;
-//   }
-//   .img-center {
-//     .card-title {
-//       display: none !important;
-//     }
-//     h1 {
-//       text-align: center;
-//     }
-//   }
-//   .content-container {
-//     text-align: center;
-//   }
-//   .card-title {
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     h2 {
-//       width: 100%;
-//     }
-//   }
-//   .card-button {
-//     grid-area: card-button;
-//     display: grid;
-//     width: 100%;
-//     align-content: flex-end;
-//     button {
-//       width: 100%;
-//     }
-//   }
-// }
-// @media @md {
-//   .content-card {
-//     grid-template-columns: 1fr;
-//     grid-template-areas: "image-container" "content-container ";
-//   }
-//   .img-center {
-//     grid-template-columns: 1fr !important;
-//     grid-template-rows: none !important;
-//     grid-template-areas: "title-container" "image-container" "content-container " !important;
-//   }
-//   .content-container {
-//     text-align: center;
-//   }
-//   .img-center {
-//     .card-title {
-//       display: none !important;
-//     }
-//     h1 {
-//       text-align: center;
-//     }
-//   }
-//   .card-title {
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     h1 {
-//       width: 100%;
-//     }
-//   }
-//   .card-button {
-//     grid-area: card-button;
-//     display: grid;
-//     width: 100%;
-//     align-content: flex-end;
-//     button {
-//       width: 100%;
-//     }
-//   }
-// }
 </style>

@@ -5,13 +5,24 @@
     </div>
     <div class="center-card-content">
       <div class="content-header">
-        <h5 class="f_bolder">{{ title }}</h5>
+        <h5 class="f_bolder">
+          {{ title.split(' ', Math.ceil(title.split(' ').length / 2)).join(' ') }}
+        </h5>
+                <h5 class="f_bolder">
+          {{
+            title
+              .split(" ", Math.ceil(title.split(" ").length))
+              .slice(
+                Math.ceil(title.split(" ").length / 2),
+                Math.ceil(title.split(" ").length)
+              )
+              .join(" ")
+          }}
+        </h5>
         <p class="f_bolder">{{ title }}</p>
       </div>
       <div class="content-text">
-        <p class="f_regular">
           <slot />
-        </p>
       </div>
     </div>
   </div>
@@ -60,7 +71,6 @@ export default {
   align-self: center;
   padding-top: 40px;
   h5 {
-    width: 50%;
     justify-self: center;
   }
   p {

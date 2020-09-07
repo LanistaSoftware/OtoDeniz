@@ -40,7 +40,7 @@ export default {
 <style lang="less" scoped>
 .mobile-header {
   display: grid;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: auto 1fr;
   grid-template-areas: "top" "bottom";
   width: 100%;
 }
@@ -48,7 +48,7 @@ export default {
   grid-area: top;
   display: grid;
   margin: 1rem 3rem;
-  padding: 1rem 0rem;
+  padding:  0rem;
   align-self: start;
   grid-template-columns: 1fr 1fr 1fr;
   img {
@@ -75,7 +75,7 @@ export default {
     display: flex;
     justify-content: center;
     img {
-      max-width: 60px;
+      min-width: 80px;
     }
   }
 }

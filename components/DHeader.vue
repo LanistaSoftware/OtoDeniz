@@ -156,7 +156,7 @@ export default {
   align-content: center;
   grid-template-areas: "logo menu login";
   img {
-    max-width: 160px;
+    max-width: 200px;
     height: auto;
   }
 }

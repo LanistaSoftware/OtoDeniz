@@ -7,7 +7,7 @@
 
     <section class="bg-cream" id="anasayfa">
       <div class="d-container">
-          <content-slide class="home-slide" :cards="contentslidecards" />
+        <content-slide class="home-slide" :cards="contentslidecards" />
       </div>
     </section>
     <section class="bg-white service-section d-container" id="section-about">
@@ -16,15 +16,30 @@
           Hizmet Anlayışımız
         </h3>
       </div>
-      <div class="service-section-content"  id="service-desktop">
+      <div class="service-section-content" id="service-desktop">
         <center-card
           v-for="(item, i) in centercards"
           :key="i"
           :img="item.img"
           :title="item.title"
         >
-          {{ item.content }}</center-card
-        >
+          <p class="f_regular">
+            {{
+              item.content
+                .split(" ", Math.ceil(item.content.split(" ").length / 2))
+                .join(" ")
+            }}
+            {{
+              item.content
+                .split(" ", Math.ceil(item.content.split(" ").length))
+                .slice(
+                  Math.ceil(item.content.split(" ").length / 2),
+                  Math.ceil(item.content.split(" ").length)
+                )
+                .join(" ")
+            }}
+          </p>
+        </center-card>
       </div>
       <div class="service-section-content" id="service-mobile">
         <no-ssr>
@@ -43,16 +58,16 @@
           <d-search class="d_shaodw" @pr="searchValue($event)" />
         </div>
         <div class="service-section-product" id="ürünler">
-            <product-card
-              v-for="(product, i) in pageproduct"
-              :key="product.key"
-              :img="product.item.file"
-              :title="product.item.categories"
-              :subtitle="product.item.name"
-              :bodytext="product.item.desc"
-              buttontext="Hemen Arayın"
-              v-show="i <= 7 || all == true"
-            />
+          <product-card
+            v-for="(product, i) in pageproduct"
+            :key="product.key"
+            :img="product.item.file"
+            :title="product.item.categories"
+            :subtitle="product.item.name"
+            :bodytext="product.item.desc"
+            buttontext="Hemen Arayın"
+            v-show="i <= 7 || all == true"
+          />
         </div>
       </div>
       <div class="icon-chevron text-blue" @click="all = !all">
@@ -63,7 +78,7 @@
         <img v-else src="/chevron-up.svg" alt="" srcset="" />
       </div>
     </section>
-    <section  id="hakkımızda" class="d-container section-about" >
+    <section id="hakkımızda" class="d-container section-about">
       <content-card
         title="Deniz Oto ve Yedek Parça Kimdir ?"
         buttontext="Hemen Arayın"
@@ -201,15 +216,14 @@ export default {
     })
   },
   created() {
-      this.pageproduct = this.products;
+    this.pageproduct = this.products;
   }
 };
 </script>
 <style lang="less" scoped>
 #anasayfa {
   .home-slide {
-      padding-top: 2rem !important; 
-
+    padding-top: 2rem !important;
   }
 }
 .section-form {
@@ -219,8 +233,7 @@ export default {
   padding: 100px 0px;
 }
 .service-section {
-    padding: 100px 0rem;
-
+  padding: 100px 0rem;
 }
 .section-header {
   text-align: center;
@@ -235,15 +248,14 @@ export default {
 }
 .service-section-content {
   display: grid;
-  padding-top: 50px ;
+  padding-top: 50px;
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 .service-section-product {
-  display: grid;
-  padding: 3rem 1rem;
-  width: 100%;
-  justify-items: center;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 3rem 0;
+  justify-content: space-around;
 }
 .product-section {
   padding: 100px 0px 50px 0px;
@@ -279,21 +291,27 @@ export default {
 #service-mobile {
   display: none;
 }
-@media @smalpc {
-  .service-section-product {
+@media @lg {
+  #mobile-header {
     display: grid;
-    padding: 3rem 1rem;
-    width: 100%;
-    justify-items: center;
-    grid-template-columns: 1fr 1fr 1fr;
+  }
+  #mobile-footer {
+    display: grid;
+  }
+  #desktop-header {
+    display: none;
+  }
+  #desktop-footer {
+    display: none;
+  }
+  #service-desktop {
+    display: none;
+  }
+  #service-mobile {
+    display: block;
   }
 }
 @media @mobile {
-  .service-section-product {
-    grid-template-columns: 1fr 1fr;
-    justify-items: center;
-    padding: 2rem;
-  }
   #mobile-header {
     display: grid;
   }
@@ -315,10 +333,11 @@ export default {
 }
 @media @xsmobile {
   .service-section-product {
-    grid-template-columns: 1fr;
-    justify-items: center;
-    width: 100%;
-  }
+  display: grid;
+  grid-auto-columns: auto;
+  padding: 3rem 0;
+  justify-content: center;
+}
   #mobile-header {
     display: grid;
   }
@@ -342,11 +361,43 @@ export default {
 <style lang="less">
 .d-container {
   margin: 0 auto;
-  width: 80% !important;
+  width: 70%;
 }
-@media @mobile {
+
+@media @xs {
   .d-container {
-    width: 90% !important;
+    margin: 0 auto;
+    width: 98%;
+  }
+}
+@media @sm {
+  .d-container {
+    margin: 0 auto;
+    width: 95%;
+  }
+}
+@media @md {
+  .d-container {
+    margin: 0 auto;
+    width: 90%;
+  }
+}
+@media @lg {
+  .d-container {
+    margin: 0 auto;
+    width: 85%;
+  }
+}
+@media @xl {
+  .d-container {
+    margin: 0 auto;
+    width: 80%;
+  }
+}
+@media @xxl {
+  .d-container {
+    margin: 0 auto;
+    width: 75%;
   }
 }
 </style>

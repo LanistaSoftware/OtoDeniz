@@ -89,8 +89,8 @@ export default {
   display: grid;
   grid-template-rows: 0.6fr 1fr;
   grid-template-areas: "product-card-image" "product-card-body";
-  width: 14.4rem;
-  height: 16rem;
+  width: 260px;
+  height: 280px;
   background-color: @white;
   border-radius: 1em;
   position: relative;
@@ -225,7 +225,7 @@ export default {
   }
   .body-button {
     display: block;
-    width: 80%;
+    width: 134px;
     padding: 5px !important;
   }
   .product-card-body {
@@ -255,10 +255,10 @@ export default {
     }
   }
 }
-@media @xsmobile {
-  .product-card {
-    width: 80%;
-    height: 260px;
-  }
-}
+// @media @xsmobile {
+//   .product-card {
+//     width:134px;
+//     height: 260px;
+//   }
+// }
 </style>
