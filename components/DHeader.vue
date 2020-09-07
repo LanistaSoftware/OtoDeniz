@@ -102,7 +102,8 @@ export default {
       menu: [
         {
           text: "Ana sayfa",
-          link: "/"
+          link: "/",
+          diez:true,
         },
         {
           text: "Hakkımızda",
@@ -114,11 +115,11 @@ export default {
         },
         {
           text: "İstek Listesi",
-          link: "desktop-footer"
+          link: "iletişim"
         },
         {
           text: "İletişim",
-          link: "iletişim"
+          link: "desktop-footer"
         }
       ]
     };

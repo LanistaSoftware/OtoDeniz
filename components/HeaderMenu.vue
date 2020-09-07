@@ -2,7 +2,11 @@
   <div class="d-header-menu">
     <ul>
       <li class="f_normal_bold" v-for="(item, i) in content" :key="i">
-        <nuxt-link :to="inline + item.link" tag="a">
+        <nuxt-link v-if="!item.diez" :to="inline + item.link" tag="a">
+          {{ item.text }}
+          <span />
+        </nuxt-link>
+        <nuxt-link v-else :to="item.link" tag="a" exact>
           {{ item.text }}
           <span />
         </nuxt-link>
@@ -14,7 +18,7 @@
 export default {
   props: {
     content: {
-      type: Object,
+      type: Array,
       default: null,
     },
     inline: {

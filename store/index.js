@@ -1,10 +1,12 @@
 var uniqid = require("uniqid");
-export const state = {
-  products: [],
-  requests: [],
-  List: [],
-  Info: {},
-  auth: false
+export const state = () =>{
+  return {
+    products: [],
+    requests: [],
+    List:[],
+    Info: {},
+    auth: false
+  }
 };
 export const mutations = {
   setProducts(state, val) {

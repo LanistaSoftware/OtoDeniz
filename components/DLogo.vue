@@ -1,5 +1,5 @@
 <template>
-    <img class="d-logo" :src="'/logo/'+img">
+    <img class="d-logo" :src="'/logo/'+img" :alt="img">
 </template>
 <script>
 export default {

@@ -1,99 +1,97 @@
 <template>
   <div class="footer-container bg-yellow">
-    <div class="top-contianer ">
-      <div class="footer-top  d-container">
+    <div class="top-contianer  d-container">
+      <div class="footer-top ">
         <div class="footer-info">
           <div>
-          <h6>
-            İLETİŞİM
-          </h6>
-          <ul>
-            <li>
-              <top
-                ><template v-slot:text>{{Info.phone}}</template>
-                <template v-slot:image
-                  ><svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="icon icon-tabler icon-tabler-phone-call"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    stroke-width="2"
-                    stroke="currentColor"
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <path stroke="none" d="M0 0h24v24H0z" />
-                    <path
-                      d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"
-                    />
-                    <path d="M15 7a2 2 0 0 1 2 2" />
-                    <path d="M15 3a6 6 0 0 1 6 6" />
-                  </svg> </template
-              ></top>
-            </li>
-            <li>
-              <top
-                ><template v-slot:text>{{Info.email}}</template>
-                <template v-slot:image
-                  ><svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="icon icon-tabler icon-tabler-mail"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    stroke-width="2"
-                    stroke="currentColor"
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <path stroke="none" d="M0 0h24v24H0z" />
-                    <rect x="3" y="5" width="18" height="14" rx="2" />
-                    <polyline points="3 7 12 13 21 7" />
-                  </svg> </template
-              ></top>
-            </li>
-             <li>
-              <top
-                ><template v-slot:text
-                  >{{Info.adress}}</template
-                >
-                <template v-slot:image
-                  ><svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="icon icon-tabler icon-tabler-map"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    stroke-width="2"
-                    stroke="currentColor"
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <path stroke="none" d="M0 0h24v24H0z" />
-                    <polyline
-                      points="3 7 9 4 15 7 21 4 21 17 15 20 9 17 3 20 3 7"
-                    />
-                    <line x1="9" y1="4" x2="9" y2="17" />
-                    <line x1="15" y1="7" x2="15" y2="20" />
-                  </svg> </template
-              ></top>
-            </li>
-          </ul>
+            <h6>
+              İLETİŞİM
+            </h6>
+            <ul>
+              <li>
+                <top
+                  ><template v-slot:text>{{ Info.phone }}</template>
+                  <template v-slot:image
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="icon icon-tabler icon-tabler-phone-call"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                      stroke="currentColor"
+                      fill="none"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path stroke="none" d="M0 0h24v24H0z" />
+                      <path
+                        d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"
+                      />
+                      <path d="M15 7a2 2 0 0 1 2 2" />
+                      <path d="M15 3a6 6 0 0 1 6 6" />
+                    </svg> </template
+                ></top>
+              </li>
+              <li>
+                <top
+                  ><template v-slot:text>{{ Info.email }}</template>
+                  <template v-slot:image
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="icon icon-tabler icon-tabler-mail"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                      stroke="currentColor"
+                      fill="none"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path stroke="none" d="M0 0h24v24H0z" />
+                      <rect x="3" y="5" width="18" height="14" rx="2" />
+                      <polyline points="3 7 12 13 21 7" />
+                    </svg> </template
+                ></top>
+              </li>
+              <li>
+                <top
+                  ><template v-slot:text>{{ Info.adress }}</template>
+                  <template v-slot:image
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="icon icon-tabler icon-tabler-map"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                      stroke="currentColor"
+                      fill="none"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path stroke="none" d="M0 0h24v24H0z" />
+                      <polyline
+                        points="3 7 9 4 15 7 21 4 21 17 15 20 9 17 3 20 3 7"
+                      />
+                      <line x1="9" y1="4" x2="9" y2="17" />
+                      <line x1="15" y1="7" x2="15" y2="20" />
+                    </svg> </template
+                ></top>
+              </li>
+            </ul>
           </div>
           <div class="map-group">
             <h6>
               SİTE HARİTASI
             </h6>
             <ul>
-              <li><a href="#anasayfa">Ana Sayfa</a></li>
-              <li><a href="#hakkımızda">Hakkımızda</a></li>
-              <li><a href="#ürünler">Öne Çıkan Ürünler</a></li>
-              <li><a href="#desktop-footer">İstek Listesi </a></li>
-              <li><a href="#map">Harita</a></li>
+              <li><nuxt-link to="/">Ana Sayfa</nuxt-link></li>
+              <li><nuxt-link to="#hakkımızda">Hakkımızda</nuxt-link></li>
+              <li><nuxt-link to="#ürünler">Ürünler</nuxt-link></li>
+              <li><nuxt-link to="#iletişim">İstek Listesi</nuxt-link></li>
+              <li><nuxt-link to="#desktop-footer">İletişim</nuxt-link></li>
             </ul>
           </div>
           <div class="right-group">
@@ -114,41 +112,45 @@
           </div>
         </div>
       </div>
-      <div class="footer-slide">
+      <div class="footer-slide ">
         <logo-slide />
       </div>
     </div>
 
-    <div class="footer-bottom bg-black">
-      <div class="bottom-left">
-        <img src="/oto_deniz_logo.svg" alt="" />
-        <p class="text-white">
-          Oto Yedek Parça
-        </p>
-      </div>
-      <div class="bottom-center">
-        <p class="text-white">
-          Copyright 2020
-        </p>
-      </div>
-      <div class="bottom-right">
-        <img src="/lanista.png" alt="" />
-        <p class="text-white">
-          Think, create, develop!
-        </p>
+    <div class="footer-bottom-container bg-black">
+      <div class="d-container footer-bottom">
+        <div class="bottom-left">
+          <div class="left-container">
+            <img src="/oto_deniz_logo.svg" alt="Oto deniz" />
+            <p class="text-white">
+              Oto Yedek Parça
+            </p>
+          </div>
+        </div>
+        <div class="bottom-center">
+          <p class="text-white">
+            Copyright 2020
+          </p>
+        </div>
+        <div class="bottom-right">
+          <img src="/lanista.png" alt="lanista software" />
+          <p class="text-white">
+            Think, create, develop!
+          </p>
+        </div>
       </div>
     </div>
   </div>
 </template>
 <script>
-import {mapState} from 'vuex'
+import { mapState } from "vuex";
 export default {
-    computed: {
+  computed: {
     ...mapState({
       Info: "Info"
     })
   }
-}
+};
 </script>
 <style lang="less" scoped>
 .footer-container {
@@ -177,11 +179,10 @@ export default {
 .footer-slide {
   display: grid;
   align-self: end;
-  padding: 0rem 5rem;
 }
 .footer-info {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 3fr 6fr 3fr;
   justify-self: center;
   align-content: center;
   h6 {
@@ -194,38 +195,43 @@ export default {
 }
 .footer-bottom {
   display: grid;
-  padding: 1rem 4rem;
   grid-template-columns: 1fr 1fr 1fr;
-  p,
-  span {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  padding: 22px 0rem;
+  p {
+    font-size: 12px;
   }
 }
 .bottom-left {
   display: grid;
-  justify-self: left;
+  width: 100%;
+  justify-content: start;
+
   img {
-    display: grid;
-    justify-self: center;
-    align-self: center;
-    width: 50%;
+    width: 90px;
+    height: auto;
+    justify-self: start;
   }
 }
 .bottom-right {
   display: grid;
-  justify-self: right;
+  justify-content: end;
+  width: 100%;
   img {
-    display: grid;
+    width: 90px;
+    height: auto;
     justify-self: center;
-    align-self: center;
-    width: 50%;
   }
 }
 .bottom-center {
   display: grid;
   justify-self: center;
   align-self: center;
+  p{
+    font-size: 17px;
+  }
+}
+.map-group {
+  display: grid;
+  justify-content: center;
 }
 </style>

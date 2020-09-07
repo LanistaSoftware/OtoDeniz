@@ -67,19 +67,18 @@ export default {
       default: null
     }
   },
-  created() {
+  mounted() {
     this.getimg(this.img);
   },
   methods: {
     async getimg(img) {
       try {
-        if (process.client) {
           let ref = await this.$fireStorage.ref().child(img);
           const url = await ref.getDownloadURL();
           this.prewImage = url;
-          return url;
-        }
-      } catch (error) {}
+      } catch (error) {
+        console.log(error)
+      }
     }
   }
 };
@@ -254,6 +253,12 @@ export default {
     h5 {
       color: @drop;
     }
+  }
+}
+@media @xsmobile {
+  .product-card {
+    width: 80%;
+    height: 260px;
   }
 }
 </style>

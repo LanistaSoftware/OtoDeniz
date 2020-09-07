@@ -4,7 +4,8 @@
       <content-card
         :title="item.title"
         :buttontext="item.buttontext"
-        :img="item.img"
+        :png="item.png"
+        :webp="item.webp"
         :bgVariant="item.bgVariant"
         :textVariant="item.textVariant"
         :requests="item.requests"

@@ -11,15 +11,14 @@
         </div>
         <div>
           <a href="https://islem-takip.otodeniz.com.tr">
-                      <img src="/users.svg" alt="" srcset="" />
-
+            <img src="/users.svg" alt="" srcset="" />
           </a>
         </div>
       </div>
       <div class="mobile-header-bottom">
         <no-ssr>
-        <logo-slide />
-        </no-ssr>      
+          <logo-slide />
+        </no-ssr>
       </div>
     </div>
   </div>
@@ -60,17 +59,23 @@ export default {
   div:nth-child(1) {
     justify-self: left;
     align-self: center;
+    img {
+      max-width: 60px;
+    }
   }
   div:nth-child(3) {
     justify-self: right;
     align-self: center;
+    img {
+      max-width: 60px;
+    }
   }
   div:nth-child(2) {
     align-self: center;
     display: flex;
     justify-content: center;
     img {
-      width: 50%;
+      max-width: 60px;
     }
   }
 }

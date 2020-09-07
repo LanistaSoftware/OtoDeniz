@@ -7,18 +7,16 @@
 
     <section class="bg-cream" id="anasayfa">
       <div class="d-container">
-        <no-ssr>
-          <content-slide :cards="contentslidecards" />
-        </no-ssr>
+          <content-slide class="home-slide" :cards="contentslidecards" />
       </div>
     </section>
-    <section class="bg-white service-section d-container" id="hakkımızda">
+    <section class="bg-white service-section d-container" id="section-about">
       <div class="section-header">
         <h3>
           Hizmet Anlayışımız
         </h3>
       </div>
-      <div class="service-section-content" id="service-desktop">
+      <div class="service-section-content"  id="service-desktop">
         <center-card
           v-for="(item, i) in centercards"
           :key="i"
@@ -65,11 +63,11 @@
         <img v-else src="/chevron-up.svg" alt="" srcset="" />
       </div>
     </section>
-    <section class="d-container section-about" id="section-about">
+    <section  id="hakkımızda" class="d-container section-about" >
       <content-card
         title="Deniz Oto ve Yedek Parça Kimdir ?"
         buttontext="Hemen Arayın"
-        img="section3.png"
+        png="section3.png"
         top
         >1985 Yılında Van Oto Sanayi'de kurulmuş olan Oto Deniz ve Yedek parça,
         kurulduğu günden bu güne müşterilerine daima dürüstlük ilkesiyle
@@ -159,7 +157,8 @@ export default {
         {
           title: "Bölgedeki en iyi yedek parçaları keşfedin",
           buttontext: "Hemen arayın",
-          img: "1.png",
+          webp: "s1.webp",
+          png: "Slider1.png",
           content:
             "Aradığınız bütün orijinal yedek parçaları en uygun fiyatlarla bölgenin en iyi yedek parça marketi Deniz Oto ve Yedek Parça da haftanın her günü bulabilirsiniz."
         },
@@ -169,7 +168,8 @@ export default {
           bgVariant: "bg-green",
           textVariant: "text-white",
           mapClick: true,
-          img: "1.png",
+          webp: "s2.webp",
+          png: "Slider2.png",
           content:
             "En uygun fiyatlara sahip orijinal yedek parçaları isterseniz kredi kartınızla,isterseniz mail order hizmetini kullanarak ödeyebilirsiniz. Farklı ödeme seçenekleri için şubemizi ziyaret edebiliriniz."
         },
@@ -179,7 +179,8 @@ export default {
           bgVariant: "bg-blue",
           textVariant: "text-white",
           requests: true,
-          img: "slide3.png",
+          webp: "s3.webp",
+          png: "Slider3.png",
           content:
             "Arayıp bulamadığınız bir yedek parça varsa talep oluşturmanız halinde Deniz Oto ve Yedek Parça uzman kadrosuyla size kısa sürede ihtiyacınız olan parçayı bulabilir."
         }
@@ -205,15 +206,24 @@ export default {
 };
 </script>
 <style lang="less" scoped>
+#anasayfa {
+  .home-slide {
+      padding-top: 2rem !important; 
+
+  }
+}
 .section-form {
-  padding: 5rem 0rem;
+  padding: 100px 0px;
 }
 .section-about {
-  padding: 1rem 0rem;
+  padding: 100px 0px;
+}
+.service-section {
+    padding: 100px 0rem;
+
 }
 .section-header {
   text-align: center;
-  padding-top: 5rem;
   p {
     width: 100%;
     display: flex;
@@ -225,7 +235,7 @@ export default {
 }
 .service-section-content {
   display: grid;
-  padding: 5rem 0rem;
+  padding-top: 50px ;
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 .service-section-product {
@@ -236,14 +246,14 @@ export default {
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 .product-section {
-  padding: 5rem 0rem;
+  padding: 100px 0px 50px 0px;
   display: grid;
   width: 100%;
 }
 .product-search {
   display: flex;
   justify-content: center;
-  padding-top: 1rem;
+  padding: 40px 0px 80px 0px;
 }
 .icon-chevron {
   display: flex;
@@ -258,7 +268,7 @@ export default {
   }
 }
 .map-section {
-  padding: 5rem 0rem;
+  padding: 100px 0px;
 }
 #mobile-header {
   display: none;
@@ -283,6 +293,31 @@ export default {
     grid-template-columns: 1fr 1fr;
     justify-items: center;
     padding: 2rem;
+  }
+  #mobile-header {
+    display: grid;
+  }
+  #mobile-footer {
+    display: grid;
+  }
+  #desktop-header {
+    display: none;
+  }
+  #desktop-footer {
+    display: none;
+  }
+  #service-desktop {
+    display: none;
+  }
+  #service-mobile {
+    display: block;
+  }
+}
+@media @xsmobile {
+  .service-section-product {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    width: 100%;
   }
   #mobile-header {
     display: grid;

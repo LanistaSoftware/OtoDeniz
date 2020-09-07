@@ -58,7 +58,11 @@ export default {
   grid-area: content-header;
   display: grid;
   align-self: center;
-  padding-top: 0.8rem;
+  padding-top: 40px;
+  h5 {
+    width: 50%;
+    justify-self: center;
+  }
   p {
     display: none;
   }
@@ -67,6 +71,7 @@ export default {
   grid-area: content-text;
   text-align: center;
   color: @drop;
+  padding-top: 20px;
   display: grid;
   justify-items: center;
   p {
@@ -89,14 +94,12 @@ export default {
     text-align: center;
     display: grid;
     justify-items: center;
-    h5{
+    h5 {
       display: none;
     }
     p {
       display: block;
-      padding-top: 1rem;
       width: 70%;
-      font-size: 2rem;
     }
   }
 }
