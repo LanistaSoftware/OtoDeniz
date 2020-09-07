@@ -17,7 +17,7 @@
       <div class="slide-logo">
         <d-logo :img="item.img" />
       </div>
-      <h6 class="f_semibold">{{ item.marka }}</h6>
+      <span class="slide-text"><h6 class="f_semibold">{{ item.marka }}</h6></span>
     </slide-1d>
   </carousel-1d>
   </client-only>
@@ -36,32 +36,25 @@ export default {
           marka: "Volkswagen",
           img: "Volkswagen.svg"
         },
-
-        {
-          marka: "Renault",
-          img: "Renault.svg"
-        },
-        {
-          marka: "Seat",
-          img: "Seat.svg"
-        },
-
-        {
-          marka: "Peugeot",
-          img: "Peugeot.svg"
-        },
-
         {
           marka: "Hyundai",
           img: "Hyundai.svg"
+        },
+        {
+          marka: "Renault",
+          img: "Renault.svg"
         },
         {
           marka: "Chevrolet",
           img: "Chevrolet.svg"
         },
         {
-          marka: "Kia",
-          img: "Kia.svg"
+          marka: "Seat",
+          img: "Seat.svg"
+        },
+        {
+          marka: "Peugeot",
+          img: "Peugeot.svg"
         },
         {
           marka: "Ford",
@@ -76,6 +69,10 @@ export default {
           img: "Dacia.svg"
         },
         {
+          marka: "Kia",
+          img: "Kia.svg"
+        },
+        {
           marka: "Bmw",
           img: "Bmw.svg"
         }
@@ -86,14 +83,27 @@ export default {
 </script>
 <style lang="less" scoped>
 .d-logo-slide {
-  text-align: center;
-  h6 {
-    color: @htext;
+    display: grid;
+    grid-template-rows: auto auto;
+    justify-items: center;
+    align-content: center;
+
+  .slide-logo {
+    display: flex;
+    justify-items: center;
+    width: 55px;
+    height: 40px;
+  }
+
+  .slide-text {
+    display: flex;
+    padding-top: 8px;
+    text-align: center;
+    h6 {
+      color: @htext;
+      font-weight: 500;
+    }
   }
 }
-.slide-logo {
-  width: auto;
-  height: 3rem;
-  padding: 5px;
-}
+
 </style>
