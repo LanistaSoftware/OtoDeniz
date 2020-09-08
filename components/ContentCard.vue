@@ -5,14 +5,15 @@
   >
     <div class="content-container">
       <div class="card-title">
-        <h1 class="f_bold">{{ title }}</h1>
+        <h2 v-if="png==='section3.png'" class="f_bold">{{ title }}</h2>
+        <h1 v-else class="f_bold">{{ title }}</h1>
       </div>
       <div class="card-content">
-        <p class="f_regular">
+        <p :style="png==='section3.png' ? 'font-size:1rem;' : null" class="f_regular">
           <slot />
         </p>
       </div>
-      <div class="card-button">
+      <div class="card-button mt-5">
         <d-button
           class="button"
           :bgVariant="bgVariant"
@@ -132,6 +133,7 @@ export default {
 }
 .reverse-right {
   grid-template-areas: "image-container content-container";
+    grid-template-columns: 5fr 7fr;
 }
 .content-container {
   grid-area: content-container;

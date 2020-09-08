@@ -367,25 +367,25 @@ export default {
 @media @xs {
   .d-container {
     margin: 0 auto;
-    width: 98%;
+    width: 90%;
   }
 }
 @media @sm {
   .d-container {
     margin: 0 auto;
-    width: 95%;
+    width: 85%;
   }
 }
 @media @md {
   .d-container {
     margin: 0 auto;
-    width: 90%;
+    width: 80%;
   }
 }
 @media @lg {
   .d-container {
     margin: 0 auto;
-    width: 85%;
+    width: 80%;
   }
 }
 @media @xl {
@@ -397,7 +397,7 @@ export default {
 @media @xxl {
   .d-container {
     margin: 0 auto;
-    width: 75%;
+    width: 70%;
   }
 }
 </style>
