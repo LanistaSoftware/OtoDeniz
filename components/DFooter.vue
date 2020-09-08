@@ -121,7 +121,7 @@
       <div class="d-container footer-bottom">
         <div class="bottom-left">
           <div class="left-container">
-            <img src="/oto_deniz_logo.svg" alt="Oto deniz" />
+            <img :src="prewImage" alt="Oto deniz" />
             <p class="text-white">
               Oto Yedek Parça
             </p>
@@ -143,12 +143,38 @@
   </div>
 </template>
 <script>
-import { mapState } from "vuex";
+import { mapState,mapActions } from "vuex";
 export default {
   computed: {
     ...mapState({
       Info: "Info"
     })
+  },
+  data:() => {
+    return {
+      prewImage:'/',
+      show:null
+    }
+  },
+  mounted() {
+     this.getInfo().then( () => {
+       this.getimg();
+    });
+  },
+  methods: {
+    ...mapActions({
+      getInfo: "getInfo"
+    }),
+    emitMenu(e) {
+      this.show = e;
+    },
+    async getimg() {
+      try {
+        let ref = await this.$fireStorage.ref().child(this.Info.logo);
+        const url = await ref.getDownloadURL();
+        this.prewImage = url;
+      } catch (error) {}
+    }
   }
 };
 </script>

@@ -1,4 +1,4 @@
-const ignorePaths = ["\u002F__webpack_hmr", "\u002F_loading", "\u002F_nuxt\u002F"]
+const ignorePaths = ["\u002F__webpack_hmr","\u002F_loading","\u002F_nuxt\u002F"]
 
 importScripts(
   'https://www.gstatic.com/firebasejs/7.18.0/firebase-app.js'
@@ -6,15 +6,7 @@ importScripts(
 importScripts(
   'https://www.gstatic.com/firebasejs/7.18.0/firebase-auth.js'
 )
-firebase.initializeApp({
-  "apiKey": "AIzaSyAPidtIo3i6ouAnwrg9W-hr7kFIaMVJA_Q",
-  "authDomain": "oto-deniz.firebaseapp.com",
-  "databaseURL": "https:\u002F\u002Foto-deniz.firebaseio.com",
-  "projectId": "oto-deniz",
-  "storageBucket": "oto-deniz.appspot.com",
-  "messagingSenderId": "287682020228",
-  "appId": "1:287682020228:web:478403d0c2a067f31a93d1"
-})
+firebase.initializeApp({"apiKey":"AIzaSyAPidtIo3i6ouAnwrg9W-hr7kFIaMVJA_Q","authDomain":"oto-deniz.firebaseapp.com","databaseURL":"https:\u002F\u002Foto-deniz.firebaseio.com","projectId":"oto-deniz","storageBucket":"oto-deniz.appspot.com","messagingSenderId":"287682020228","appId":"1:287682020228:web:478403d0c2a067f31a93d1"})
 
 /**
  * Returns a promise that resolves with an ID token if available.
@@ -50,10 +42,7 @@ const fetchWithAuthorization = async (original, idToken) => {
   headers.append('Authorization', 'Bearer ' + idToken)
 
   // Create authorized request
-  const {
-    url,
-    ...props
-  } = original.clone()
+  const { url, ...props } = original.clone()
   const authorized = new Request(url, {
     ...props,
     mode: 'same-origin',
@@ -92,13 +81,11 @@ self.addEventListener('fetch', (event) => {
   event.respondWith(
     getIdToken().then(
       idToken => idToken
-      // if the token was retrieved we attempt an authorized fetch
-      // if anything goes wrong we fall back to the original request
-      ?
-      fetchWithAuthorization(event.request, idToken).catch(() => fetch(event.request))
-      // otherwise we return a fetch of the original request directly
-      :
-      fetch(event.request)
+        // if the token was retrieved we attempt an authorized fetch
+        // if anything goes wrong we fall back to the original request
+        ? fetchWithAuthorization(event.request, idToken).catch(() => fetch(event.request))
+        // otherwise we return a fetch of the original request directly
+        : fetch(event.request)
     )
   )
 })

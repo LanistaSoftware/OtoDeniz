@@ -3,7 +3,11 @@
     <div class="header-top d-container">
       <div>
         <top>
-          <template v-slot:text>{{ Info.phone }}</template>
+          <template v-slot:text
+            ><a :href="'tel:' + ' ' + Info.phone"
+              ><span class="f_regular text-xdark">{{ Info.phone }}</span></a
+            ></template
+          >
           <template v-slot:image>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -29,7 +33,11 @@
       </div>
       <div>
         <top>
-          <template v-slot:text>{{ Info.adress }}</template>
+          <template v-slot:text
+            ><a href="#map"
+              ><span class="f_regular text-xdark">{{ Info.adress }}</span></a
+            ></template
+          >
           <template v-slot:image>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -53,7 +61,11 @@
       </div>
       <div>
         <top>
-          <template v-slot:text>{{ Info.email }}</template>
+          <template v-slot:text
+            ><a :href="'mailto:' + ' ' + Info.email"
+              ><span class="f_regular text-xdark">{{ Info.email }}</span></a
+            ></template
+          >
           <template v-slot:image>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -78,7 +90,7 @@
     <div class="header-center-container">
       <div class="d-container header-center">
         <div class="center-logo">
-          <img src="/oto_deniz_logo.svg" alt />
+          <img :src="prewImage" alt="oto deniz" />
         </div>
         <div class="center-menu">
           <header-menu inline="#" :content="menu" />
@@ -99,11 +111,12 @@ export default {
   name: "DHeader",
   data() {
     return {
+      prewImage: "/",
       menu: [
         {
           text: "Ana sayfa",
           link: "/",
-          diez:true,
+          diez: true
         },
         {
           text: "Hakkımızda",
@@ -127,16 +140,27 @@ export default {
   methods: {
     ...mapActions({
       getInfo: "getInfo"
-    })
+    }),
+    async getimg() {
+      try {
+        let ref = await this.$fireStorage.ref().child(this.Info.logo);
+        const url = await ref.getDownloadURL();
+        this.prewImage = url;
+      } catch (error) {
+      }
+    }
   },
   computed: {
     ...mapState({
       Info: "Info"
     })
   },
-  created(){
-    this.getInfo().then(() => {
-    })
+  async created() {
+    await this.getInfo().then(async () => {
+        await this.getimg();
+    });
+  },
+  mounted() {
   }
 };
 </script>

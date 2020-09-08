@@ -4,35 +4,57 @@
     <div class="mobile-header">
       <div class="mobile-header-top">
         <div>
-          <img src="/grid.svg" alt="" srcset="" @click="show = true" />
+          <img src="/grid.svg" alt="otodeniz"  @click="show = true" />
         </div>
         <div>
-          <img src="/oto_deniz_logo.svg" alt="" srcset="" />
+          <img :src="prewImage" alt="oto deniz"  />
         </div>
         <div>
           <a href="https://islem-takip.otodeniz.com.tr">
-            <img src="/users.svg" alt="" srcset="" />
+            <img src="/users.svg" alt="otodeniz" srcset="" />
           </a>
         </div>
       </div>
       <div class="mobile-header-bottom">
-        <no-ssr>
+        <client-only>
           <logo-slide />
-        </no-ssr>
+        </client-only>
       </div>
     </div>
   </div>
 </template>
 <script>
+import { mapActions, mapState } from "vuex";
 export default {
   data() {
     return {
-      show: false
+      show: false,
+      prewImage:'/'
     };
   },
+  computed: {
+    ...mapState({
+      Info: "Info"
+    })
+  },
+  async created() {
+    await this.getInfo().then(async () => {
+      await this.getimg();
+    });
+  },
   methods: {
+    ...mapActions({
+      getInfo: "getInfo"
+    }),
     emitMenu(e) {
       this.show = e;
+    },
+    async getimg() {
+      try {
+        let ref = await this.$fireStorage.ref().child(this.Info.logo);
+        const url = await ref.getDownloadURL();
+        this.prewImage = url;
+      } catch (error) {}
     }
   }
 };
@@ -48,7 +70,7 @@ export default {
   grid-area: top;
   display: grid;
   margin: 1rem 3rem;
-  padding:  0rem;
+  padding: 0rem;
   align-self: start;
   grid-template-columns: 1fr 1fr 1fr;
   img {
