@@ -123,9 +123,12 @@ export default {
 .info-group {
   display: grid;
   grid-template-rows: 1fr 1fr 1fr;
+  div {
+    align-self: center;
+  }
   p {
     display: flex;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     width: 60%;
     margin-left: 1.5rem;
     padding-top: 0.1rem;
