@@ -54,9 +54,11 @@
                 <path d="M15 3a6 6 0 0 1 6 6" />
               </svg> </template
           ></top>
-          <p>
-            {{ Info.phone }}
-          </p>
+          <a :href="'tel:' + ' ' + Info.phone">
+            <p>
+              {{ Info.phone }}
+            </p>
+          </a>
         </div>
         <div>
           <top
@@ -79,9 +81,11 @@
                 <polyline points="3 7 12 13 21 7" />
               </svg> </template
           ></top>
-          <p>
-            {{ Info.email }}
-          </p>
+            <a :href="'mailto:' + ' ' + Info.email">
+              <p>
+                {{ Info.email }}
+              </p>
+            </a>
         </div>
       </div>
       <div class="mail-footer">
