@@ -4,12 +4,38 @@
     :class="{ 'reverse-right': !reverse, 'reverse-left': reverse }"
   >
     <div class="content-container">
-      <div class="card-title">
-        <h2 v-if="png==='section3.png'" class="f_bold">{{ title }}</h2>
-        <h1 v-else class="f_bold">{{ title }}</h1>
+      <div v-if="!map" class="card-title">
+        <h2 v-if="png === 'section3.png'" class="f_bold">
+          Deniz Oto ve Yedek Parça
+          <br />
+          Kimdir ?
+        </h2>
+        <h2 v-else class="f_bold">
+          {{
+            title.split(" ", Math.ceil(title.split(" ").length / 2)).join(" ")
+          }}
+          <br />
+          {{
+            title
+              .split(" ", Math.ceil(title.split(" ").length))
+              .slice(
+                Math.ceil(title.split(" ").length / 2),
+                Math.ceil(title.split(" ").length)
+              )
+              .join(" ")
+          }}
+        </h2>
+      </div>
+      <div v-else class="card-title">
+        <h2 class="f_bold">
+          {{ title }}
+        </h2>
       </div>
       <div class="card-content">
-        <p :style="png==='section3.png' ? 'font-size:1rem;' : null" class="f_regular">
+        <p
+          :style="png === 'section3.png' ? 'font-size:1rem;' : null"
+          class="f_regular"
+        >
           <slot />
         </p>
       </div>
@@ -26,11 +52,11 @@
 
     <div v-if="!map" class="image-container">
       <client-only>
-      <picture class="picture">
-        <source :srcset="webp" type="image/webp">
-        <source :srcset="png" type="image/png">
-        <img alt="oto deniz" />
-      </picture>
+        <picture class="picture">
+          <source :srcset="webp" type="image/webp" />
+          <source :srcset="png" type="image/png" />
+          <img alt="oto deniz" />
+        </picture>
       </client-only>
     </div>
     <div v-else class="image-container">
@@ -133,7 +159,7 @@ export default {
 }
 .reverse-right {
   grid-template-areas: "image-container content-container";
-    grid-template-columns: 5fr 7fr;
+  grid-template-columns: 5fr 7fr;
 }
 .content-container {
   grid-area: content-container;
@@ -152,9 +178,6 @@ export default {
   width: 100%;
   justify-content: start;
   align-content: center;
-  h1 {
-    width: 90%;
-  }
 }
 
 .card-content {
@@ -234,7 +257,7 @@ export default {
     .card-title {
       display: none !important;
     }
-    h1 {
+    h2 {
       text-align: center;
     }
   }
@@ -262,5 +285,4 @@ export default {
     }
   }
 }
-
 </style>

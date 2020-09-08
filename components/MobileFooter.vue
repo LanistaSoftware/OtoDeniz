@@ -87,7 +87,7 @@
       <div class="mail-footer">
         <div class="footer-header">
           <h4>
-            Parça isteği için malinizi kaydedin
+            Bizden haber almak için mailinizi kaydedin.
           </h4>
         </div>
         <div>
