@@ -31,6 +31,7 @@ export default {
 <style lang="less" scoped>
 a {
   text-decoration: none;
+  color: @htext !important;
 }
 .d-header-menu {
   width: 100%;
