@@ -58,6 +58,10 @@ export default {
     {
       src: "~/plugins/carousel3d.js",
       ssr: false
+    },
+    {
+      src: "~/plugins/excel.js",
+      ssr: false
     }
   ],
   /*

@@ -3,10 +3,17 @@
     <Operations>
       <slot>
         <b-col class="m-0 p-0 d-flex w-100 align-items-center">
-          <b-button variant="success">
-            İndir
-            <b-icon-download class="ml-2"></b-icon-download>
-          </b-button>
+          <export-excel
+            :data="requests"
+            :fields="json_fields"
+            worksheet="İstek Listesi"
+            name="istek-listesi.xls"
+          >
+            <b-button variant="success">
+              İndir
+              <b-icon-download class="ml-2"></b-icon-download>
+            </b-button>
+          </export-excel>
           <b-form-checkbox
             v-if="selected.length != 0"
             class="ml-3"
@@ -32,7 +39,12 @@
       >
         <template v-slot:cell(Islemler)="row" class="text-center">
           <div class="d-flex w-100">
-            <b-button variant="danger" size="sm" class="mr-2" @click="deletereq(row.item.key)">
+            <b-button
+              variant="danger"
+              size="sm"
+              class="mr-2"
+              @click="deletereq(row.item.key)"
+            >
               <span>Sil</span>
               <b-icon-trash></b-icon-trash>
             </b-button>
@@ -71,6 +83,18 @@ export default {
   name: "wishList",
   data() {
     return {
+      json_fields: {
+        Model: 'item.model',
+        Yıl: 'item.yıl',
+        Şasi_No: 'item.sasi',
+        Parça_adi: 'item.parca',
+        İsim: 'item.isim',
+        Soyisim: 'item.soyisim',
+        Telefon: 'item.tel',
+        Email : 'item.email',
+        Tarih: 'item.date',
+        Cevap_Durumu: 'item.status'
+      },
       fields: [
         {
           key: "item.model",

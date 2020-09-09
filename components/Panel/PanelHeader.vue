@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="pn-header">
     <b-navbar toggleable="lg" type="light" variant="warning">
       <b-navbar-brand href="#">
         <img src="/oto_deniz_logo.svg" width="150" alt="Oto Deniz Logo" />
@@ -58,4 +58,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style lang="less">
+.pn-header {
+  color: @htext !important;
+}
+</style>

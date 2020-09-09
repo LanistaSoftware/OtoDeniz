@@ -2,17 +2,29 @@
   <div class="mail-list w-100" id="mail">
     <Operations>
       <slot>
-        <b-button variant="success">
-          İndir
-          <b-icon-download class="ml-2"></b-icon-download>
-        </b-button>
+        <export-excel
+          :data="maillist"
+          :fields="json_fields"
+          worksheet="Mail Listesi"
+          name="mail-list.xls"
+        >
+          <b-button variant="success">
+            İndir
+            <b-icon-download class="ml-2"></b-icon-download>
+          </b-button>
+        </export-excel>
       </slot>
     </Operations>
     <b-row class="m-0 px-5 d-flex justify-content-center product-container">
       <b-table responsive striped hover :items="maillist" :fields="fields">
-        <template v-slot:cell(islemler) = "row">
+        <template v-slot:cell(islemler)="row">
           <div class="text-right w-100">
-            <b-button variant="danger" size="sm" class="mr-2" @click="deleteMail(row.item.key)">
+            <b-button
+              variant="danger"
+              size="sm"
+              class="mr-2"
+              @click="deleteMail(row.item.key)"
+            >
               <b-icon-trash></b-icon-trash>
             </b-button>
           </div>
@@ -35,25 +47,29 @@ export default {
       getAllList: "getAllList",
       deleteList: "deleteList"
     }),
-    deleteMail(id){
+    deleteMail(id) {
       this.deleteList(id).then(() => {
-        this.getAllList()
-      })
+        this.getAllList();
+      });
     }
   },
-  created(){
-    this.getAllList()
+  created() {
+    this.getAllList();
   },
   data() {
     return {
-      fields:[
+      json_fields: {
+        Email: 'item.mail',
+        Email: 'item.mail'
+      },
+      fields: [
         {
-          key: 'item.mail',
-          label: 'E-mail'
+          key: "item.mail",
+          label: "E-mail"
         },
         {
-        key:'islemler',
-        class: 'text-right'  
+          key: "islemler",
+          class: "text-right"
         }
       ]
     };
