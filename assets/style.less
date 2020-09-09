@@ -134,13 +134,19 @@ box-shadow: 2px 3px 4px 0px rgba(0,0,0,0.1);
 ul{
   list-style: none;
 }
-.product-card-body {
+.product-card {
   a{
     text-decoration: none !important;
     color: @white !important;
   }
 }
-
+a {
+  transition: 0.3s;
+  text-decoration: none !important;
+  &:hover{
+    opacity: 0.8;
+  }
+}
 a:link {
   color: none !important;
 }

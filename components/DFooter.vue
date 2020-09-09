@@ -98,7 +98,7 @@
             <ul>
               <li>
                 <h6>
-                  Parça isteği için malinizi kaydedin
+                  Bizden haber almak için mailinizi kaydedin.
                 </h6>
               </li>
               <li>
@@ -236,6 +236,7 @@ export default {
     width: 90px;
     height: auto;
     justify-self: start;
+    margin-bottom: 7px;
   }
 }
 .bottom-right {
@@ -246,6 +247,7 @@ export default {
     width: 90px;
     height: auto;
     justify-self: center;
+    margin-bottom: 7px;
   }
 }
 .bottom-center {

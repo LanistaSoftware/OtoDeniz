@@ -62,6 +62,16 @@
     <div v-else class="image-container">
       <div class="d-map">
         <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12484.649252857658!2d43.35023624135329!3d38.53002646006359!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4012706835201201%3A0xec7048425299a374!2sOto%20Deniz!5e0!3m2!1str!2str!4v1599655847158!5m2!1str!2str"
+           frameborder="0"
+          allowfullscreen
+          aria-hidden="true"
+          height="100%"
+          width="100%"
+          tabindex="0"
+          title="oto deniz adresi"
+        ></iframe>
+        <!-- <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3007.3566675762777!2d28.78506281495511!3d41.08305312276978!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14caa5f570baaaab%3A0xac43b09ef54311fd!2sGochem!5e0!3m2!1str!2str!4v1585750999091!5m2!1str!2str"
           frameborder="0"
           allowfullscreen
@@ -70,7 +80,7 @@
           width="100%"
           tabindex="0"
           title="oto deniz adresi"
-        />
+        /> -->
       </div>
     </div>
   </div>
@@ -89,7 +99,11 @@ export default {
         this.$router.push("#map");
       } else if (this.requests) {
         this.$router.push("#iletişim");
-      } else {
+      } 
+      else if (this.map){
+        window.location.href = "https://goo.gl/maps/SMtNeZbat3pR1nRd9"
+      }
+      else {
         window.open(`tel:${this.Info.phone}`);
       }
     }
