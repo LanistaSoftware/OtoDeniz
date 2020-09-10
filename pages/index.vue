@@ -181,6 +181,8 @@ export default {
           title: "Aracınız güvenilir ellere emanet",
           buttontext: "Randevu İçin arayın",
           webp: "slider4.webp",
+          bgVariant: "bg-blue",
+          textVariant: "text-white",
           png: "slider4.svg",
           content:
             "Fransa’da 1500, dünyada 29 ülkede 5000’in üzerinde hizmet noktası bulunan Eurorepar Car Service, markası Oto Deniz profesyonel ekipleriyle artık Van 'da."
@@ -341,11 +343,11 @@ export default {
 }
 @media @xsmobile {
   .service-section-product {
-  display: grid;
-  grid-auto-columns: auto;
-  padding: 3rem 0;
-  justify-content: center;
-}
+    display: grid;
+    grid-auto-columns: auto;
+    padding: 3rem 0;
+    justify-content: center;
+  }
   #mobile-header {
     display: grid;
   }

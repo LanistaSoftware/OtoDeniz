@@ -78,4 +78,7 @@ img {
   border-radius: 0.5em !important;
   width: 80%;
 }
+input {
+  border: transparent !important;
+}
 </style>
