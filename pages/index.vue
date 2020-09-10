@@ -80,21 +80,21 @@
     </section>
     <section id="hakkımızda" class="d-container section-about">
       <content-card
-        title="Deniz Oto ve Yedek Parça Kimdir ?"
+        title="Oto Deniz ve Yedek Parça Kimdir ?"
         buttontext="Hemen Arayın"
         png="section3.png"
         top
         >1985 Yılında Van Oto Sanayi'de kurulmuş olan Oto Deniz ve Yedek parça,
         kurulduğu günden bu güne müşterilerine daima dürüstlük ilkesiyle
         yaklaşmıştır. İlk günden itibaren hedefi bölgenin en büyük yedek parça
-        sağlayıcısı olmak olan Deniz Oto ve Yedek Parça, bu hedefine emin
+        sağlayıcısı olmak olan Oto Deniz ve Yedek Parça, bu hedefine emin
         adımlarla ilerlemektedir. Van ve çevre illerde en fazla bilinen yedek
-        parça firması konumunda olan Deniz Oto ve Yedek Parça temsilciliğini
+        parça firması konumunda olan Oto Deniz ve Yedek Parça temsilciliğini
         yaptığı bütün markalarda en kaliteli ürünü müşterilerine sunmaktadır.
         Ülke çapında da geniş bir parça ağına sahip olan firma, ihtiyaç
         duyulması anında bölgede zor bulunan parçaları bile kolaylıkla tedarik
         edip müşterilerine sunabilmektedir. Hizmet verdiği kurumlar arasında
-        devlete bağlı kamu kuruluşları da bulunan Deniz Oto ve Yedek Parça
+        devlete bağlı kamu kuruluşları da bulunan Oto Deniz ve Yedek Parça
         teknolojiyi de etkili şekilde kullanan kurumsallık adımlarını atmaya
         başlamış Van'ın önde gelen firmalarından birisidir.</content-card
       >
@@ -128,7 +128,7 @@
           top
           >Haritaları kullanarak şubemize uğrayabilir ve bütün yedek parça
           ihtiyaçlarınız için uzman kadromuzdan ayrıntılı bilgi alabilirsiniz.
-          Deniz Oto ve Yedek Parça, Seyrantepe, 10/32 Sk. No:3 Van Oto Sanayi'de
+          Oto Deniz ve Yedek Parça, Seyrantepe, 10/32 Sk. No:3 Van Oto Sanayi'de
           tanışmak ve bir çay ikram etmek için sizleri bekliyor.
         </content-card>
       </div>
@@ -175,15 +175,15 @@ export default {
           webp: "s1.webp",
           png: "Slider1.png",
           content:
-            "Aradığınız bütün orijinal yedek parçaları en uygun fiyatlarla bölgenin en iyi yedek parça marketi Deniz Oto ve Yedek Parça da haftanın her günü bulabilirsiniz."
+            "Aradığınız bütün orijinal yedek parçaları en uygun fiyatlarla bölgenin en iyi yedek parça marketi Oto Deniz ve Yedek Parça da haftanın her günü bulabilirsiniz."
         },
         {
-          title: "ARACINIZ GÜVENİLİR ELLERE EMANET",
+          title: "Aracınız güvenilir ellere emanet",
           buttontext: "Randevu İçin arayın",
           webp: "slider4.webp",
           png: "slider4.svg",
           content:
-            "Fransa’da 1500, dünyada 29 ülkede 5000’in üzerinde hizmet noktası bulunan Eurorepar Car Service, markası OtoDeniz profesyonel ekipleriyle artık Van 'da."
+            "Fransa’da 1500, dünyada 29 ülkede 5000’in üzerinde hizmet noktası bulunan Eurorepar Car Service, markası Oto Deniz profesyonel ekipleriyle artık Van 'da."
         },
         {
           title: "Kredi kartı ve mail order ile uygun ödeme seçenekleri ",
@@ -205,7 +205,7 @@ export default {
           webp: "s3.webp",
           png: "Slider3.png",
           content:
-            "Arayıp bulamadığınız bir yedek parça varsa talep oluşturmanız halinde Deniz Oto ve Yedek Parça uzman kadrosuyla size kısa sürede ihtiyacınız olan parçayı bulabilir."
+            "Arayıp bulamadığınız bir yedek parça varsa talep oluşturmanız halinde Oto Deniz ve Yedek Parça uzman kadrosuyla size kısa sürede ihtiyacınız olan parçayı bulabilir."
         }
       ]
     };
