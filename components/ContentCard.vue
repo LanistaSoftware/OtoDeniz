@@ -6,7 +6,7 @@
     <div class="content-container">
       <div v-if="!map" class="card-title">
         <h2 v-if="png === 'section3.png'" class="f_bold">
-          Deniz Oto ve Yedek Parça
+          Oto Deniz ve Yedek Parça
           <br />
           Kimdir ?
         </h2>
