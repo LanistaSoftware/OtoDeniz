@@ -122,7 +122,7 @@ export default {
   pwa: {
     icon: {
       purpose: 'maskable',
-      fileName: '/favicon.png'
+      fileName: './static/favicon.png'
     }, // disables the icon module
     manifest: {
       name: 'Oto deniz',
@@ -136,7 +136,7 @@ export default {
       description: 'Oto deniz yedek parça',
       background_color : '#F9F9F9',
       lang: 'tr',
-      favicon : '/favicon.png',
+      favicon : './static/favicon.png',
       nativeUI: true
     }
   },
