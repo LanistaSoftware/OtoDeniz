@@ -11,7 +11,7 @@
         </div>
         <div>
           <a href="https://islem-takip.otodeniz.com.tr">
-            <img src="/users.svg" alt="otodeniz" srcset="" />
+            <img src="/users.svg" alt="otodeniz"/>
           </a>
         </div>
       </div>

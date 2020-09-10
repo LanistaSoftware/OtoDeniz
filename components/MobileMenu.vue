@@ -1,7 +1,7 @@
 <template>
   <div v-if="show" class="mobile-container">
     <div @click="emitShow" class="menu-close">
-     <img src="/close.svg" alt="">
+     <img src="/close.svg" alt="otodeniz">
     </div>
     <div class="mobile-menu">
       <ul>

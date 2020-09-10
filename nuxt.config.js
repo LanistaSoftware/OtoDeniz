@@ -18,6 +18,14 @@ export default {
         content: "width=device-width, initial-scale=1"
       },
       {
+        name: "apple-mobile-web-app-capable",
+        content: "yes"
+      },
+      {
+        name: "mobile-web-app-capable",
+        content: "yes"
+      },
+      {
         name: "keywords",
         content:
           "yedek parça,otomobil,servis,parça,van otomobil parça,doğu anadolu yedek parça"
@@ -112,11 +120,13 @@ export default {
     less: ["./assets/variables.less"]
   },
   pwa: {
-    icon: false, // disables the icon module
+    icon: {
+      purpose: 'maskable',
+      fileName: '/favicon.png'
+    }, // disables the icon module
     manifest: {
       name: 'Oto deniz',
       lang: 'tr',
-      start_url: '/',
       useWebmanifestExtension: false
     },
     meta: {
@@ -124,6 +134,9 @@ export default {
       mobileAppIOS: true,
       author: 'Lanista Software',
       description: 'Oto deniz yedek parça',
+      background_color : '#F9F9F9',
+      lang: 'tr',
+      favicon : '/favicon.png',
       nativeUI: true
     }
   },

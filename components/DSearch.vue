@@ -1,6 +1,6 @@
 <template>
   <div class="d-search">
-    <img src="search.png" />
+    <img src="search.png" alt="oto deniz search"/>
     <d-input v-model="val" class="d-search-input" />
     <d-button
       class="d-search-button"
