@@ -178,6 +178,14 @@ export default {
             "Aradığınız bütün orijinal yedek parçaları en uygun fiyatlarla bölgenin en iyi yedek parça marketi Deniz Oto ve Yedek Parça da haftanın her günü bulabilirsiniz."
         },
         {
+          title: "ARACINIZ GÜVENİLİR ELLERE EMANET",
+          buttontext: "Randevu İçin arayın",
+          webp: "slider4.webp",
+          png: "slider4.svg",
+          content:
+            "Fransa’da 1500, dünyada 29 ülkede 5000’in üzerinde hizmet noktası bulunan Eurorepar Car Service, markası OtoDeniz profesyonel ekipleriyle artık Van 'da."
+        },
+        {
           title: "Kredi kartı ve mail order ile uygun ödeme seçenekleri ",
           buttontext: "Bizi ziyaret edin",
           bgVariant: "bg-green",
