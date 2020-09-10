@@ -71,6 +71,7 @@ export default {
    ** Nuxt.js modules
    */
   modules: [
+    '@nuxtjs/pwa',
     [
       "bootstrap-vue/nuxt",
       {
@@ -109,6 +110,22 @@ export default {
   ],
   styleResources: {
     less: ["./assets/variables.less"]
+  },
+  pwa: {
+    icon: false, // disables the icon module
+    manifest: {
+      name: 'Oto deniz',
+      lang: 'tr',
+      start_url: '/',
+      useWebmanifestExtension: false
+    },
+    meta: {
+      mobileApp: true,
+      mobileAppIOS: true,
+      author: 'Lanista Software',
+      description: 'Oto deniz yedek parça',
+      nativeUI: true
+    }
   },
   /*
    ** Build configuration
