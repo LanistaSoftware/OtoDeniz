@@ -224,15 +224,19 @@ export const actions = {
         form.password === logininfo.password
       ) {
         commit("setAuth", true);
-        $nuxt.$router.push("admin/panel/products");
+        $nuxt.$router.push("/admin/panel/products");
+        localStorage.setItem('auth', true);
       } else {
-        commit("setAuth", true);
+        commit("setAuth", false);
+        localStorage.setItem('auth', false);
       }
-    } catch (error) {}
+    } catch (error) {
+    }
   },
   LogOut({ commit }) {
     commit("setAuth", false);
     $nuxt.$router.push("/admin/");
+    localStorage.setItem('auth', false);
   },
   async nuxtServerInit(vuexContext) {
     return vuexContext.dispatch('getAllProduct')

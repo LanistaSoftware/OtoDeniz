@@ -1,4 +1,5 @@
 <template>
+<no-ssr>
   <div class="service-section-product w-100" id="ürünler">
     <b-sidebar  width="40%" ref="product-bar" id="productBar" title="Ürün İşlemleri" shadow>
       <AddProduct :item="edititem" :form-state="formState" />
@@ -53,6 +54,7 @@
       </b-col>
     </b-row>
   </div>
+</no-ssr>
 </template>
 <script>
 import { mapActions, mapState } from "vuex";
@@ -69,7 +71,7 @@ export default {
       edititem:null
     };
   },
-  created() {
+  mounted() {
     this.getAllProduct()
   },
   methods: {
