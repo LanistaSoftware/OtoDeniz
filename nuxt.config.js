@@ -80,6 +80,7 @@ export default {
    */
   modules: [
     '@nuxtjs/pwa',
+    'nuxt-seo',
     [
       "bootstrap-vue/nuxt",
       {
@@ -140,6 +141,19 @@ export default {
       nativeUI: true
     }
   },
+  seo: {
+    // Module options
+    baseUrl: 'https://www.otodeniz.com.tr',
+    name: 'Oto Deniz',
+    title: 'Oto Deniz Yedek Parça',
+    templateTitle: '%name% - %title%',
+    description: 'Oto Deniz Van,Doğu anadolu ve Türkiye yedek parça tedarikçisi',
+    lang: 'tr',
+    language: 'Turkish',
+    author: 'Lanista Software',
+    subtitle: 'Oto Deniz Van oto sanayi yedek parça'
+    //...
+},
   /*
    ** Build configuration
    */
